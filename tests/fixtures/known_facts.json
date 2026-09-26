@@ -1,0 +1,20 @@
+{
+  "lookup": [
+    {"question": "What TCP port does the Nimbus broker listen on by default?", "answer": "7420", "doc": "overview.md", "section": "Networking"},
+    {"question": "How long are messages kept by default?", "answer": "72 hours", "doc": "configuration.md", "section": "Storage settings"},
+    {"question": "What is the default maximum message size?", "answer": "4 MiB", "doc": "configuration.md", "section": "Message settings"},
+    {"question": "How much RAM does Nimbus Queue need?", "answer": "2 GB", "doc": "installation.md", "section": "Requirements"},
+    {"question": "Where is the configuration file written?", "answer": "/etc/nimbus/nimbus.toml", "doc": "installation.md", "section": "Install steps"}
+  ],
+  "rare_token": [
+    {"question": "What does ERR-7Q42 mean?", "token": "ERR-7Q42", "answer": "a partition lease expired while a write was in progress", "doc": "errors.md", "section": "ERR-7Q42"}
+  ],
+  "multi_hop": [
+    {"question": "What is the default port for the Prometheus metrics endpoint?", "answer": "7421", "docs": ["operations.md", "overview.md"]},
+    {"question": "What setting should be raised when ERR-7Q42 errors are frequent, and what is its default?", "answer": "lease_timeout_seconds, default 15 seconds", "docs": ["errors.md", "configuration.md"]}
+  ],
+  "no_answer": [
+    {"question": "Does Nimbus Queue support the Kafka wire protocol?"},
+    {"question": "How much does a Nimbus Queue enterprise license cost?"}
+  ]
+}
