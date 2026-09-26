@@ -92,6 +92,59 @@ def corpus_dir() -> Path:
 
 
 @pytest.fixture
+def loader_fixtures_dir() -> Path:
+    """Sample md/html/txt files exercising each loader's cleaning rules."""
+    return FIXTURES_DIR / "loaders"
+
+
+def build_pdf(pages: list[str]) -> bytes:
+    """A minimal valid PDF with one text page per entry ("" makes a page with no text)."""
+    n = len(pages)
+    page_ids = [4 + 2 * i for i in range(n)]
+    objs: list[bytes] = [
+        b"<< /Type /Catalog /Pages 2 0 R >>",
+        f"<< /Type /Pages /Kids [{' '.join(f'{pid} 0 R' for pid in page_ids)}] /Count {n} >>".encode(),
+        b"<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>",
+    ]
+    for pid, text in zip(page_ids, pages, strict=True):
+        ops = ["BT", "/F1 12 Tf", "14 TL", "72 720 Td"]
+        for line in text.split("\n") if text else []:
+            escaped = line.replace("\\", "\\\\").replace("(", "\\(").replace(")", "\\)")
+            ops.append(f"({escaped}) Tj T*")
+        ops.append("ET")
+        stream = "\n".join(ops).encode("latin-1")
+        objs.append(
+            f"<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] "
+            f"/Resources << /Font << /F1 3 0 R >> >> /Contents {pid + 1} 0 R >>".encode()
+        )
+        objs.append(b"<< /Length %d >>\nstream\n" % len(stream) + stream + b"\nendstream")
+
+    out = bytearray(b"%PDF-1.4\n")
+    offsets = []
+    for i, obj in enumerate(objs, start=1):
+        offsets.append(len(out))
+        out += f"{i} 0 obj\n".encode() + obj + b"\nendobj\n"
+    xref = len(out)
+    out += f"xref\n0 {len(objs) + 1}\n0000000000 65535 f \n".encode()
+    for off in offsets:
+        out += f"{off:010d} 00000 n \n".encode()
+    out += f"trailer\n<< /Size {len(objs) + 1} /Root 1 0 R >>\nstartxref\n{xref}\n%%EOF\n".encode()
+    return bytes(out)
+
+
+@pytest.fixture
+def make_pdf(tmp_path: Path) -> Callable[..., Path]:
+    """Write a PDF with the given page texts to tmp_path and return its path."""
+
+    def _make(pages: list[str], name: str = "sample.pdf") -> Path:
+        path = tmp_path / name
+        path.write_bytes(build_pdf(pages))
+        return path
+
+    return _make
+
+
+@pytest.fixture
 def known_facts() -> dict[str, list[dict[str, Any]]]:
     """Facts planted in the fixture corpus, grouped by type (lookup, rare_token, multi_hop, no_answer)."""
     return json.loads((FIXTURES_DIR / "known_facts.json").read_text(encoding="utf-8"))
