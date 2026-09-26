@@ -89,7 +89,7 @@ def _source_path(path: Path, root: str | Path | None) -> str:
     return path.as_posix()
 
 
-def _is_fence(line: str) -> str | None:
+def fence_marker(line: str) -> str | None:
     m = _FENCE_RE.match(line)
     return m.group(1) if m else None
 
@@ -99,7 +99,7 @@ def _fence_lang(line: str) -> str:
     return m.group(2).lower() if m else ""
 
 
-def _closes_fence(line: str, marker: str) -> bool:
+def closes_fence(line: str, marker: str) -> bool:
     stripped = line.strip()
     return len(stripped) >= len(marker) and set(stripped) == {marker[0]}
 
@@ -129,7 +129,7 @@ def clean_markdown(text: str) -> str:
     skipping_directive = False
     for line in normalize_text(text).split("\n"):
         if fence is not None:
-            if _closes_fence(line, fence):
+            if closes_fence(line, fence):
                 fence = None
                 out.append(line)
             elif fence_is_shell:
@@ -143,7 +143,7 @@ def clean_markdown(text: str) -> str:
                 continue
             skipping_directive = False
 
-        if marker := _is_fence(line):
+        if marker := fence_marker(line):
             fence = marker
             fence_is_shell = _fence_lang(line) in _SHELL_LANGS
             out.append(line)
@@ -168,9 +168,9 @@ def first_heading(text: str) -> str | None:
     fence: str | None = None
     for line in text.split("\n"):
         if fence is not None:
-            if _closes_fence(line, fence):
+            if closes_fence(line, fence):
                 fence = None
-        elif marker := _is_fence(line):
+        elif marker := fence_marker(line):
             fence = marker
         elif line.startswith("# "):
             return line[2:].strip()
@@ -269,10 +269,10 @@ class HtmlLoader(BaseLoader):
         fence: str | None = None
         for line in normalize_text(text).split("\n"):
             if fence is not None:
-                if _closes_fence(line, fence):
+                if closes_fence(line, fence):
                     fence = None
                 out.append(line)
-            elif marker := _is_fence(line):
+            elif marker := fence_marker(line):
                 fence = marker
                 out.append(line.strip())
             else:
