@@ -162,6 +162,7 @@ def settings(tmp_path: Path) -> Settings:
         corpus_path=CORPUS_DIR,
         chroma_path=tmp_path / "chroma",
         documents_path=tmp_path / "documents",
+        cache_path=tmp_path / "cache",
     )
 
 

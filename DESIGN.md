@@ -20,7 +20,7 @@ Shipped as: FastAPI service, Streamlit dashboard, Docker compose, eval report, c
 
 - Language: Python 3.11+
 - Embeddings: OpenAI text-embedding-3-small
-- Generation and judge: Claude Sonnet (model name read from env var, never hardcoded)
+- Generation and judge: an OpenAI chat model (name read from the LLM_MODEL env var, never hardcoded). The provider is config (llm_provider: openai | anthropic, default openai); the Anthropic client is optional.
 - Vector store: ChromaDB (persistent, file based)
 - Sparse search: rank_bm25
 - Reranker: local cross-encoder, cross-encoder/ms-marco-MiniLM-L-6-v2 via sentence-transformers
@@ -237,7 +237,7 @@ Three layers, marked with pytest markers.
 
 1. unit (marker: unit). Fast, no network, no API keys. Uses fakes only. Runs on every commit. Target: 85 percent line coverage per module.
 2. integration (marker: integration). Real ChromaDB in a temp dir, real BM25, FakeReranker or the real cross-encoder, FakeEmbedder and FakeLLM. No network. Written after the modules are merged. Runs before every merge to main.
-3. live (marker: live). Calls real OpenAI and Claude. A handful of tests, run by hand. Checks that the real embedder returns the right vector size and the real judge returns parseable output.
+3. live (marker: live). Calls the real OpenAI APIs (and Anthropic, if that provider is configured). A handful of tests, run by hand. Checks that the real embedder returns the right vector size and the real judge returns parseable output.
 
 Commands:
 ```

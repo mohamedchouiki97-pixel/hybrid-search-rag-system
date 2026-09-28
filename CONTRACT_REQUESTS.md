@@ -16,6 +16,16 @@ core's interfaces and fakes.
 
 ## Changes
 
+### 2026-09-28: cache_path config key
+- Module: indexing
+- Change: `Settings.cache_path`, default `data/cache`.
+- Why: DESIGN 10 says to cache embeddings by text hash, and evaluation will cache judge calls. Both need one configured folder.
+
+### 2026-09-28: llm_provider config key
+- Module: generation (planned)
+- Change: `Settings.llm_provider` (`LLMProvider` enum: `openai` | `anthropic`), default `openai`. DESIGN 2 now names an OpenAI chat model for generation and the judge.
+- Why: no Anthropic credit available. The provider is config, so the pipeline code only sees `LLMClient` and switching back needs no code changes.
+
 ### 2026-09-28: documents_path config key
 - Module: ingestion
 - Change: `Settings.documents_path`, default `data/documents`.

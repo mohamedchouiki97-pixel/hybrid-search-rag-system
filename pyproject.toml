@@ -47,7 +47,7 @@ addopts = "--strict-markers --import-mode=importlib -p no:langsmith_plugin"
 markers = [
     "unit: fast, no network, no API keys, fakes only",
     "integration: real ChromaDB/BM25 in a temp dir, fakes for paid APIs, no network",
-    "live: calls real OpenAI and Anthropic APIs, run by hand",
+    "live: calls real OpenAI (or Anthropic, if configured) APIs, run by hand",
 ]
 
 [tool.coverage.run]

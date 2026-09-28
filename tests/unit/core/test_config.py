@@ -1,7 +1,7 @@
 import pytest
 from pydantic import ValidationError
 
-from rag.core.config import ConfidenceWeights, Settings
+from rag.core.config import ConfidenceWeights, LLMProvider, Settings
 from rag.core.models import ChunkStrategy
 
 DESIGN_KEYS = {
@@ -28,6 +28,14 @@ def test_defaults():
     assert (s.dense_k, s.rerank_candidates, s.rerank_top_n) == (10, 20, 5)
     assert s.embedding_model == "text-embedding-3-small"
     assert s.documents_path.as_posix() == "data/documents"
+    assert s.llm_provider is LLMProvider.OPENAI
+
+
+def test_llm_provider_from_env(monkeypatch):
+    monkeypatch.setenv("LLM_PROVIDER", "anthropic")
+    assert make().llm_provider is LLMProvider.ANTHROPIC
+    with pytest.raises(ValidationError):
+        make(llm_provider="gemini")
 
 
 def test_llm_model_is_required(monkeypatch):

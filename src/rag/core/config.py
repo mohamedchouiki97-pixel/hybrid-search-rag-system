@@ -5,6 +5,7 @@ Stable: edit only with all tests passing, and log the change in CONTRACT_REQUEST
 
 from __future__ import annotations
 
+from enum import StrEnum
 from functools import lru_cache
 from pathlib import Path
 
@@ -12,6 +13,11 @@ from pydantic import BaseModel, Field, SecretStr, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 from rag.core.models import ChunkStrategy
+
+
+class LLMProvider(StrEnum):
+    OPENAI = "openai"
+    ANTHROPIC = "anthropic"
 
 
 class ConfidenceWeights(BaseModel):
@@ -60,6 +66,7 @@ class Settings(BaseSettings):
     confidence_weights: ConfidenceWeights = Field(default_factory=ConfidenceWeights)
 
     # Models (llm_model has no default: it must be set in the environment)
+    llm_provider: LLMProvider = LLMProvider.OPENAI
     llm_model: str = Field(min_length=1)
     embedding_model: str = "text-embedding-3-small"
     reranker_model: str = "cross-encoder/ms-marco-MiniLM-L-6-v2"
@@ -68,6 +75,7 @@ class Settings(BaseSettings):
     corpus_path: Path = Path("corpus/fastapi_docs")
     chroma_path: Path = Path("data/chroma")
     documents_path: Path = Path("data/documents")  # raw + processed copy of every ingested file
+    cache_path: Path = Path("data/cache")  # embedding cache (and later the judge cache)
 
     # Secrets (only needed by the real clients)
     openai_api_key: SecretStr | None = None
