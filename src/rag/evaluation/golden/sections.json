@@ -1,0 +1,3957 @@
+{
+  "corpus_path": "corpus/fastapi_docs",
+  "corpus_sha256": "d07d8e6452c05931",
+  "heading_code_sha256": "d3928d823959ac39",
+  "doc_count": 122,
+  "section_count": 987,
+  "sections": [
+    {
+      "doc_id": "about/index",
+      "section": "About"
+    },
+    {
+      "doc_id": "advanced/additional-responses",
+      "section": "Additional Responses in OpenAPI"
+    },
+    {
+      "doc_id": "advanced/additional-responses",
+      "section": "Additional Responses in OpenAPI > Additional Response with `model`"
+    },
+    {
+      "doc_id": "advanced/additional-responses",
+      "section": "Additional Responses in OpenAPI > Additional media types for the main response"
+    },
+    {
+      "doc_id": "advanced/additional-responses",
+      "section": "Additional Responses in OpenAPI > Combining information"
+    },
+    {
+      "doc_id": "advanced/additional-responses",
+      "section": "Additional Responses in OpenAPI > Combine predefined responses and custom ones"
+    },
+    {
+      "doc_id": "advanced/additional-responses",
+      "section": "Additional Responses in OpenAPI > More information about OpenAPI responses"
+    },
+    {
+      "doc_id": "advanced/additional-status-codes",
+      "section": "Additional Status Codes"
+    },
+    {
+      "doc_id": "advanced/additional-status-codes",
+      "section": "Additional Status Codes > Additional status codes"
+    },
+    {
+      "doc_id": "advanced/additional-status-codes",
+      "section": "Additional Status Codes > OpenAPI and API docs"
+    },
+    {
+      "doc_id": "advanced/advanced-dependencies",
+      "section": "Advanced Dependencies > Parameterized dependencies"
+    },
+    {
+      "doc_id": "advanced/advanced-dependencies",
+      "section": "Advanced Dependencies > A \"callable\" instance"
+    },
+    {
+      "doc_id": "advanced/advanced-dependencies",
+      "section": "Advanced Dependencies > Parameterize the instance"
+    },
+    {
+      "doc_id": "advanced/advanced-dependencies",
+      "section": "Advanced Dependencies > Create an instance"
+    },
+    {
+      "doc_id": "advanced/advanced-dependencies",
+      "section": "Advanced Dependencies > Use the instance as a dependency"
+    },
+    {
+      "doc_id": "advanced/advanced-dependencies",
+      "section": "Advanced Dependencies > Dependencies with `yield`, `HTTPException`, `except` and Background Tasks"
+    },
+    {
+      "doc_id": "advanced/advanced-dependencies",
+      "section": "Advanced Dependencies > Dependencies with `yield`, `HTTPException`, `except` and Background Tasks > Dependencies with `yield` and `scope`"
+    },
+    {
+      "doc_id": "advanced/advanced-dependencies",
+      "section": "Advanced Dependencies > Dependencies with `yield`, `HTTPException`, `except` and Background Tasks > Dependencies with `yield` and `StreamingResponse`, Technical Details"
+    },
+    {
+      "doc_id": "advanced/advanced-dependencies",
+      "section": "Advanced Dependencies > Dependencies with `yield`, `HTTPException`, `except` and Background Tasks > Dependencies with `yield` and `except`, Technical Details"
+    },
+    {
+      "doc_id": "advanced/advanced-dependencies",
+      "section": "Advanced Dependencies > Dependencies with `yield`, `HTTPException`, `except` and Background Tasks > Background Tasks and Dependencies with `yield`, Technical Details"
+    },
+    {
+      "doc_id": "advanced/advanced-python-types",
+      "section": "Advanced Python Types"
+    },
+    {
+      "doc_id": "advanced/advanced-python-types",
+      "section": "Advanced Python Types > Using `Union` or `Optional`"
+    },
+    {
+      "doc_id": "advanced/async-tests",
+      "section": "Async Tests"
+    },
+    {
+      "doc_id": "advanced/async-tests",
+      "section": "Async Tests > pytest.mark.anyio"
+    },
+    {
+      "doc_id": "advanced/async-tests",
+      "section": "Async Tests > HTTPX"
+    },
+    {
+      "doc_id": "advanced/async-tests",
+      "section": "Async Tests > Example"
+    },
+    {
+      "doc_id": "advanced/async-tests",
+      "section": "Async Tests > Run it"
+    },
+    {
+      "doc_id": "advanced/async-tests",
+      "section": "Async Tests > In Detail"
+    },
+    {
+      "doc_id": "advanced/async-tests",
+      "section": "Async Tests > Other Asynchronous Function Calls"
+    },
+    {
+      "doc_id": "advanced/behind-a-proxy",
+      "section": "Behind a Proxy"
+    },
+    {
+      "doc_id": "advanced/behind-a-proxy",
+      "section": "Behind a Proxy > Proxy Forwarded Headers"
+    },
+    {
+      "doc_id": "advanced/behind-a-proxy",
+      "section": "Behind a Proxy > Proxy Forwarded Headers > Enable Proxy Forwarded Headers"
+    },
+    {
+      "doc_id": "advanced/behind-a-proxy",
+      "section": "Behind a Proxy > Proxy Forwarded Headers > Redirects with HTTPS"
+    },
+    {
+      "doc_id": "advanced/behind-a-proxy",
+      "section": "Behind a Proxy > Proxy Forwarded Headers > How Proxy Forwarded Headers Work"
+    },
+    {
+      "doc_id": "advanced/behind-a-proxy",
+      "section": "Behind a Proxy > Proxy with a stripped path prefix"
+    },
+    {
+      "doc_id": "advanced/behind-a-proxy",
+      "section": "Behind a Proxy > Proxy with a stripped path prefix > Providing the `root_path`"
+    },
+    {
+      "doc_id": "advanced/behind-a-proxy",
+      "section": "Behind a Proxy > Proxy with a stripped path prefix > Checking the current `root_path`"
+    },
+    {
+      "doc_id": "advanced/behind-a-proxy",
+      "section": "Behind a Proxy > Proxy with a stripped path prefix > Setting the `root_path` in the FastAPI app"
+    },
+    {
+      "doc_id": "advanced/behind-a-proxy",
+      "section": "Behind a Proxy > Proxy with a stripped path prefix > About `root_path`"
+    },
+    {
+      "doc_id": "advanced/behind-a-proxy",
+      "section": "Behind a Proxy > About proxies with a stripped path prefix"
+    },
+    {
+      "doc_id": "advanced/behind-a-proxy",
+      "section": "Behind a Proxy > Testing locally with Traefik"
+    },
+    {
+      "doc_id": "advanced/behind-a-proxy",
+      "section": "Behind a Proxy > Testing locally with Traefik > Check the responses"
+    },
+    {
+      "doc_id": "advanced/behind-a-proxy",
+      "section": "Behind a Proxy > Testing locally with Traefik > Check the docs UI"
+    },
+    {
+      "doc_id": "advanced/behind-a-proxy",
+      "section": "Behind a Proxy > Additional servers"
+    },
+    {
+      "doc_id": "advanced/behind-a-proxy",
+      "section": "Behind a Proxy > Additional servers > Disable automatic server from `root_path`"
+    },
+    {
+      "doc_id": "advanced/behind-a-proxy",
+      "section": "Behind a Proxy > Mounting a sub-application"
+    },
+    {
+      "doc_id": "advanced/custom-response",
+      "section": "Custom Response - HTML, Stream, File, others"
+    },
+    {
+      "doc_id": "advanced/custom-response",
+      "section": "Custom Response - HTML, Stream, File, others > JSON Responses"
+    },
+    {
+      "doc_id": "advanced/custom-response",
+      "section": "Custom Response - HTML, Stream, File, others > JSON Responses > JSON Performance"
+    },
+    {
+      "doc_id": "advanced/custom-response",
+      "section": "Custom Response - HTML, Stream, File, others > HTML Response"
+    },
+    {
+      "doc_id": "advanced/custom-response",
+      "section": "Custom Response - HTML, Stream, File, others > HTML Response > Return a `Response`"
+    },
+    {
+      "doc_id": "advanced/custom-response",
+      "section": "Custom Response - HTML, Stream, File, others > HTML Response > Document in OpenAPI and override `Response`"
+    },
+    {
+      "doc_id": "advanced/custom-response",
+      "section": "Custom Response - HTML, Stream, File, others > Available responses"
+    },
+    {
+      "doc_id": "advanced/custom-response",
+      "section": "Custom Response - HTML, Stream, File, others > Available responses > `Response`"
+    },
+    {
+      "doc_id": "advanced/custom-response",
+      "section": "Custom Response - HTML, Stream, File, others > Available responses > `HTMLResponse`"
+    },
+    {
+      "doc_id": "advanced/custom-response",
+      "section": "Custom Response - HTML, Stream, File, others > Available responses > `PlainTextResponse`"
+    },
+    {
+      "doc_id": "advanced/custom-response",
+      "section": "Custom Response - HTML, Stream, File, others > Available responses > `JSONResponse`"
+    },
+    {
+      "doc_id": "advanced/custom-response",
+      "section": "Custom Response - HTML, Stream, File, others > Available responses > `RedirectResponse`"
+    },
+    {
+      "doc_id": "advanced/custom-response",
+      "section": "Custom Response - HTML, Stream, File, others > Available responses > `StreamingResponse`"
+    },
+    {
+      "doc_id": "advanced/custom-response",
+      "section": "Custom Response - HTML, Stream, File, others > Available responses > `FileResponse`"
+    },
+    {
+      "doc_id": "advanced/custom-response",
+      "section": "Custom Response - HTML, Stream, File, others > Custom response class"
+    },
+    {
+      "doc_id": "advanced/custom-response",
+      "section": "Custom Response - HTML, Stream, File, others > Custom response class > `orjson` or Response Model"
+    },
+    {
+      "doc_id": "advanced/custom-response",
+      "section": "Custom Response - HTML, Stream, File, others > Default response class"
+    },
+    {
+      "doc_id": "advanced/custom-response",
+      "section": "Custom Response - HTML, Stream, File, others > Additional documentation"
+    },
+    {
+      "doc_id": "advanced/dataclasses",
+      "section": "Using Dataclasses"
+    },
+    {
+      "doc_id": "advanced/dataclasses",
+      "section": "Using Dataclasses > Dataclasses in `response_model`"
+    },
+    {
+      "doc_id": "advanced/dataclasses",
+      "section": "Using Dataclasses > Dataclasses in Nested Data Structures"
+    },
+    {
+      "doc_id": "advanced/dataclasses",
+      "section": "Using Dataclasses > Learn More"
+    },
+    {
+      "doc_id": "advanced/dataclasses",
+      "section": "Using Dataclasses > Version"
+    },
+    {
+      "doc_id": "advanced/events",
+      "section": "Lifespan Events"
+    },
+    {
+      "doc_id": "advanced/events",
+      "section": "Lifespan Events > Use Case"
+    },
+    {
+      "doc_id": "advanced/events",
+      "section": "Lifespan Events > Lifespan"
+    },
+    {
+      "doc_id": "advanced/events",
+      "section": "Lifespan Events > Lifespan > Lifespan function"
+    },
+    {
+      "doc_id": "advanced/events",
+      "section": "Lifespan Events > Lifespan > Async Context Manager"
+    },
+    {
+      "doc_id": "advanced/events",
+      "section": "Lifespan Events > Alternative Events (deprecated)"
+    },
+    {
+      "doc_id": "advanced/events",
+      "section": "Lifespan Events > Alternative Events (deprecated) > `startup` event"
+    },
+    {
+      "doc_id": "advanced/events",
+      "section": "Lifespan Events > Alternative Events (deprecated) > `shutdown` event"
+    },
+    {
+      "doc_id": "advanced/events",
+      "section": "Lifespan Events > Alternative Events (deprecated) > `startup` and `shutdown` together"
+    },
+    {
+      "doc_id": "advanced/events",
+      "section": "Lifespan Events > Technical Details"
+    },
+    {
+      "doc_id": "advanced/events",
+      "section": "Lifespan Events > Sub Applications"
+    },
+    {
+      "doc_id": "advanced/generate-clients",
+      "section": "Generating SDKs"
+    },
+    {
+      "doc_id": "advanced/generate-clients",
+      "section": "Generating SDKs > Open Source SDK Generators"
+    },
+    {
+      "doc_id": "advanced/generate-clients",
+      "section": "Generating SDKs > Create a TypeScript SDK"
+    },
+    {
+      "doc_id": "advanced/generate-clients",
+      "section": "Generating SDKs > Create a TypeScript SDK > API Docs"
+    },
+    {
+      "doc_id": "advanced/generate-clients",
+      "section": "Generating SDKs > Create a TypeScript SDK > Hey API"
+    },
+    {
+      "doc_id": "advanced/generate-clients",
+      "section": "Generating SDKs > Create a TypeScript SDK > Using the SDK"
+    },
+    {
+      "doc_id": "advanced/generate-clients",
+      "section": "Generating SDKs > FastAPI App with Tags"
+    },
+    {
+      "doc_id": "advanced/generate-clients",
+      "section": "Generating SDKs > FastAPI App with Tags > Generate a TypeScript Client with Tags"
+    },
+    {
+      "doc_id": "advanced/generate-clients",
+      "section": "Generating SDKs > FastAPI App with Tags > Client Method Names"
+    },
+    {
+      "doc_id": "advanced/generate-clients",
+      "section": "Generating SDKs > Custom Operation IDs and Better Method Names"
+    },
+    {
+      "doc_id": "advanced/generate-clients",
+      "section": "Generating SDKs > Custom Operation IDs and Better Method Names > Custom Generate Unique ID Function"
+    },
+    {
+      "doc_id": "advanced/generate-clients",
+      "section": "Generating SDKs > Custom Operation IDs and Better Method Names > Generate a TypeScript Client with Custom Operation IDs"
+    },
+    {
+      "doc_id": "advanced/generate-clients",
+      "section": "Generating SDKs > Custom Operation IDs and Better Method Names > Preprocess the OpenAPI Specification for the Client Generator"
+    },
+    {
+      "doc_id": "advanced/generate-clients",
+      "section": "Generating SDKs > Custom Operation IDs and Better Method Names > Generate a TypeScript Client with the Preprocessed OpenAPI"
+    },
+    {
+      "doc_id": "advanced/generate-clients",
+      "section": "Generating SDKs > Benefits"
+    },
+    {
+      "doc_id": "advanced/index",
+      "section": "Advanced User Guide > Additional Features"
+    },
+    {
+      "doc_id": "advanced/index",
+      "section": "Advanced User Guide > Read the Tutorial first"
+    },
+    {
+      "doc_id": "advanced/json-base64-bytes",
+      "section": "JSON with Bytes as Base64"
+    },
+    {
+      "doc_id": "advanced/json-base64-bytes",
+      "section": "JSON with Bytes as Base64 > Base64 vs Files"
+    },
+    {
+      "doc_id": "advanced/json-base64-bytes",
+      "section": "JSON with Bytes as Base64 > Pydantic `bytes`"
+    },
+    {
+      "doc_id": "advanced/json-base64-bytes",
+      "section": "JSON with Bytes as Base64 > Pydantic `bytes` for Output Data"
+    },
+    {
+      "doc_id": "advanced/json-base64-bytes",
+      "section": "JSON with Bytes as Base64 > Pydantic `bytes` for Input and Output Data"
+    },
+    {
+      "doc_id": "advanced/middleware",
+      "section": "Advanced Middleware"
+    },
+    {
+      "doc_id": "advanced/middleware",
+      "section": "Advanced Middleware > Adding ASGI middlewares"
+    },
+    {
+      "doc_id": "advanced/middleware",
+      "section": "Advanced Middleware > Integrated middlewares"
+    },
+    {
+      "doc_id": "advanced/middleware",
+      "section": "Advanced Middleware > `HTTPSRedirectMiddleware`"
+    },
+    {
+      "doc_id": "advanced/middleware",
+      "section": "Advanced Middleware > `TrustedHostMiddleware`"
+    },
+    {
+      "doc_id": "advanced/middleware",
+      "section": "Advanced Middleware > `GZipMiddleware`"
+    },
+    {
+      "doc_id": "advanced/middleware",
+      "section": "Advanced Middleware > Other middlewares"
+    },
+    {
+      "doc_id": "advanced/openapi-callbacks",
+      "section": "OpenAPI Callbacks"
+    },
+    {
+      "doc_id": "advanced/openapi-callbacks",
+      "section": "OpenAPI Callbacks > An app with callbacks"
+    },
+    {
+      "doc_id": "advanced/openapi-callbacks",
+      "section": "OpenAPI Callbacks > The normal **FastAPI** app"
+    },
+    {
+      "doc_id": "advanced/openapi-callbacks",
+      "section": "OpenAPI Callbacks > Documenting the callback"
+    },
+    {
+      "doc_id": "advanced/openapi-callbacks",
+      "section": "OpenAPI Callbacks > Write the callback documentation code"
+    },
+    {
+      "doc_id": "advanced/openapi-callbacks",
+      "section": "OpenAPI Callbacks > Write the callback documentation code > Create a callback `APIRouter`"
+    },
+    {
+      "doc_id": "advanced/openapi-callbacks",
+      "section": "OpenAPI Callbacks > Write the callback documentation code > Create the callback *path operation*"
+    },
+    {
+      "doc_id": "advanced/openapi-callbacks",
+      "section": "OpenAPI Callbacks > Write the callback documentation code > The callback path expression"
+    },
+    {
+      "doc_id": "advanced/openapi-callbacks",
+      "section": "OpenAPI Callbacks > Write the callback documentation code > Add the callback router"
+    },
+    {
+      "doc_id": "advanced/openapi-callbacks",
+      "section": "OpenAPI Callbacks > Write the callback documentation code > Check the docs"
+    },
+    {
+      "doc_id": "advanced/openapi-webhooks",
+      "section": "OpenAPI Webhooks"
+    },
+    {
+      "doc_id": "advanced/openapi-webhooks",
+      "section": "OpenAPI Webhooks > Webhooks steps"
+    },
+    {
+      "doc_id": "advanced/openapi-webhooks",
+      "section": "OpenAPI Webhooks > Documenting webhooks with **FastAPI** and OpenAPI"
+    },
+    {
+      "doc_id": "advanced/openapi-webhooks",
+      "section": "OpenAPI Webhooks > An app with webhooks"
+    },
+    {
+      "doc_id": "advanced/openapi-webhooks",
+      "section": "OpenAPI Webhooks > An app with webhooks > Check the docs"
+    },
+    {
+      "doc_id": "advanced/path-operation-advanced-configuration",
+      "section": "Path Operation Advanced Configuration > OpenAPI operationId"
+    },
+    {
+      "doc_id": "advanced/path-operation-advanced-configuration",
+      "section": "Path Operation Advanced Configuration > OpenAPI operationId > Using the *path operation function* name as the operationId"
+    },
+    {
+      "doc_id": "advanced/path-operation-advanced-configuration",
+      "section": "Path Operation Advanced Configuration > Exclude from OpenAPI"
+    },
+    {
+      "doc_id": "advanced/path-operation-advanced-configuration",
+      "section": "Path Operation Advanced Configuration > Advanced description from docstring"
+    },
+    {
+      "doc_id": "advanced/path-operation-advanced-configuration",
+      "section": "Path Operation Advanced Configuration > Additional Responses"
+    },
+    {
+      "doc_id": "advanced/path-operation-advanced-configuration",
+      "section": "Path Operation Advanced Configuration > OpenAPI Extra"
+    },
+    {
+      "doc_id": "advanced/path-operation-advanced-configuration",
+      "section": "Path Operation Advanced Configuration > OpenAPI Extra > OpenAPI Extensions"
+    },
+    {
+      "doc_id": "advanced/path-operation-advanced-configuration",
+      "section": "Path Operation Advanced Configuration > OpenAPI Extra > Custom OpenAPI *path operation* schema"
+    },
+    {
+      "doc_id": "advanced/path-operation-advanced-configuration",
+      "section": "Path Operation Advanced Configuration > OpenAPI Extra > Custom OpenAPI content type"
+    },
+    {
+      "doc_id": "advanced/response-change-status-code",
+      "section": "Response - Change Status Code"
+    },
+    {
+      "doc_id": "advanced/response-change-status-code",
+      "section": "Response - Change Status Code > Use case"
+    },
+    {
+      "doc_id": "advanced/response-change-status-code",
+      "section": "Response - Change Status Code > Use a `Response` parameter"
+    },
+    {
+      "doc_id": "advanced/response-cookies",
+      "section": "Response Cookies > Use a `Response` parameter"
+    },
+    {
+      "doc_id": "advanced/response-cookies",
+      "section": "Response Cookies > Return a `Response` directly"
+    },
+    {
+      "doc_id": "advanced/response-cookies",
+      "section": "Response Cookies > Return a `Response` directly > More info"
+    },
+    {
+      "doc_id": "advanced/response-directly",
+      "section": "Return a Response Directly"
+    },
+    {
+      "doc_id": "advanced/response-directly",
+      "section": "Return a Response Directly > Return a `Response`"
+    },
+    {
+      "doc_id": "advanced/response-directly",
+      "section": "Return a Response Directly > Using the `jsonable_encoder` in a `Response`"
+    },
+    {
+      "doc_id": "advanced/response-directly",
+      "section": "Return a Response Directly > Returning a custom `Response`"
+    },
+    {
+      "doc_id": "advanced/response-directly",
+      "section": "Return a Response Directly > How a Response Model Works"
+    },
+    {
+      "doc_id": "advanced/response-directly",
+      "section": "Return a Response Directly > Notes"
+    },
+    {
+      "doc_id": "advanced/response-headers",
+      "section": "Response Headers > Use a `Response` parameter"
+    },
+    {
+      "doc_id": "advanced/response-headers",
+      "section": "Response Headers > Return a `Response` directly"
+    },
+    {
+      "doc_id": "advanced/response-headers",
+      "section": "Response Headers > Custom Headers"
+    },
+    {
+      "doc_id": "advanced/security/http-basic-auth",
+      "section": "HTTP Basic Auth"
+    },
+    {
+      "doc_id": "advanced/security/http-basic-auth",
+      "section": "HTTP Basic Auth > Simple HTTP Basic Auth"
+    },
+    {
+      "doc_id": "advanced/security/http-basic-auth",
+      "section": "HTTP Basic Auth > Check the username"
+    },
+    {
+      "doc_id": "advanced/security/http-basic-auth",
+      "section": "HTTP Basic Auth > Check the username > Timing Attacks"
+    },
+    {
+      "doc_id": "advanced/security/http-basic-auth",
+      "section": "HTTP Basic Auth > Check the username > Return the error"
+    },
+    {
+      "doc_id": "advanced/security/index",
+      "section": "Advanced Security > Additional Features"
+    },
+    {
+      "doc_id": "advanced/security/index",
+      "section": "Advanced Security > Read the Tutorial first"
+    },
+    {
+      "doc_id": "advanced/security/oauth2-scopes",
+      "section": "OAuth2 scopes"
+    },
+    {
+      "doc_id": "advanced/security/oauth2-scopes",
+      "section": "OAuth2 scopes > OAuth2 scopes and OpenAPI"
+    },
+    {
+      "doc_id": "advanced/security/oauth2-scopes",
+      "section": "OAuth2 scopes > Global view"
+    },
+    {
+      "doc_id": "advanced/security/oauth2-scopes",
+      "section": "OAuth2 scopes > OAuth2 Security scheme"
+    },
+    {
+      "doc_id": "advanced/security/oauth2-scopes",
+      "section": "OAuth2 scopes > JWT token with scopes"
+    },
+    {
+      "doc_id": "advanced/security/oauth2-scopes",
+      "section": "OAuth2 scopes > Declare scopes in *path operations* and dependencies"
+    },
+    {
+      "doc_id": "advanced/security/oauth2-scopes",
+      "section": "OAuth2 scopes > Use `SecurityScopes`"
+    },
+    {
+      "doc_id": "advanced/security/oauth2-scopes",
+      "section": "OAuth2 scopes > Use the `scopes`"
+    },
+    {
+      "doc_id": "advanced/security/oauth2-scopes",
+      "section": "OAuth2 scopes > Verify the `username` and data shape"
+    },
+    {
+      "doc_id": "advanced/security/oauth2-scopes",
+      "section": "OAuth2 scopes > Verify the `scopes`"
+    },
+    {
+      "doc_id": "advanced/security/oauth2-scopes",
+      "section": "OAuth2 scopes > Dependency tree and scopes"
+    },
+    {
+      "doc_id": "advanced/security/oauth2-scopes",
+      "section": "OAuth2 scopes > More details about `SecurityScopes`"
+    },
+    {
+      "doc_id": "advanced/security/oauth2-scopes",
+      "section": "OAuth2 scopes > Check it"
+    },
+    {
+      "doc_id": "advanced/security/oauth2-scopes",
+      "section": "OAuth2 scopes > About third party integrations"
+    },
+    {
+      "doc_id": "advanced/security/oauth2-scopes",
+      "section": "OAuth2 scopes > `Security` in decorator `dependencies`"
+    },
+    {
+      "doc_id": "advanced/settings",
+      "section": "Settings and Environment Variables"
+    },
+    {
+      "doc_id": "advanced/settings",
+      "section": "Settings and Environment Variables > Types and validation"
+    },
+    {
+      "doc_id": "advanced/settings",
+      "section": "Settings and Environment Variables > Pydantic `Settings`"
+    },
+    {
+      "doc_id": "advanced/settings",
+      "section": "Settings and Environment Variables > Pydantic `Settings` > Install `pydantic-settings`"
+    },
+    {
+      "doc_id": "advanced/settings",
+      "section": "Settings and Environment Variables > Pydantic `Settings` > Create the `Settings` object"
+    },
+    {
+      "doc_id": "advanced/settings",
+      "section": "Settings and Environment Variables > Pydantic `Settings` > Use the `settings`"
+    },
+    {
+      "doc_id": "advanced/settings",
+      "section": "Settings and Environment Variables > Pydantic `Settings` > Run the server"
+    },
+    {
+      "doc_id": "advanced/settings",
+      "section": "Settings and Environment Variables > Settings in another module"
+    },
+    {
+      "doc_id": "advanced/settings",
+      "section": "Settings and Environment Variables > Settings in a dependency"
+    },
+    {
+      "doc_id": "advanced/settings",
+      "section": "Settings and Environment Variables > Settings in a dependency > The config file"
+    },
+    {
+      "doc_id": "advanced/settings",
+      "section": "Settings and Environment Variables > Settings in a dependency > The main app file"
+    },
+    {
+      "doc_id": "advanced/settings",
+      "section": "Settings and Environment Variables > Settings in a dependency > Settings and testing"
+    },
+    {
+      "doc_id": "advanced/settings",
+      "section": "Settings and Environment Variables > Reading a `.env` file"
+    },
+    {
+      "doc_id": "advanced/settings",
+      "section": "Settings and Environment Variables > Reading a `.env` file > The `.env` file"
+    },
+    {
+      "doc_id": "advanced/settings",
+      "section": "Settings and Environment Variables > Reading a `.env` file > Read settings from `.env`"
+    },
+    {
+      "doc_id": "advanced/settings",
+      "section": "Settings and Environment Variables > Reading a `.env` file > Creating the `Settings` only once with `lru_cache`"
+    },
+    {
+      "doc_id": "advanced/settings",
+      "section": "Settings and Environment Variables > Recap"
+    },
+    {
+      "doc_id": "advanced/stream-data",
+      "section": "Stream Data"
+    },
+    {
+      "doc_id": "advanced/stream-data",
+      "section": "Stream Data > Use Cases"
+    },
+    {
+      "doc_id": "advanced/stream-data",
+      "section": "Stream Data > A `StreamingResponse` with `yield`"
+    },
+    {
+      "doc_id": "advanced/stream-data",
+      "section": "Stream Data > A `StreamingResponse` with `yield` > Non-async *path operation functions*"
+    },
+    {
+      "doc_id": "advanced/stream-data",
+      "section": "Stream Data > A `StreamingResponse` with `yield` > No Annotation"
+    },
+    {
+      "doc_id": "advanced/stream-data",
+      "section": "Stream Data > A `StreamingResponse` with `yield` > Stream Bytes"
+    },
+    {
+      "doc_id": "advanced/stream-data",
+      "section": "Stream Data > A Custom `PNGStreamingResponse`"
+    },
+    {
+      "doc_id": "advanced/stream-data",
+      "section": "Stream Data > A Custom `PNGStreamingResponse` > Simulate a File"
+    },
+    {
+      "doc_id": "advanced/stream-data",
+      "section": "Stream Data > A Custom `PNGStreamingResponse` > Files and Async"
+    },
+    {
+      "doc_id": "advanced/stream-data",
+      "section": "Stream Data > A Custom `PNGStreamingResponse` > `yield from`"
+    },
+    {
+      "doc_id": "advanced/strict-content-type",
+      "section": "Strict Content-Type Checking"
+    },
+    {
+      "doc_id": "advanced/strict-content-type",
+      "section": "Strict Content-Type Checking > CSRF Risk"
+    },
+    {
+      "doc_id": "advanced/strict-content-type",
+      "section": "Strict Content-Type Checking > Example Attack"
+    },
+    {
+      "doc_id": "advanced/strict-content-type",
+      "section": "Strict Content-Type Checking > Open Internet"
+    },
+    {
+      "doc_id": "advanced/strict-content-type",
+      "section": "Strict Content-Type Checking > Allowing Requests Without Content-Type"
+    },
+    {
+      "doc_id": "advanced/sub-applications",
+      "section": "Sub Applications - Mounts"
+    },
+    {
+      "doc_id": "advanced/sub-applications",
+      "section": "Sub Applications - Mounts > Mounting a **FastAPI** application"
+    },
+    {
+      "doc_id": "advanced/sub-applications",
+      "section": "Sub Applications - Mounts > Mounting a **FastAPI** application > Top-level application"
+    },
+    {
+      "doc_id": "advanced/sub-applications",
+      "section": "Sub Applications - Mounts > Mounting a **FastAPI** application > Sub-application"
+    },
+    {
+      "doc_id": "advanced/sub-applications",
+      "section": "Sub Applications - Mounts > Mounting a **FastAPI** application > Mount the sub-application"
+    },
+    {
+      "doc_id": "advanced/sub-applications",
+      "section": "Sub Applications - Mounts > Mounting a **FastAPI** application > Check the automatic API docs"
+    },
+    {
+      "doc_id": "advanced/sub-applications",
+      "section": "Sub Applications - Mounts > Mounting a **FastAPI** application > Technical Details: `root_path`"
+    },
+    {
+      "doc_id": "advanced/templates",
+      "section": "Templates"
+    },
+    {
+      "doc_id": "advanced/templates",
+      "section": "Templates > Install dependencies"
+    },
+    {
+      "doc_id": "advanced/templates",
+      "section": "Templates > Using `Jinja2Templates`"
+    },
+    {
+      "doc_id": "advanced/templates",
+      "section": "Templates > Writing templates"
+    },
+    {
+      "doc_id": "advanced/templates",
+      "section": "Templates > Writing templates > Template Context Values"
+    },
+    {
+      "doc_id": "advanced/templates",
+      "section": "Templates > Writing templates > Template `url_for` Arguments"
+    },
+    {
+      "doc_id": "advanced/templates",
+      "section": "Templates > Templates and static files"
+    },
+    {
+      "doc_id": "advanced/templates",
+      "section": "Templates > More details"
+    },
+    {
+      "doc_id": "advanced/testing-dependencies",
+      "section": "Testing Dependencies with Overrides > Overriding dependencies during testing"
+    },
+    {
+      "doc_id": "advanced/testing-dependencies",
+      "section": "Testing Dependencies with Overrides > Overriding dependencies during testing > Use cases: external service"
+    },
+    {
+      "doc_id": "advanced/testing-dependencies",
+      "section": "Testing Dependencies with Overrides > Overriding dependencies during testing > Use the `app.dependency_overrides` attribute"
+    },
+    {
+      "doc_id": "advanced/testing-events",
+      "section": "Testing Events: lifespan and startup - shutdown"
+    },
+    {
+      "doc_id": "advanced/testing-websockets",
+      "section": "Testing WebSockets"
+    },
+    {
+      "doc_id": "advanced/using-request-directly",
+      "section": "Using the Request Directly"
+    },
+    {
+      "doc_id": "advanced/using-request-directly",
+      "section": "Using the Request Directly > Details about the `Request` object"
+    },
+    {
+      "doc_id": "advanced/using-request-directly",
+      "section": "Using the Request Directly > Use the `Request` object directly"
+    },
+    {
+      "doc_id": "advanced/using-request-directly",
+      "section": "Using the Request Directly > `Request` documentation"
+    },
+    {
+      "doc_id": "advanced/websockets",
+      "section": "WebSockets"
+    },
+    {
+      "doc_id": "advanced/websockets",
+      "section": "WebSockets > Install `websockets`"
+    },
+    {
+      "doc_id": "advanced/websockets",
+      "section": "WebSockets > WebSockets client > In production"
+    },
+    {
+      "doc_id": "advanced/websockets",
+      "section": "WebSockets > Create a `websocket`"
+    },
+    {
+      "doc_id": "advanced/websockets",
+      "section": "WebSockets > Await for messages and send messages"
+    },
+    {
+      "doc_id": "advanced/websockets",
+      "section": "WebSockets > Try it"
+    },
+    {
+      "doc_id": "advanced/websockets",
+      "section": "WebSockets > Using `Depends` and others"
+    },
+    {
+      "doc_id": "advanced/websockets",
+      "section": "WebSockets > Using `Depends` and others > Try the WebSockets with dependencies"
+    },
+    {
+      "doc_id": "advanced/websockets",
+      "section": "WebSockets > Handling disconnections and multiple clients"
+    },
+    {
+      "doc_id": "advanced/websockets",
+      "section": "WebSockets > More info"
+    },
+    {
+      "doc_id": "advanced/wsgi",
+      "section": "Including WSGI - Flask, Django, others"
+    },
+    {
+      "doc_id": "advanced/wsgi",
+      "section": "Including WSGI - Flask, Django, others > Using `WSGIMiddleware`"
+    },
+    {
+      "doc_id": "advanced/wsgi",
+      "section": "Including WSGI - Flask, Django, others > Check it"
+    },
+    {
+      "doc_id": "alternatives",
+      "section": "Alternatives, Inspiration and Comparisons"
+    },
+    {
+      "doc_id": "alternatives",
+      "section": "Alternatives, Inspiration and Comparisons > Intro"
+    },
+    {
+      "doc_id": "alternatives",
+      "section": "Alternatives, Inspiration and Comparisons > Previous tools > [Django](https://www.djangoproject.com/)"
+    },
+    {
+      "doc_id": "alternatives",
+      "section": "Alternatives, Inspiration and Comparisons > Previous tools > [Django REST Framework](https://www.django-rest-framework.org/)"
+    },
+    {
+      "doc_id": "alternatives",
+      "section": "Alternatives, Inspiration and Comparisons > Previous tools > [Flask](https://flask.palletsprojects.com)"
+    },
+    {
+      "doc_id": "alternatives",
+      "section": "Alternatives, Inspiration and Comparisons > Previous tools > [Requests](https://requests.readthedocs.io)"
+    },
+    {
+      "doc_id": "alternatives",
+      "section": "Alternatives, Inspiration and Comparisons > Previous tools > [Swagger](https://swagger.io/) / [OpenAPI](https://github.com/OAI/OpenAPI-Specification/)"
+    },
+    {
+      "doc_id": "alternatives",
+      "section": "Alternatives, Inspiration and Comparisons > Previous tools > Flask REST frameworks"
+    },
+    {
+      "doc_id": "alternatives",
+      "section": "Alternatives, Inspiration and Comparisons > Previous tools > [Marshmallow](https://marshmallow.readthedocs.io/en/stable/)"
+    },
+    {
+      "doc_id": "alternatives",
+      "section": "Alternatives, Inspiration and Comparisons > Previous tools > [Webargs](https://webargs.readthedocs.io/en/latest/)"
+    },
+    {
+      "doc_id": "alternatives",
+      "section": "Alternatives, Inspiration and Comparisons > Previous tools > [APISpec](https://apispec.readthedocs.io/en/stable/)"
+    },
+    {
+      "doc_id": "alternatives",
+      "section": "Alternatives, Inspiration and Comparisons > Previous tools > [Flask-apispec](https://flask-apispec.readthedocs.io/en/latest/)"
+    },
+    {
+      "doc_id": "alternatives",
+      "section": "Alternatives, Inspiration and Comparisons > Previous tools > [NestJS](https://nestjs.com/) (and [Angular](https://angular.dev/))"
+    },
+    {
+      "doc_id": "alternatives",
+      "section": "Alternatives, Inspiration and Comparisons > Previous tools > [Sanic](https://sanic.readthedocs.io/en/latest/)"
+    },
+    {
+      "doc_id": "alternatives",
+      "section": "Alternatives, Inspiration and Comparisons > Previous tools > [Falcon](https://falconframework.org/)"
+    },
+    {
+      "doc_id": "alternatives",
+      "section": "Alternatives, Inspiration and Comparisons > Previous tools > [Molten](https://moltenframework.com/)"
+    },
+    {
+      "doc_id": "alternatives",
+      "section": "Alternatives, Inspiration and Comparisons > Previous tools > [Hug](https://github.com/hugapi/hug)"
+    },
+    {
+      "doc_id": "alternatives",
+      "section": "Alternatives, Inspiration and Comparisons > Previous tools > [APIStar](https://github.com/encode/apistar) (<= 0.5)"
+    },
+    {
+      "doc_id": "alternatives",
+      "section": "Alternatives, Inspiration and Comparisons > Used by **FastAPI** > [Pydantic](https://pydantic.dev/docs/)"
+    },
+    {
+      "doc_id": "alternatives",
+      "section": "Alternatives, Inspiration and Comparisons > Used by **FastAPI** > [Starlette](https://starlette.dev/)"
+    },
+    {
+      "doc_id": "alternatives",
+      "section": "Alternatives, Inspiration and Comparisons > Used by **FastAPI** > [Uvicorn](https://uvicorn.dev)"
+    },
+    {
+      "doc_id": "alternatives",
+      "section": "Alternatives, Inspiration and Comparisons > Benchmarks and speed"
+    },
+    {
+      "doc_id": "async",
+      "section": "Concurrency and async / await"
+    },
+    {
+      "doc_id": "async",
+      "section": "Concurrency and async / await > In a hurry?"
+    },
+    {
+      "doc_id": "async",
+      "section": "Concurrency and async / await > Technical Details"
+    },
+    {
+      "doc_id": "async",
+      "section": "Concurrency and async / await > Asynchronous Code"
+    },
+    {
+      "doc_id": "async",
+      "section": "Concurrency and async / await > Asynchronous Code > Concurrency and Burgers"
+    },
+    {
+      "doc_id": "async",
+      "section": "Concurrency and async / await > Asynchronous Code > Concurrent Burgers"
+    },
+    {
+      "doc_id": "async",
+      "section": "Concurrency and async / await > Asynchronous Code > Parallel Burgers"
+    },
+    {
+      "doc_id": "async",
+      "section": "Concurrency and async / await > Asynchronous Code > Burger Conclusion"
+    },
+    {
+      "doc_id": "async",
+      "section": "Concurrency and async / await > Asynchronous Code > Is concurrency better than parallelism?"
+    },
+    {
+      "doc_id": "async",
+      "section": "Concurrency and async / await > Asynchronous Code > Concurrency + Parallelism: Web + Machine Learning"
+    },
+    {
+      "doc_id": "async",
+      "section": "Concurrency and async / await > `async` and `await`"
+    },
+    {
+      "doc_id": "async",
+      "section": "Concurrency and async / await > `async` and `await` > More technical details"
+    },
+    {
+      "doc_id": "async",
+      "section": "Concurrency and async / await > `async` and `await` > Write your own async code"
+    },
+    {
+      "doc_id": "async",
+      "section": "Concurrency and async / await > `async` and `await` > Other forms of asynchronous code"
+    },
+    {
+      "doc_id": "async",
+      "section": "Concurrency and async / await > Coroutines"
+    },
+    {
+      "doc_id": "async",
+      "section": "Concurrency and async / await > Conclusion"
+    },
+    {
+      "doc_id": "async",
+      "section": "Concurrency and async / await > Very Technical Details"
+    },
+    {
+      "doc_id": "async",
+      "section": "Concurrency and async / await > Very Technical Details > Path operation functions"
+    },
+    {
+      "doc_id": "async",
+      "section": "Concurrency and async / await > Very Technical Details > Dependencies"
+    },
+    {
+      "doc_id": "async",
+      "section": "Concurrency and async / await > Very Technical Details > Sub-dependencies"
+    },
+    {
+      "doc_id": "async",
+      "section": "Concurrency and async / await > Very Technical Details > Other utility functions"
+    },
+    {
+      "doc_id": "benchmarks",
+      "section": "Benchmarks"
+    },
+    {
+      "doc_id": "benchmarks",
+      "section": "Benchmarks > Benchmarks and speed"
+    },
+    {
+      "doc_id": "deployment/cloud",
+      "section": "Deploy FastAPI on Cloud Providers"
+    },
+    {
+      "doc_id": "deployment/cloud",
+      "section": "Deploy FastAPI on Cloud Providers > FastAPI Cloud"
+    },
+    {
+      "doc_id": "deployment/cloud",
+      "section": "Deploy FastAPI on Cloud Providers > Cloud Providers - Sponsors"
+    },
+    {
+      "doc_id": "deployment/concepts",
+      "section": "Deployments Concepts"
+    },
+    {
+      "doc_id": "deployment/concepts",
+      "section": "Deployments Concepts > Security - HTTPS"
+    },
+    {
+      "doc_id": "deployment/concepts",
+      "section": "Deployments Concepts > Security - HTTPS > Example Tools for HTTPS"
+    },
+    {
+      "doc_id": "deployment/concepts",
+      "section": "Deployments Concepts > Program and Process"
+    },
+    {
+      "doc_id": "deployment/concepts",
+      "section": "Deployments Concepts > Program and Process > What is a Program"
+    },
+    {
+      "doc_id": "deployment/concepts",
+      "section": "Deployments Concepts > Program and Process > What is a Process"
+    },
+    {
+      "doc_id": "deployment/concepts",
+      "section": "Deployments Concepts > Running on Startup"
+    },
+    {
+      "doc_id": "deployment/concepts",
+      "section": "Deployments Concepts > Running on Startup > In a Remote Server"
+    },
+    {
+      "doc_id": "deployment/concepts",
+      "section": "Deployments Concepts > Running on Startup > Run Automatically on Startup"
+    },
+    {
+      "doc_id": "deployment/concepts",
+      "section": "Deployments Concepts > Running on Startup > Separate Program"
+    },
+    {
+      "doc_id": "deployment/concepts",
+      "section": "Deployments Concepts > Running on Startup > Example Tools to Run at Startup"
+    },
+    {
+      "doc_id": "deployment/concepts",
+      "section": "Deployments Concepts > Restarts"
+    },
+    {
+      "doc_id": "deployment/concepts",
+      "section": "Deployments Concepts > Restarts > We Make Mistakes"
+    },
+    {
+      "doc_id": "deployment/concepts",
+      "section": "Deployments Concepts > Restarts > Small Errors Automatically Handled"
+    },
+    {
+      "doc_id": "deployment/concepts",
+      "section": "Deployments Concepts > Restarts > Bigger Errors - Crashes"
+    },
+    {
+      "doc_id": "deployment/concepts",
+      "section": "Deployments Concepts > Restarts > Restart After Crash"
+    },
+    {
+      "doc_id": "deployment/concepts",
+      "section": "Deployments Concepts > Restarts > Example Tools to Restart Automatically"
+    },
+    {
+      "doc_id": "deployment/concepts",
+      "section": "Deployments Concepts > Replication - Processes and Memory"
+    },
+    {
+      "doc_id": "deployment/concepts",
+      "section": "Deployments Concepts > Replication - Processes and Memory > Multiple Processes - Workers"
+    },
+    {
+      "doc_id": "deployment/concepts",
+      "section": "Deployments Concepts > Replication - Processes and Memory > Worker Processes and Ports"
+    },
+    {
+      "doc_id": "deployment/concepts",
+      "section": "Deployments Concepts > Replication - Processes and Memory > Memory per Process"
+    },
+    {
+      "doc_id": "deployment/concepts",
+      "section": "Deployments Concepts > Replication - Processes and Memory > Server Memory"
+    },
+    {
+      "doc_id": "deployment/concepts",
+      "section": "Deployments Concepts > Replication - Processes and Memory > Multiple Processes - An Example"
+    },
+    {
+      "doc_id": "deployment/concepts",
+      "section": "Deployments Concepts > Replication - Processes and Memory > Examples of Replication Tools and Strategies"
+    },
+    {
+      "doc_id": "deployment/concepts",
+      "section": "Deployments Concepts > Previous Steps Before Starting"
+    },
+    {
+      "doc_id": "deployment/concepts",
+      "section": "Deployments Concepts > Previous Steps Before Starting > Examples of Previous Steps Strategies"
+    },
+    {
+      "doc_id": "deployment/concepts",
+      "section": "Deployments Concepts > Resource Utilization"
+    },
+    {
+      "doc_id": "deployment/concepts",
+      "section": "Deployments Concepts > Recap"
+    },
+    {
+      "doc_id": "deployment/docker",
+      "section": "FastAPI in Containers - Docker"
+    },
+    {
+      "doc_id": "deployment/docker",
+      "section": "FastAPI in Containers - Docker > What is a Container"
+    },
+    {
+      "doc_id": "deployment/docker",
+      "section": "FastAPI in Containers - Docker > What is a Container Image"
+    },
+    {
+      "doc_id": "deployment/docker",
+      "section": "FastAPI in Containers - Docker > Container Images"
+    },
+    {
+      "doc_id": "deployment/docker",
+      "section": "FastAPI in Containers - Docker > Containers and Processes"
+    },
+    {
+      "doc_id": "deployment/docker",
+      "section": "FastAPI in Containers - Docker > Build a Docker Image for FastAPI"
+    },
+    {
+      "doc_id": "deployment/docker",
+      "section": "FastAPI in Containers - Docker > Build a Docker Image for FastAPI > Package Requirements"
+    },
+    {
+      "doc_id": "deployment/docker",
+      "section": "FastAPI in Containers - Docker > Build a Docker Image for FastAPI > Create the **FastAPI** Code"
+    },
+    {
+      "doc_id": "deployment/docker",
+      "section": "FastAPI in Containers - Docker > Build a Docker Image for FastAPI > Dockerfile"
+    },
+    {
+      "doc_id": "deployment/docker",
+      "section": "FastAPI in Containers - Docker > Build a Docker Image for FastAPI > Build the Docker Image"
+    },
+    {
+      "doc_id": "deployment/docker",
+      "section": "FastAPI in Containers - Docker > Build a Docker Image for FastAPI > Start the Docker Container"
+    },
+    {
+      "doc_id": "deployment/docker",
+      "section": "FastAPI in Containers - Docker > Check it"
+    },
+    {
+      "doc_id": "deployment/docker",
+      "section": "FastAPI in Containers - Docker > Interactive API docs"
+    },
+    {
+      "doc_id": "deployment/docker",
+      "section": "FastAPI in Containers - Docker > Alternative API docs"
+    },
+    {
+      "doc_id": "deployment/docker",
+      "section": "FastAPI in Containers - Docker > Build a Docker Image with a Single-File FastAPI"
+    },
+    {
+      "doc_id": "deployment/docker",
+      "section": "FastAPI in Containers - Docker > Deployment Concepts"
+    },
+    {
+      "doc_id": "deployment/docker",
+      "section": "FastAPI in Containers - Docker > HTTPS"
+    },
+    {
+      "doc_id": "deployment/docker",
+      "section": "FastAPI in Containers - Docker > Running on Startup and Restarts"
+    },
+    {
+      "doc_id": "deployment/docker",
+      "section": "FastAPI in Containers - Docker > Replication - Number of Processes"
+    },
+    {
+      "doc_id": "deployment/docker",
+      "section": "FastAPI in Containers - Docker > Replication - Number of Processes > Load Balancer"
+    },
+    {
+      "doc_id": "deployment/docker",
+      "section": "FastAPI in Containers - Docker > Replication - Number of Processes > One Load Balancer - Multiple Worker Containers"
+    },
+    {
+      "doc_id": "deployment/docker",
+      "section": "FastAPI in Containers - Docker > Replication - Number of Processes > One Process per Container"
+    },
+    {
+      "doc_id": "deployment/docker",
+      "section": "FastAPI in Containers - Docker > Replication - Number of Processes > Containers with Multiple Processes and Special Cases"
+    },
+    {
+      "doc_id": "deployment/docker",
+      "section": "FastAPI in Containers - Docker > Memory"
+    },
+    {
+      "doc_id": "deployment/docker",
+      "section": "FastAPI in Containers - Docker > Previous Steps Before Starting and Containers"
+    },
+    {
+      "doc_id": "deployment/docker",
+      "section": "FastAPI in Containers - Docker > Previous Steps Before Starting and Containers > Multiple Containers"
+    },
+    {
+      "doc_id": "deployment/docker",
+      "section": "FastAPI in Containers - Docker > Previous Steps Before Starting and Containers > Single Container"
+    },
+    {
+      "doc_id": "deployment/docker",
+      "section": "FastAPI in Containers - Docker > Previous Steps Before Starting and Containers > Base Docker Image"
+    },
+    {
+      "doc_id": "deployment/docker",
+      "section": "FastAPI in Containers - Docker > Deploy the Container Image"
+    },
+    {
+      "doc_id": "deployment/docker",
+      "section": "FastAPI in Containers - Docker > Docker Image with `uv`"
+    },
+    {
+      "doc_id": "deployment/docker",
+      "section": "FastAPI in Containers - Docker > Recap"
+    },
+    {
+      "doc_id": "deployment/fastapicloud",
+      "section": "FastAPI Cloud"
+    },
+    {
+      "doc_id": "deployment/fastapicloud",
+      "section": "FastAPI Cloud > About FastAPI Cloud"
+    },
+    {
+      "doc_id": "deployment/fastapicloud",
+      "section": "FastAPI Cloud > Deploy to other cloud providers"
+    },
+    {
+      "doc_id": "deployment/fastapicloud",
+      "section": "FastAPI Cloud > Deploy your own server"
+    },
+    {
+      "doc_id": "deployment/https",
+      "section": "About HTTPS"
+    },
+    {
+      "doc_id": "deployment/https",
+      "section": "About HTTPS > Let's Encrypt"
+    },
+    {
+      "doc_id": "deployment/https",
+      "section": "About HTTPS > HTTPS for Developers"
+    },
+    {
+      "doc_id": "deployment/https",
+      "section": "About HTTPS > HTTPS for Developers > Domain Name"
+    },
+    {
+      "doc_id": "deployment/https",
+      "section": "About HTTPS > HTTPS for Developers > DNS"
+    },
+    {
+      "doc_id": "deployment/https",
+      "section": "About HTTPS > HTTPS for Developers > TLS Handshake Start"
+    },
+    {
+      "doc_id": "deployment/https",
+      "section": "About HTTPS > HTTPS for Developers > TLS with SNI Extension"
+    },
+    {
+      "doc_id": "deployment/https",
+      "section": "About HTTPS > HTTPS for Developers > HTTPS Request"
+    },
+    {
+      "doc_id": "deployment/https",
+      "section": "About HTTPS > HTTPS for Developers > Decrypt the Request"
+    },
+    {
+      "doc_id": "deployment/https",
+      "section": "About HTTPS > HTTPS for Developers > HTTP Response"
+    },
+    {
+      "doc_id": "deployment/https",
+      "section": "About HTTPS > HTTPS for Developers > HTTPS Response"
+    },
+    {
+      "doc_id": "deployment/https",
+      "section": "About HTTPS > HTTPS for Developers > Multiple Applications"
+    },
+    {
+      "doc_id": "deployment/https",
+      "section": "About HTTPS > HTTPS for Developers > Certificate Renewal"
+    },
+    {
+      "doc_id": "deployment/https",
+      "section": "About HTTPS > Proxy Forwarded Headers"
+    },
+    {
+      "doc_id": "deployment/https",
+      "section": "About HTTPS > Recap"
+    },
+    {
+      "doc_id": "deployment/index",
+      "section": "Deployment"
+    },
+    {
+      "doc_id": "deployment/index",
+      "section": "Deployment > What Does Deployment Mean"
+    },
+    {
+      "doc_id": "deployment/index",
+      "section": "Deployment > Deployment Strategies"
+    },
+    {
+      "doc_id": "deployment/manually",
+      "section": "Run a Server Manually > Use the `fastapi run` Command"
+    },
+    {
+      "doc_id": "deployment/manually",
+      "section": "Run a Server Manually > ASGI Servers"
+    },
+    {
+      "doc_id": "deployment/manually",
+      "section": "Run a Server Manually > Server Machine and Server Program"
+    },
+    {
+      "doc_id": "deployment/manually",
+      "section": "Run a Server Manually > Install the Server Program"
+    },
+    {
+      "doc_id": "deployment/manually",
+      "section": "Run a Server Manually > Run the Server Program"
+    },
+    {
+      "doc_id": "deployment/manually",
+      "section": "Run a Server Manually > Deployment Concepts"
+    },
+    {
+      "doc_id": "deployment/server-workers",
+      "section": "Server Workers - Uvicorn with Workers"
+    },
+    {
+      "doc_id": "deployment/server-workers",
+      "section": "Server Workers - Uvicorn with Workers > Multiple Workers"
+    },
+    {
+      "doc_id": "deployment/server-workers",
+      "section": "Server Workers - Uvicorn with Workers > Deployment Concepts"
+    },
+    {
+      "doc_id": "deployment/server-workers",
+      "section": "Server Workers - Uvicorn with Workers > Containers and Docker"
+    },
+    {
+      "doc_id": "deployment/server-workers",
+      "section": "Server Workers - Uvicorn with Workers > Recap"
+    },
+    {
+      "doc_id": "deployment/versions",
+      "section": "About FastAPI versions"
+    },
+    {
+      "doc_id": "deployment/versions",
+      "section": "About FastAPI versions > Pin your `fastapi` version"
+    },
+    {
+      "doc_id": "deployment/versions",
+      "section": "About FastAPI versions > Available versions"
+    },
+    {
+      "doc_id": "deployment/versions",
+      "section": "About FastAPI versions > About versions"
+    },
+    {
+      "doc_id": "deployment/versions",
+      "section": "About FastAPI versions > Upgrading the FastAPI versions"
+    },
+    {
+      "doc_id": "deployment/versions",
+      "section": "About FastAPI versions > About Starlette"
+    },
+    {
+      "doc_id": "deployment/versions",
+      "section": "About FastAPI versions > About Pydantic"
+    },
+    {
+      "doc_id": "editor-support",
+      "section": "Editor Support"
+    },
+    {
+      "doc_id": "editor-support",
+      "section": "Editor Support > Setup and Installation"
+    },
+    {
+      "doc_id": "editor-support",
+      "section": "Editor Support > Setup and Installation > Application Discovery"
+    },
+    {
+      "doc_id": "editor-support",
+      "section": "Editor Support > Features"
+    },
+    {
+      "doc_id": "environment-variables",
+      "section": "Environment Variables"
+    },
+    {
+      "doc_id": "environment-variables",
+      "section": "Environment Variables > Learn More"
+    },
+    {
+      "doc_id": "fastapi-cli",
+      "section": "FastAPI CLI"
+    },
+    {
+      "doc_id": "fastapi-cli",
+      "section": "FastAPI CLI > Configure the app `entrypoint` in `pyproject.toml`"
+    },
+    {
+      "doc_id": "fastapi-cli",
+      "section": "FastAPI CLI > Configure the app `entrypoint` in `pyproject.toml` > `fastapi dev` with path or with `--entrypoint` CLI option"
+    },
+    {
+      "doc_id": "fastapi-cli",
+      "section": "FastAPI CLI > `fastapi dev`"
+    },
+    {
+      "doc_id": "fastapi-cli",
+      "section": "FastAPI CLI > `fastapi run`"
+    },
+    {
+      "doc_id": "features",
+      "section": "Features > FastAPI features"
+    },
+    {
+      "doc_id": "features",
+      "section": "Features > FastAPI features > Based on open standards"
+    },
+    {
+      "doc_id": "features",
+      "section": "Features > FastAPI features > Automatic docs"
+    },
+    {
+      "doc_id": "features",
+      "section": "Features > FastAPI features > Just Modern Python"
+    },
+    {
+      "doc_id": "features",
+      "section": "Features > FastAPI features > Editor support"
+    },
+    {
+      "doc_id": "features",
+      "section": "Features > FastAPI features > Short"
+    },
+    {
+      "doc_id": "features",
+      "section": "Features > FastAPI features > Validation"
+    },
+    {
+      "doc_id": "features",
+      "section": "Features > FastAPI features > Security and authentication"
+    },
+    {
+      "doc_id": "features",
+      "section": "Features > FastAPI features > Dependency Injection"
+    },
+    {
+      "doc_id": "features",
+      "section": "Features > FastAPI features > Unlimited \"plug-ins\""
+    },
+    {
+      "doc_id": "features",
+      "section": "Features > FastAPI features > Tested"
+    },
+    {
+      "doc_id": "features",
+      "section": "Features > Starlette features"
+    },
+    {
+      "doc_id": "features",
+      "section": "Features > Pydantic features"
+    },
+    {
+      "doc_id": "history-design-future",
+      "section": "History, Design and Future"
+    },
+    {
+      "doc_id": "history-design-future",
+      "section": "History, Design and Future > Alternatives"
+    },
+    {
+      "doc_id": "history-design-future",
+      "section": "History, Design and Future > Investigation"
+    },
+    {
+      "doc_id": "history-design-future",
+      "section": "History, Design and Future > Design"
+    },
+    {
+      "doc_id": "history-design-future",
+      "section": "History, Design and Future > Requirements"
+    },
+    {
+      "doc_id": "history-design-future",
+      "section": "History, Design and Future > Development"
+    },
+    {
+      "doc_id": "history-design-future",
+      "section": "History, Design and Future > Future"
+    },
+    {
+      "doc_id": "how-to/authentication-error-status-code",
+      "section": "Use Old 403 Authentication Error Status Codes"
+    },
+    {
+      "doc_id": "how-to/conditional-openapi",
+      "section": "Conditional OpenAPI"
+    },
+    {
+      "doc_id": "how-to/conditional-openapi",
+      "section": "Conditional OpenAPI > About security, APIs, and docs"
+    },
+    {
+      "doc_id": "how-to/conditional-openapi",
+      "section": "Conditional OpenAPI > Conditional OpenAPI from settings and env vars"
+    },
+    {
+      "doc_id": "how-to/configure-swagger-ui",
+      "section": "Configure Swagger UI"
+    },
+    {
+      "doc_id": "how-to/configure-swagger-ui",
+      "section": "Configure Swagger UI > Disable Syntax Highlighting"
+    },
+    {
+      "doc_id": "how-to/configure-swagger-ui",
+      "section": "Configure Swagger UI > Change the Theme"
+    },
+    {
+      "doc_id": "how-to/configure-swagger-ui",
+      "section": "Configure Swagger UI > Change Default Swagger UI Parameters"
+    },
+    {
+      "doc_id": "how-to/configure-swagger-ui",
+      "section": "Configure Swagger UI > Other Swagger UI Parameters"
+    },
+    {
+      "doc_id": "how-to/configure-swagger-ui",
+      "section": "Configure Swagger UI > JavaScript-only settings"
+    },
+    {
+      "doc_id": "how-to/custom-docs-ui-assets",
+      "section": "Custom Docs UI Static Assets (Self-Hosting)"
+    },
+    {
+      "doc_id": "how-to/custom-docs-ui-assets",
+      "section": "Custom Docs UI Static Assets (Self-Hosting) > Custom CDN for JavaScript and CSS"
+    },
+    {
+      "doc_id": "how-to/custom-docs-ui-assets",
+      "section": "Custom Docs UI Static Assets (Self-Hosting) > Custom CDN for JavaScript and CSS > Disable the automatic docs"
+    },
+    {
+      "doc_id": "how-to/custom-docs-ui-assets",
+      "section": "Custom Docs UI Static Assets (Self-Hosting) > Custom CDN for JavaScript and CSS > Include the custom docs"
+    },
+    {
+      "doc_id": "how-to/custom-docs-ui-assets",
+      "section": "Custom Docs UI Static Assets (Self-Hosting) > Custom CDN for JavaScript and CSS > Create a *path operation* to test it"
+    },
+    {
+      "doc_id": "how-to/custom-docs-ui-assets",
+      "section": "Custom Docs UI Static Assets (Self-Hosting) > Custom CDN for JavaScript and CSS > Test it"
+    },
+    {
+      "doc_id": "how-to/custom-docs-ui-assets",
+      "section": "Custom Docs UI Static Assets (Self-Hosting) > Self-hosting JavaScript and CSS for docs"
+    },
+    {
+      "doc_id": "how-to/custom-docs-ui-assets",
+      "section": "Custom Docs UI Static Assets (Self-Hosting) > Self-hosting JavaScript and CSS for docs > Project file structure"
+    },
+    {
+      "doc_id": "how-to/custom-docs-ui-assets",
+      "section": "Custom Docs UI Static Assets (Self-Hosting) > Self-hosting JavaScript and CSS for docs > Download the files"
+    },
+    {
+      "doc_id": "how-to/custom-docs-ui-assets",
+      "section": "Custom Docs UI Static Assets (Self-Hosting) > Self-hosting JavaScript and CSS for docs > Serve the static files"
+    },
+    {
+      "doc_id": "how-to/custom-docs-ui-assets",
+      "section": "Custom Docs UI Static Assets (Self-Hosting) > Self-hosting JavaScript and CSS for docs > Test the static files"
+    },
+    {
+      "doc_id": "how-to/custom-docs-ui-assets",
+      "section": "Custom Docs UI Static Assets (Self-Hosting) > Self-hosting JavaScript and CSS for docs > Disable the automatic docs for static files"
+    },
+    {
+      "doc_id": "how-to/custom-docs-ui-assets",
+      "section": "Custom Docs UI Static Assets (Self-Hosting) > Self-hosting JavaScript and CSS for docs > Include the custom docs for static files"
+    },
+    {
+      "doc_id": "how-to/custom-docs-ui-assets",
+      "section": "Custom Docs UI Static Assets (Self-Hosting) > Self-hosting JavaScript and CSS for docs > Create a *path operation* to test static files"
+    },
+    {
+      "doc_id": "how-to/custom-docs-ui-assets",
+      "section": "Custom Docs UI Static Assets (Self-Hosting) > Self-hosting JavaScript and CSS for docs > Test Static Files UI"
+    },
+    {
+      "doc_id": "how-to/custom-request-and-route",
+      "section": "Custom Request and APIRoute class"
+    },
+    {
+      "doc_id": "how-to/custom-request-and-route",
+      "section": "Custom Request and APIRoute class > Use cases"
+    },
+    {
+      "doc_id": "how-to/custom-request-and-route",
+      "section": "Custom Request and APIRoute class > Handling custom request body encodings"
+    },
+    {
+      "doc_id": "how-to/custom-request-and-route",
+      "section": "Custom Request and APIRoute class > Handling custom request body encodings > Create a custom `GzipRequest` class"
+    },
+    {
+      "doc_id": "how-to/custom-request-and-route",
+      "section": "Custom Request and APIRoute class > Handling custom request body encodings > Create a custom `GzipRoute` class"
+    },
+    {
+      "doc_id": "how-to/custom-request-and-route",
+      "section": "Custom Request and APIRoute class > Accessing the request body in an exception handler"
+    },
+    {
+      "doc_id": "how-to/custom-request-and-route",
+      "section": "Custom Request and APIRoute class > Custom `APIRoute` class in a router"
+    },
+    {
+      "doc_id": "how-to/extending-openapi",
+      "section": "Extending OpenAPI"
+    },
+    {
+      "doc_id": "how-to/extending-openapi",
+      "section": "Extending OpenAPI > The normal process"
+    },
+    {
+      "doc_id": "how-to/extending-openapi",
+      "section": "Extending OpenAPI > Overriding the defaults"
+    },
+    {
+      "doc_id": "how-to/extending-openapi",
+      "section": "Extending OpenAPI > Overriding the defaults > Normal **FastAPI**"
+    },
+    {
+      "doc_id": "how-to/extending-openapi",
+      "section": "Extending OpenAPI > Overriding the defaults > Generate the OpenAPI schema"
+    },
+    {
+      "doc_id": "how-to/extending-openapi",
+      "section": "Extending OpenAPI > Overriding the defaults > Modify the OpenAPI schema"
+    },
+    {
+      "doc_id": "how-to/extending-openapi",
+      "section": "Extending OpenAPI > Overriding the defaults > Cache the OpenAPI schema"
+    },
+    {
+      "doc_id": "how-to/extending-openapi",
+      "section": "Extending OpenAPI > Overriding the defaults > Override the method"
+    },
+    {
+      "doc_id": "how-to/extending-openapi",
+      "section": "Extending OpenAPI > Overriding the defaults > Check it"
+    },
+    {
+      "doc_id": "how-to/general",
+      "section": "General - How To - Recipes"
+    },
+    {
+      "doc_id": "how-to/general",
+      "section": "General - How To - Recipes > Filter Data - Security"
+    },
+    {
+      "doc_id": "how-to/general",
+      "section": "General - How To - Recipes > Optimize Response Performance - Response Model - Return Type"
+    },
+    {
+      "doc_id": "how-to/general",
+      "section": "General - How To - Recipes > Documentation Tags - OpenAPI"
+    },
+    {
+      "doc_id": "how-to/general",
+      "section": "General - How To - Recipes > Documentation Summary and Description - OpenAPI"
+    },
+    {
+      "doc_id": "how-to/general",
+      "section": "General - How To - Recipes > Documentation Response description - OpenAPI"
+    },
+    {
+      "doc_id": "how-to/general",
+      "section": "General - How To - Recipes > Documentation Deprecate a *Path Operation* - OpenAPI"
+    },
+    {
+      "doc_id": "how-to/general",
+      "section": "General - How To - Recipes > Convert any Data to JSON-compatible"
+    },
+    {
+      "doc_id": "how-to/general",
+      "section": "General - How To - Recipes > OpenAPI Metadata - Docs"
+    },
+    {
+      "doc_id": "how-to/general",
+      "section": "General - How To - Recipes > OpenAPI Custom URL"
+    },
+    {
+      "doc_id": "how-to/general",
+      "section": "General - How To - Recipes > OpenAPI Docs URLs"
+    },
+    {
+      "doc_id": "how-to/graphql",
+      "section": "GraphQL"
+    },
+    {
+      "doc_id": "how-to/graphql",
+      "section": "GraphQL > GraphQL Libraries"
+    },
+    {
+      "doc_id": "how-to/graphql",
+      "section": "GraphQL > GraphQL with Strawberry"
+    },
+    {
+      "doc_id": "how-to/graphql",
+      "section": "GraphQL > Older `GraphQLApp` from Starlette"
+    },
+    {
+      "doc_id": "how-to/graphql",
+      "section": "GraphQL > Learn More"
+    },
+    {
+      "doc_id": "how-to/index",
+      "section": "How To - Recipes"
+    },
+    {
+      "doc_id": "how-to/migrate-from-pydantic-v1-to-pydantic-v2",
+      "section": "Migrate from Pydantic v1 to Pydantic v2"
+    },
+    {
+      "doc_id": "how-to/migrate-from-pydantic-v1-to-pydantic-v2",
+      "section": "Migrate from Pydantic v1 to Pydantic v2 > Official Guide"
+    },
+    {
+      "doc_id": "how-to/migrate-from-pydantic-v1-to-pydantic-v2",
+      "section": "Migrate from Pydantic v1 to Pydantic v2 > Tests"
+    },
+    {
+      "doc_id": "how-to/migrate-from-pydantic-v1-to-pydantic-v2",
+      "section": "Migrate from Pydantic v1 to Pydantic v2 > `bump-pydantic`"
+    },
+    {
+      "doc_id": "how-to/migrate-from-pydantic-v1-to-pydantic-v2",
+      "section": "Migrate from Pydantic v1 to Pydantic v2 > Pydantic v1 in v2"
+    },
+    {
+      "doc_id": "how-to/migrate-from-pydantic-v1-to-pydantic-v2",
+      "section": "Migrate from Pydantic v1 to Pydantic v2 > Pydantic v1 in v2 > FastAPI support for Pydantic v1 in v2"
+    },
+    {
+      "doc_id": "how-to/migrate-from-pydantic-v1-to-pydantic-v2",
+      "section": "Migrate from Pydantic v1 to Pydantic v2 > Pydantic v1 in v2 > Pydantic v1 and v2 on the same app"
+    },
+    {
+      "doc_id": "how-to/migrate-from-pydantic-v1-to-pydantic-v2",
+      "section": "Migrate from Pydantic v1 to Pydantic v2 > Pydantic v1 in v2 > Pydantic v1 parameters"
+    },
+    {
+      "doc_id": "how-to/migrate-from-pydantic-v1-to-pydantic-v2",
+      "section": "Migrate from Pydantic v1 to Pydantic v2 > Pydantic v1 in v2 > Migrate in steps"
+    },
+    {
+      "doc_id": "how-to/separate-openapi-schemas",
+      "section": "Separate OpenAPI Schemas for Input and Output or Not"
+    },
+    {
+      "doc_id": "how-to/separate-openapi-schemas",
+      "section": "Separate OpenAPI Schemas for Input and Output or Not > Pydantic Models for Input and Output"
+    },
+    {
+      "doc_id": "how-to/separate-openapi-schemas",
+      "section": "Separate OpenAPI Schemas for Input and Output or Not > Pydantic Models for Input and Output > Model for Input"
+    },
+    {
+      "doc_id": "how-to/separate-openapi-schemas",
+      "section": "Separate OpenAPI Schemas for Input and Output or Not > Pydantic Models for Input and Output > Input Model in Docs"
+    },
+    {
+      "doc_id": "how-to/separate-openapi-schemas",
+      "section": "Separate OpenAPI Schemas for Input and Output or Not > Pydantic Models for Input and Output > Model for Output"
+    },
+    {
+      "doc_id": "how-to/separate-openapi-schemas",
+      "section": "Separate OpenAPI Schemas for Input and Output or Not > Pydantic Models for Input and Output > Model for Output Response Data"
+    },
+    {
+      "doc_id": "how-to/separate-openapi-schemas",
+      "section": "Separate OpenAPI Schemas for Input and Output or Not > Pydantic Models for Input and Output > Model for Output in Docs"
+    },
+    {
+      "doc_id": "how-to/separate-openapi-schemas",
+      "section": "Separate OpenAPI Schemas for Input and Output or Not > Pydantic Models for Input and Output > Model for Input and Output in Docs"
+    },
+    {
+      "doc_id": "how-to/separate-openapi-schemas",
+      "section": "Separate OpenAPI Schemas for Input and Output or Not > Do not Separate Schemas"
+    },
+    {
+      "doc_id": "how-to/separate-openapi-schemas",
+      "section": "Separate OpenAPI Schemas for Input and Output or Not > Do not Separate Schemas > Same Schema for Input and Output Models in Docs"
+    },
+    {
+      "doc_id": "how-to/testing-database",
+      "section": "Testing a Database"
+    },
+    {
+      "doc_id": "index",
+      "section": "Advanced User Guide > Additional Features"
+    },
+    {
+      "doc_id": "index",
+      "section": "Advanced User Guide > Read the Tutorial first"
+    },
+    {
+      "doc_id": "learn/index",
+      "section": "Learn"
+    },
+    {
+      "doc_id": "project-generation",
+      "section": "Full Stack FastAPI Template"
+    },
+    {
+      "doc_id": "project-generation",
+      "section": "Full Stack FastAPI Template > Full Stack FastAPI Template - Technology Stack and Features"
+    },
+    {
+      "doc_id": "python-types",
+      "section": "Python Types Intro"
+    },
+    {
+      "doc_id": "python-types",
+      "section": "Python Types Intro > Motivation"
+    },
+    {
+      "doc_id": "python-types",
+      "section": "Python Types Intro > Motivation > Edit it"
+    },
+    {
+      "doc_id": "python-types",
+      "section": "Python Types Intro > Motivation > Add types"
+    },
+    {
+      "doc_id": "python-types",
+      "section": "Python Types Intro > More motivation"
+    },
+    {
+      "doc_id": "python-types",
+      "section": "Python Types Intro > Declaring types"
+    },
+    {
+      "doc_id": "python-types",
+      "section": "Python Types Intro > Declaring types > Simple types"
+    },
+    {
+      "doc_id": "python-types",
+      "section": "Python Types Intro > Declaring types > `typing` module"
+    },
+    {
+      "doc_id": "python-types",
+      "section": "Python Types Intro > Declaring types > Generic types"
+    },
+    {
+      "doc_id": "python-types",
+      "section": "Python Types Intro > Declaring types > Classes as types"
+    },
+    {
+      "doc_id": "python-types",
+      "section": "Python Types Intro > Pydantic models"
+    },
+    {
+      "doc_id": "python-types",
+      "section": "Python Types Intro > Type Hints with Metadata Annotations"
+    },
+    {
+      "doc_id": "python-types",
+      "section": "Python Types Intro > Type hints in **FastAPI**"
+    },
+    {
+      "doc_id": "resources/index",
+      "section": "Resources"
+    },
+    {
+      "doc_id": "translations",
+      "section": "Translations"
+    },
+    {
+      "doc_id": "translations",
+      "section": "Translations > LLM Prompt per Language"
+    },
+    {
+      "doc_id": "translations",
+      "section": "Translations > Request a New Language"
+    },
+    {
+      "doc_id": "tutorial/background-tasks",
+      "section": "Background Tasks"
+    },
+    {
+      "doc_id": "tutorial/background-tasks",
+      "section": "Background Tasks > Using `BackgroundTasks`"
+    },
+    {
+      "doc_id": "tutorial/background-tasks",
+      "section": "Background Tasks > Create a task function"
+    },
+    {
+      "doc_id": "tutorial/background-tasks",
+      "section": "Background Tasks > Add the background task"
+    },
+    {
+      "doc_id": "tutorial/background-tasks",
+      "section": "Background Tasks > Dependency Injection"
+    },
+    {
+      "doc_id": "tutorial/background-tasks",
+      "section": "Background Tasks > Technical Details"
+    },
+    {
+      "doc_id": "tutorial/background-tasks",
+      "section": "Background Tasks > Caveat"
+    },
+    {
+      "doc_id": "tutorial/background-tasks",
+      "section": "Background Tasks > Recap"
+    },
+    {
+      "doc_id": "tutorial/bigger-applications",
+      "section": "Bigger Applications - Multiple Files"
+    },
+    {
+      "doc_id": "tutorial/bigger-applications",
+      "section": "Bigger Applications - Multiple Files > An example file structure"
+    },
+    {
+      "doc_id": "tutorial/bigger-applications",
+      "section": "Bigger Applications - Multiple Files > `APIRouter`"
+    },
+    {
+      "doc_id": "tutorial/bigger-applications",
+      "section": "Bigger Applications - Multiple Files > `APIRouter` > Import `APIRouter`"
+    },
+    {
+      "doc_id": "tutorial/bigger-applications",
+      "section": "Bigger Applications - Multiple Files > `APIRouter` > *Path operations* with `APIRouter`"
+    },
+    {
+      "doc_id": "tutorial/bigger-applications",
+      "section": "Bigger Applications - Multiple Files > Dependencies"
+    },
+    {
+      "doc_id": "tutorial/bigger-applications",
+      "section": "Bigger Applications - Multiple Files > Another module with `APIRouter`"
+    },
+    {
+      "doc_id": "tutorial/bigger-applications",
+      "section": "Bigger Applications - Multiple Files > Another module with `APIRouter` > Import the dependencies"
+    },
+    {
+      "doc_id": "tutorial/bigger-applications",
+      "section": "Bigger Applications - Multiple Files > Another module with `APIRouter` > Add some custom `tags`, `responses`, and `dependencies`"
+    },
+    {
+      "doc_id": "tutorial/bigger-applications",
+      "section": "Bigger Applications - Multiple Files > The main `FastAPI`"
+    },
+    {
+      "doc_id": "tutorial/bigger-applications",
+      "section": "Bigger Applications - Multiple Files > The main `FastAPI` > Import `FastAPI`"
+    },
+    {
+      "doc_id": "tutorial/bigger-applications",
+      "section": "Bigger Applications - Multiple Files > The main `FastAPI` > Import the `APIRouter`"
+    },
+    {
+      "doc_id": "tutorial/bigger-applications",
+      "section": "Bigger Applications - Multiple Files > The main `FastAPI` > How the importing works"
+    },
+    {
+      "doc_id": "tutorial/bigger-applications",
+      "section": "Bigger Applications - Multiple Files > The main `FastAPI` > Avoid name collisions"
+    },
+    {
+      "doc_id": "tutorial/bigger-applications",
+      "section": "Bigger Applications - Multiple Files > The main `FastAPI` > Include the `APIRouter`s for `users` and `items`"
+    },
+    {
+      "doc_id": "tutorial/bigger-applications",
+      "section": "Bigger Applications - Multiple Files > The main `FastAPI` > Include an `APIRouter` with a custom `prefix`, `tags`, `responses`, and `dependencies`"
+    },
+    {
+      "doc_id": "tutorial/bigger-applications",
+      "section": "Bigger Applications - Multiple Files > The main `FastAPI` > Include a *path operation*"
+    },
+    {
+      "doc_id": "tutorial/bigger-applications",
+      "section": "Bigger Applications - Multiple Files > Configure the `entrypoint` in `pyproject.toml`"
+    },
+    {
+      "doc_id": "tutorial/bigger-applications",
+      "section": "Bigger Applications - Multiple Files > Check the automatic API docs"
+    },
+    {
+      "doc_id": "tutorial/bigger-applications",
+      "section": "Bigger Applications - Multiple Files > Include the same router multiple times with different `prefix`"
+    },
+    {
+      "doc_id": "tutorial/bigger-applications",
+      "section": "Bigger Applications - Multiple Files > Include an `APIRouter` in another"
+    },
+    {
+      "doc_id": "tutorial/body-fields",
+      "section": "Body - Fields"
+    },
+    {
+      "doc_id": "tutorial/body-fields",
+      "section": "Body - Fields > Import `Field`"
+    },
+    {
+      "doc_id": "tutorial/body-fields",
+      "section": "Body - Fields > Declare model attributes"
+    },
+    {
+      "doc_id": "tutorial/body-fields",
+      "section": "Body - Fields > Add extra information"
+    },
+    {
+      "doc_id": "tutorial/body-fields",
+      "section": "Body - Fields > Recap"
+    },
+    {
+      "doc_id": "tutorial/body-multiple-params",
+      "section": "Body - Multiple Parameters"
+    },
+    {
+      "doc_id": "tutorial/body-multiple-params",
+      "section": "Body - Multiple Parameters > Mix `Path`, `Query` and body parameters"
+    },
+    {
+      "doc_id": "tutorial/body-multiple-params",
+      "section": "Body - Multiple Parameters > Multiple body parameters"
+    },
+    {
+      "doc_id": "tutorial/body-multiple-params",
+      "section": "Body - Multiple Parameters > Singular values in body"
+    },
+    {
+      "doc_id": "tutorial/body-multiple-params",
+      "section": "Body - Multiple Parameters > Multiple body params and query"
+    },
+    {
+      "doc_id": "tutorial/body-multiple-params",
+      "section": "Body - Multiple Parameters > Embed a single body parameter"
+    },
+    {
+      "doc_id": "tutorial/body-multiple-params",
+      "section": "Body - Multiple Parameters > Recap"
+    },
+    {
+      "doc_id": "tutorial/body-nested-models",
+      "section": "Body - Nested Models"
+    },
+    {
+      "doc_id": "tutorial/body-nested-models",
+      "section": "Body - Nested Models > List fields"
+    },
+    {
+      "doc_id": "tutorial/body-nested-models",
+      "section": "Body - Nested Models > List fields with type parameter"
+    },
+    {
+      "doc_id": "tutorial/body-nested-models",
+      "section": "Body - Nested Models > List fields with type parameter > Declare a `list` with a type parameter"
+    },
+    {
+      "doc_id": "tutorial/body-nested-models",
+      "section": "Body - Nested Models > Set types"
+    },
+    {
+      "doc_id": "tutorial/body-nested-models",
+      "section": "Body - Nested Models > Nested Models"
+    },
+    {
+      "doc_id": "tutorial/body-nested-models",
+      "section": "Body - Nested Models > Nested Models > Define a submodel"
+    },
+    {
+      "doc_id": "tutorial/body-nested-models",
+      "section": "Body - Nested Models > Nested Models > Use the submodel as a type"
+    },
+    {
+      "doc_id": "tutorial/body-nested-models",
+      "section": "Body - Nested Models > Special types and validation"
+    },
+    {
+      "doc_id": "tutorial/body-nested-models",
+      "section": "Body - Nested Models > Attributes with lists of submodels"
+    },
+    {
+      "doc_id": "tutorial/body-nested-models",
+      "section": "Body - Nested Models > Deeply nested models"
+    },
+    {
+      "doc_id": "tutorial/body-nested-models",
+      "section": "Body - Nested Models > Bodies of pure lists"
+    },
+    {
+      "doc_id": "tutorial/body-nested-models",
+      "section": "Body - Nested Models > Editor support everywhere"
+    },
+    {
+      "doc_id": "tutorial/body-nested-models",
+      "section": "Body - Nested Models > Bodies of arbitrary `dict`s"
+    },
+    {
+      "doc_id": "tutorial/body-nested-models",
+      "section": "Body - Nested Models > Recap"
+    },
+    {
+      "doc_id": "tutorial/body-updates",
+      "section": "Body - Updates > Update replacing with `PUT`"
+    },
+    {
+      "doc_id": "tutorial/body-updates",
+      "section": "Body - Updates > Update replacing with `PUT` > Warning about replacing"
+    },
+    {
+      "doc_id": "tutorial/body-updates",
+      "section": "Body - Updates > Partial updates with `PATCH`"
+    },
+    {
+      "doc_id": "tutorial/body-updates",
+      "section": "Body - Updates > Partial updates with `PATCH` > Using Pydantic's `exclude_unset` parameter"
+    },
+    {
+      "doc_id": "tutorial/body-updates",
+      "section": "Body - Updates > Partial updates with `PATCH` > Using Pydantic's `update` parameter"
+    },
+    {
+      "doc_id": "tutorial/body-updates",
+      "section": "Body - Updates > Partial updates with `PATCH` > Partial updates recap"
+    },
+    {
+      "doc_id": "tutorial/body",
+      "section": "Request Body"
+    },
+    {
+      "doc_id": "tutorial/body",
+      "section": "Request Body > Import Pydantic's `BaseModel`"
+    },
+    {
+      "doc_id": "tutorial/body",
+      "section": "Request Body > Create your data model"
+    },
+    {
+      "doc_id": "tutorial/body",
+      "section": "Request Body > Declare it as a parameter"
+    },
+    {
+      "doc_id": "tutorial/body",
+      "section": "Request Body > Results"
+    },
+    {
+      "doc_id": "tutorial/body",
+      "section": "Request Body > Automatic docs"
+    },
+    {
+      "doc_id": "tutorial/body",
+      "section": "Request Body > Editor support"
+    },
+    {
+      "doc_id": "tutorial/body",
+      "section": "Request Body > Use the model"
+    },
+    {
+      "doc_id": "tutorial/body",
+      "section": "Request Body > Request body + path parameters"
+    },
+    {
+      "doc_id": "tutorial/body",
+      "section": "Request Body > Request body + path + query parameters"
+    },
+    {
+      "doc_id": "tutorial/body",
+      "section": "Request Body > Without Pydantic"
+    },
+    {
+      "doc_id": "tutorial/cookie-param-models",
+      "section": "Cookie Parameter Models"
+    },
+    {
+      "doc_id": "tutorial/cookie-param-models",
+      "section": "Cookie Parameter Models > Cookies with a Pydantic Model"
+    },
+    {
+      "doc_id": "tutorial/cookie-param-models",
+      "section": "Cookie Parameter Models > Check the Docs"
+    },
+    {
+      "doc_id": "tutorial/cookie-param-models",
+      "section": "Cookie Parameter Models > Forbid Extra Cookies"
+    },
+    {
+      "doc_id": "tutorial/cookie-param-models",
+      "section": "Cookie Parameter Models > Summary"
+    },
+    {
+      "doc_id": "tutorial/cookie-params",
+      "section": "Cookie Parameters"
+    },
+    {
+      "doc_id": "tutorial/cookie-params",
+      "section": "Cookie Parameters > Import `Cookie`"
+    },
+    {
+      "doc_id": "tutorial/cookie-params",
+      "section": "Cookie Parameters > Declare `Cookie` parameters"
+    },
+    {
+      "doc_id": "tutorial/cookie-params",
+      "section": "Cookie Parameters > Recap"
+    },
+    {
+      "doc_id": "tutorial/cors",
+      "section": "CORS (Cross-Origin Resource Sharing)"
+    },
+    {
+      "doc_id": "tutorial/cors",
+      "section": "CORS (Cross-Origin Resource Sharing) > Origin"
+    },
+    {
+      "doc_id": "tutorial/cors",
+      "section": "CORS (Cross-Origin Resource Sharing) > Steps"
+    },
+    {
+      "doc_id": "tutorial/cors",
+      "section": "CORS (Cross-Origin Resource Sharing) > Wildcards"
+    },
+    {
+      "doc_id": "tutorial/cors",
+      "section": "CORS (Cross-Origin Resource Sharing) > Use `CORSMiddleware`"
+    },
+    {
+      "doc_id": "tutorial/cors",
+      "section": "CORS (Cross-Origin Resource Sharing) > Use `CORSMiddleware` > CORS preflight requests"
+    },
+    {
+      "doc_id": "tutorial/cors",
+      "section": "CORS (Cross-Origin Resource Sharing) > Use `CORSMiddleware` > Simple requests"
+    },
+    {
+      "doc_id": "tutorial/cors",
+      "section": "CORS (Cross-Origin Resource Sharing) > More info"
+    },
+    {
+      "doc_id": "tutorial/debugging",
+      "section": "Debugging"
+    },
+    {
+      "doc_id": "tutorial/debugging",
+      "section": "Debugging > Call `uvicorn`"
+    },
+    {
+      "doc_id": "tutorial/debugging",
+      "section": "Debugging > Call `uvicorn` > About `__name__ == \"__main__\"`"
+    },
+    {
+      "doc_id": "tutorial/debugging",
+      "section": "Debugging > Run your code with your debugger"
+    },
+    {
+      "doc_id": "tutorial/dependencies/classes-as-dependencies",
+      "section": "Classes as Dependencies"
+    },
+    {
+      "doc_id": "tutorial/dependencies/classes-as-dependencies",
+      "section": "Classes as Dependencies > A `dict` from the previous example"
+    },
+    {
+      "doc_id": "tutorial/dependencies/classes-as-dependencies",
+      "section": "Classes as Dependencies > What makes a dependency"
+    },
+    {
+      "doc_id": "tutorial/dependencies/classes-as-dependencies",
+      "section": "Classes as Dependencies > Classes as dependencies"
+    },
+    {
+      "doc_id": "tutorial/dependencies/classes-as-dependencies",
+      "section": "Classes as Dependencies > Use it"
+    },
+    {
+      "doc_id": "tutorial/dependencies/classes-as-dependencies",
+      "section": "Classes as Dependencies > Type annotation vs `Depends`"
+    },
+    {
+      "doc_id": "tutorial/dependencies/classes-as-dependencies",
+      "section": "Classes as Dependencies > Shortcut"
+    },
+    {
+      "doc_id": "tutorial/dependencies/dependencies-in-path-operation-decorators",
+      "section": "Dependencies in path operation decorators"
+    },
+    {
+      "doc_id": "tutorial/dependencies/dependencies-in-path-operation-decorators",
+      "section": "Dependencies in path operation decorators > Add `dependencies` to the *path operation decorator*"
+    },
+    {
+      "doc_id": "tutorial/dependencies/dependencies-in-path-operation-decorators",
+      "section": "Dependencies in path operation decorators > Dependencies errors and return values"
+    },
+    {
+      "doc_id": "tutorial/dependencies/dependencies-in-path-operation-decorators",
+      "section": "Dependencies in path operation decorators > Dependencies errors and return values > Dependency requirements"
+    },
+    {
+      "doc_id": "tutorial/dependencies/dependencies-in-path-operation-decorators",
+      "section": "Dependencies in path operation decorators > Dependencies errors and return values > Raise exceptions"
+    },
+    {
+      "doc_id": "tutorial/dependencies/dependencies-in-path-operation-decorators",
+      "section": "Dependencies in path operation decorators > Dependencies errors and return values > Return values"
+    },
+    {
+      "doc_id": "tutorial/dependencies/dependencies-in-path-operation-decorators",
+      "section": "Dependencies in path operation decorators > Dependencies for a group of *path operations*"
+    },
+    {
+      "doc_id": "tutorial/dependencies/dependencies-in-path-operation-decorators",
+      "section": "Dependencies in path operation decorators > Global Dependencies"
+    },
+    {
+      "doc_id": "tutorial/dependencies/dependencies-with-yield",
+      "section": "Dependencies with yield"
+    },
+    {
+      "doc_id": "tutorial/dependencies/dependencies-with-yield",
+      "section": "Dependencies with yield > A database dependency with `yield`"
+    },
+    {
+      "doc_id": "tutorial/dependencies/dependencies-with-yield",
+      "section": "Dependencies with yield > A dependency with `yield` and `try`"
+    },
+    {
+      "doc_id": "tutorial/dependencies/dependencies-with-yield",
+      "section": "Dependencies with yield > Sub-dependencies with `yield`"
+    },
+    {
+      "doc_id": "tutorial/dependencies/dependencies-with-yield",
+      "section": "Dependencies with yield > Dependencies with `yield` and `HTTPException`"
+    },
+    {
+      "doc_id": "tutorial/dependencies/dependencies-with-yield",
+      "section": "Dependencies with yield > Dependencies with `yield` and `except`"
+    },
+    {
+      "doc_id": "tutorial/dependencies/dependencies-with-yield",
+      "section": "Dependencies with yield > Dependencies with `yield` and `except` > Always `raise` in Dependencies with `yield` and `except`"
+    },
+    {
+      "doc_id": "tutorial/dependencies/dependencies-with-yield",
+      "section": "Dependencies with yield > Execution of dependencies with `yield`"
+    },
+    {
+      "doc_id": "tutorial/dependencies/dependencies-with-yield",
+      "section": "Dependencies with yield > Early exit and `scope`"
+    },
+    {
+      "doc_id": "tutorial/dependencies/dependencies-with-yield",
+      "section": "Dependencies with yield > Early exit and `scope` > `scope` for sub-dependencies"
+    },
+    {
+      "doc_id": "tutorial/dependencies/dependencies-with-yield",
+      "section": "Dependencies with yield > Dependencies with `yield`, `HTTPException`, `except` and Background Tasks"
+    },
+    {
+      "doc_id": "tutorial/dependencies/dependencies-with-yield",
+      "section": "Dependencies with yield > Context Managers > What are \"Context Managers\""
+    },
+    {
+      "doc_id": "tutorial/dependencies/dependencies-with-yield",
+      "section": "Dependencies with yield > Context Managers > Using context managers in dependencies with `yield`"
+    },
+    {
+      "doc_id": "tutorial/dependencies/global-dependencies",
+      "section": "Global Dependencies"
+    },
+    {
+      "doc_id": "tutorial/dependencies/global-dependencies",
+      "section": "Global Dependencies > Dependencies for groups of *path operations*"
+    },
+    {
+      "doc_id": "tutorial/dependencies/index",
+      "section": "Dependencies"
+    },
+    {
+      "doc_id": "tutorial/dependencies/index",
+      "section": "Dependencies > What is \"Dependency Injection\""
+    },
+    {
+      "doc_id": "tutorial/dependencies/index",
+      "section": "Dependencies > First Steps"
+    },
+    {
+      "doc_id": "tutorial/dependencies/index",
+      "section": "Dependencies > First Steps > Create a dependency, or \"dependable\""
+    },
+    {
+      "doc_id": "tutorial/dependencies/index",
+      "section": "Dependencies > First Steps > Import `Depends`"
+    },
+    {
+      "doc_id": "tutorial/dependencies/index",
+      "section": "Dependencies > First Steps > Declare the dependency, in the \"dependant\""
+    },
+    {
+      "doc_id": "tutorial/dependencies/index",
+      "section": "Dependencies > Share `Annotated` dependencies"
+    },
+    {
+      "doc_id": "tutorial/dependencies/index",
+      "section": "Dependencies > To `async` or not to `async`"
+    },
+    {
+      "doc_id": "tutorial/dependencies/index",
+      "section": "Dependencies > Integrated with OpenAPI"
+    },
+    {
+      "doc_id": "tutorial/dependencies/index",
+      "section": "Dependencies > Simple usage"
+    },
+    {
+      "doc_id": "tutorial/dependencies/index",
+      "section": "Dependencies > **FastAPI** plug-ins"
+    },
+    {
+      "doc_id": "tutorial/dependencies/index",
+      "section": "Dependencies > **FastAPI** compatibility"
+    },
+    {
+      "doc_id": "tutorial/dependencies/index",
+      "section": "Dependencies > Simple and Powerful"
+    },
+    {
+      "doc_id": "tutorial/dependencies/index",
+      "section": "Dependencies > Integrated with **OpenAPI**"
+    },
+    {
+      "doc_id": "tutorial/dependencies/sub-dependencies",
+      "section": "Sub-dependencies"
+    },
+    {
+      "doc_id": "tutorial/dependencies/sub-dependencies",
+      "section": "Sub-dependencies > First dependency \"dependable\""
+    },
+    {
+      "doc_id": "tutorial/dependencies/sub-dependencies",
+      "section": "Sub-dependencies > Second dependency, \"dependable\" and \"dependant\""
+    },
+    {
+      "doc_id": "tutorial/dependencies/sub-dependencies",
+      "section": "Sub-dependencies > Use the dependency"
+    },
+    {
+      "doc_id": "tutorial/dependencies/sub-dependencies",
+      "section": "Sub-dependencies > Using the same dependency multiple times"
+    },
+    {
+      "doc_id": "tutorial/dependencies/sub-dependencies",
+      "section": "Sub-dependencies > Recap"
+    },
+    {
+      "doc_id": "tutorial/encoder",
+      "section": "JSON Compatible Encoder"
+    },
+    {
+      "doc_id": "tutorial/encoder",
+      "section": "JSON Compatible Encoder > Using the `jsonable_encoder`"
+    },
+    {
+      "doc_id": "tutorial/extra-data-types",
+      "section": "Extra Data Types"
+    },
+    {
+      "doc_id": "tutorial/extra-data-types",
+      "section": "Extra Data Types > Other data types"
+    },
+    {
+      "doc_id": "tutorial/extra-data-types",
+      "section": "Extra Data Types > Example"
+    },
+    {
+      "doc_id": "tutorial/extra-models",
+      "section": "Extra Models"
+    },
+    {
+      "doc_id": "tutorial/extra-models",
+      "section": "Extra Models > Multiple models"
+    },
+    {
+      "doc_id": "tutorial/extra-models",
+      "section": "Extra Models > Multiple models > About `**user_in.model_dump()`"
+    },
+    {
+      "doc_id": "tutorial/extra-models",
+      "section": "Extra Models > Reduce duplication"
+    },
+    {
+      "doc_id": "tutorial/extra-models",
+      "section": "Extra Models > `Union` or `anyOf`"
+    },
+    {
+      "doc_id": "tutorial/extra-models",
+      "section": "Extra Models > `Union` or `anyOf` > `Union` in Python 3.10"
+    },
+    {
+      "doc_id": "tutorial/extra-models",
+      "section": "Extra Models > List of models"
+    },
+    {
+      "doc_id": "tutorial/extra-models",
+      "section": "Extra Models > Response with arbitrary `dict`"
+    },
+    {
+      "doc_id": "tutorial/extra-models",
+      "section": "Extra Models > Recap"
+    },
+    {
+      "doc_id": "tutorial/first-steps",
+      "section": "First Steps"
+    },
+    {
+      "doc_id": "tutorial/first-steps",
+      "section": "First Steps > Check it"
+    },
+    {
+      "doc_id": "tutorial/first-steps",
+      "section": "First Steps > Interactive API docs"
+    },
+    {
+      "doc_id": "tutorial/first-steps",
+      "section": "First Steps > Alternative API docs"
+    },
+    {
+      "doc_id": "tutorial/first-steps",
+      "section": "First Steps > OpenAPI"
+    },
+    {
+      "doc_id": "tutorial/first-steps",
+      "section": "First Steps > Configure the app `entrypoint` in `pyproject.toml`"
+    },
+    {
+      "doc_id": "tutorial/first-steps",
+      "section": "First Steps > `fastapi dev` with path or with `--entrypoint` CLI option"
+    },
+    {
+      "doc_id": "tutorial/first-steps",
+      "section": "First Steps > Deploy your app (optional)"
+    },
+    {
+      "doc_id": "tutorial/first-steps",
+      "section": "First Steps > Recap, step by step > Step 1: import `FastAPI`"
+    },
+    {
+      "doc_id": "tutorial/first-steps",
+      "section": "First Steps > Recap, step by step > Step 2: create a `FastAPI` \"instance\""
+    },
+    {
+      "doc_id": "tutorial/first-steps",
+      "section": "First Steps > Recap, step by step > Step 3: create a *path operation*"
+    },
+    {
+      "doc_id": "tutorial/first-steps",
+      "section": "First Steps > Recap, step by step > Step 4: define the **path operation function**"
+    },
+    {
+      "doc_id": "tutorial/first-steps",
+      "section": "First Steps > Recap, step by step > Step 5: return the content"
+    },
+    {
+      "doc_id": "tutorial/first-steps",
+      "section": "First Steps > Recap, step by step > Step 6: Deploy it"
+    },
+    {
+      "doc_id": "tutorial/first-steps",
+      "section": "First Steps > Recap"
+    },
+    {
+      "doc_id": "tutorial/frontend",
+      "section": "Frontend"
+    },
+    {
+      "doc_id": "tutorial/frontend",
+      "section": "Frontend > Serve a Frontend"
+    },
+    {
+      "doc_id": "tutorial/frontend",
+      "section": "Frontend > Client-Side Routing"
+    },
+    {
+      "doc_id": "tutorial/frontend",
+      "section": "Frontend > Custom 404 Page"
+    },
+    {
+      "doc_id": "tutorial/frontend",
+      "section": "Frontend > Fallback Auto"
+    },
+    {
+      "doc_id": "tutorial/frontend",
+      "section": "Frontend > Disable Fallback"
+    },
+    {
+      "doc_id": "tutorial/frontend",
+      "section": "Frontend > Check Directory"
+    },
+    {
+      "doc_id": "tutorial/frontend",
+      "section": "Frontend > Use it with `APIRouter`"
+    },
+    {
+      "doc_id": "tutorial/frontend",
+      "section": "Frontend > Dependencies and Middleware"
+    },
+    {
+      "doc_id": "tutorial/frontend",
+      "section": "Frontend > Static Build Output Only"
+    },
+    {
+      "doc_id": "tutorial/handling-errors",
+      "section": "Handling Errors"
+    },
+    {
+      "doc_id": "tutorial/handling-errors",
+      "section": "Handling Errors > Use `HTTPException`"
+    },
+    {
+      "doc_id": "tutorial/handling-errors",
+      "section": "Handling Errors > Use `HTTPException` > Import `HTTPException`"
+    },
+    {
+      "doc_id": "tutorial/handling-errors",
+      "section": "Handling Errors > Use `HTTPException` > Raise an `HTTPException` in your code"
+    },
+    {
+      "doc_id": "tutorial/handling-errors",
+      "section": "Handling Errors > Use `HTTPException` > The resulting response"
+    },
+    {
+      "doc_id": "tutorial/handling-errors",
+      "section": "Handling Errors > Add custom headers"
+    },
+    {
+      "doc_id": "tutorial/handling-errors",
+      "section": "Handling Errors > Install custom exception handlers"
+    },
+    {
+      "doc_id": "tutorial/handling-errors",
+      "section": "Handling Errors > Override the default exception handlers"
+    },
+    {
+      "doc_id": "tutorial/handling-errors",
+      "section": "Handling Errors > Override the default exception handlers > Override request validation exceptions"
+    },
+    {
+      "doc_id": "tutorial/handling-errors",
+      "section": "Handling Errors > Override the default exception handlers > Override the `HTTPException` error handler"
+    },
+    {
+      "doc_id": "tutorial/handling-errors",
+      "section": "Handling Errors > Override the default exception handlers > Use the `RequestValidationError` body"
+    },
+    {
+      "doc_id": "tutorial/handling-errors",
+      "section": "Handling Errors > Override the default exception handlers > Reuse **FastAPI**'s exception handlers"
+    },
+    {
+      "doc_id": "tutorial/header-param-models",
+      "section": "Header Parameter Models"
+    },
+    {
+      "doc_id": "tutorial/header-param-models",
+      "section": "Header Parameter Models > Header Parameters with a Pydantic Model"
+    },
+    {
+      "doc_id": "tutorial/header-param-models",
+      "section": "Header Parameter Models > Check the Docs"
+    },
+    {
+      "doc_id": "tutorial/header-param-models",
+      "section": "Header Parameter Models > Forbid Extra Headers"
+    },
+    {
+      "doc_id": "tutorial/header-param-models",
+      "section": "Header Parameter Models > Disable Convert Underscores"
+    },
+    {
+      "doc_id": "tutorial/header-param-models",
+      "section": "Header Parameter Models > Summary"
+    },
+    {
+      "doc_id": "tutorial/header-params",
+      "section": "Header Parameters"
+    },
+    {
+      "doc_id": "tutorial/header-params",
+      "section": "Header Parameters > Import `Header`"
+    },
+    {
+      "doc_id": "tutorial/header-params",
+      "section": "Header Parameters > Declare `Header` parameters"
+    },
+    {
+      "doc_id": "tutorial/header-params",
+      "section": "Header Parameters > Automatic conversion"
+    },
+    {
+      "doc_id": "tutorial/header-params",
+      "section": "Header Parameters > Duplicate headers"
+    },
+    {
+      "doc_id": "tutorial/header-params",
+      "section": "Header Parameters > Recap"
+    },
+    {
+      "doc_id": "tutorial/index",
+      "section": "Tutorial - User Guide"
+    },
+    {
+      "doc_id": "tutorial/index",
+      "section": "Tutorial - User Guide > Run the code"
+    },
+    {
+      "doc_id": "tutorial/index",
+      "section": "Tutorial - User Guide > Install FastAPI"
+    },
+    {
+      "doc_id": "tutorial/index",
+      "section": "Tutorial - User Guide > AI Agent Skills"
+    },
+    {
+      "doc_id": "tutorial/index",
+      "section": "Tutorial - User Guide > Advanced User Guide"
+    },
+    {
+      "doc_id": "tutorial/metadata",
+      "section": "Metadata and Docs URLs"
+    },
+    {
+      "doc_id": "tutorial/metadata",
+      "section": "Metadata and Docs URLs > Metadata for API"
+    },
+    {
+      "doc_id": "tutorial/metadata",
+      "section": "Metadata and Docs URLs > License identifier"
+    },
+    {
+      "doc_id": "tutorial/metadata",
+      "section": "Metadata and Docs URLs > Metadata for tags"
+    },
+    {
+      "doc_id": "tutorial/metadata",
+      "section": "Metadata and Docs URLs > Metadata for tags > Create metadata for tags"
+    },
+    {
+      "doc_id": "tutorial/metadata",
+      "section": "Metadata and Docs URLs > Metadata for tags > Use your tags"
+    },
+    {
+      "doc_id": "tutorial/metadata",
+      "section": "Metadata and Docs URLs > Metadata for tags > Check the docs"
+    },
+    {
+      "doc_id": "tutorial/metadata",
+      "section": "Metadata and Docs URLs > Metadata for tags > Order of tags"
+    },
+    {
+      "doc_id": "tutorial/metadata",
+      "section": "Metadata and Docs URLs > OpenAPI URL"
+    },
+    {
+      "doc_id": "tutorial/metadata",
+      "section": "Metadata and Docs URLs > Docs URLs"
+    },
+    {
+      "doc_id": "tutorial/middleware",
+      "section": "Middleware"
+    },
+    {
+      "doc_id": "tutorial/middleware",
+      "section": "Middleware > Create a middleware"
+    },
+    {
+      "doc_id": "tutorial/middleware",
+      "section": "Middleware > Create a middleware > Before and after the `response`"
+    },
+    {
+      "doc_id": "tutorial/middleware",
+      "section": "Middleware > Multiple middleware execution order"
+    },
+    {
+      "doc_id": "tutorial/middleware",
+      "section": "Middleware > Other middlewares"
+    },
+    {
+      "doc_id": "tutorial/path-operation-configuration",
+      "section": "Path Operation Configuration"
+    },
+    {
+      "doc_id": "tutorial/path-operation-configuration",
+      "section": "Path Operation Configuration > Response Status Code"
+    },
+    {
+      "doc_id": "tutorial/path-operation-configuration",
+      "section": "Path Operation Configuration > Tags"
+    },
+    {
+      "doc_id": "tutorial/path-operation-configuration",
+      "section": "Path Operation Configuration > Tags > Tags with Enums"
+    },
+    {
+      "doc_id": "tutorial/path-operation-configuration",
+      "section": "Path Operation Configuration > Summary and description"
+    },
+    {
+      "doc_id": "tutorial/path-operation-configuration",
+      "section": "Path Operation Configuration > Description from docstring"
+    },
+    {
+      "doc_id": "tutorial/path-operation-configuration",
+      "section": "Path Operation Configuration > Response description"
+    },
+    {
+      "doc_id": "tutorial/path-operation-configuration",
+      "section": "Path Operation Configuration > Deprecate a *path operation*"
+    },
+    {
+      "doc_id": "tutorial/path-operation-configuration",
+      "section": "Path Operation Configuration > Recap"
+    },
+    {
+      "doc_id": "tutorial/path-params-numeric-validations",
+      "section": "Path Parameters and Numeric Validations"
+    },
+    {
+      "doc_id": "tutorial/path-params-numeric-validations",
+      "section": "Path Parameters and Numeric Validations > Import `Path`"
+    },
+    {
+      "doc_id": "tutorial/path-params-numeric-validations",
+      "section": "Path Parameters and Numeric Validations > Declare metadata"
+    },
+    {
+      "doc_id": "tutorial/path-params-numeric-validations",
+      "section": "Path Parameters and Numeric Validations > Order the parameters as you need"
+    },
+    {
+      "doc_id": "tutorial/path-params-numeric-validations",
+      "section": "Path Parameters and Numeric Validations > Order the parameters as you need, tricks"
+    },
+    {
+      "doc_id": "tutorial/path-params-numeric-validations",
+      "section": "Path Parameters and Numeric Validations > Order the parameters as you need, tricks > Better with `Annotated`"
+    },
+    {
+      "doc_id": "tutorial/path-params-numeric-validations",
+      "section": "Path Parameters and Numeric Validations > Number validations: greater than or equal"
+    },
+    {
+      "doc_id": "tutorial/path-params-numeric-validations",
+      "section": "Path Parameters and Numeric Validations > Number validations: greater than and less than or equal"
+    },
+    {
+      "doc_id": "tutorial/path-params-numeric-validations",
+      "section": "Path Parameters and Numeric Validations > Number validations: floats, greater than and less than"
+    },
+    {
+      "doc_id": "tutorial/path-params-numeric-validations",
+      "section": "Path Parameters and Numeric Validations > Recap"
+    },
+    {
+      "doc_id": "tutorial/path-params",
+      "section": "Path Parameters"
+    },
+    {
+      "doc_id": "tutorial/path-params",
+      "section": "Path Parameters > Path parameters with types"
+    },
+    {
+      "doc_id": "tutorial/path-params",
+      "section": "Path Parameters > Data conversion"
+    },
+    {
+      "doc_id": "tutorial/path-params",
+      "section": "Path Parameters > Data validation"
+    },
+    {
+      "doc_id": "tutorial/path-params",
+      "section": "Path Parameters > Documentation"
+    },
+    {
+      "doc_id": "tutorial/path-params",
+      "section": "Path Parameters > Standards-based benefits, alternative documentation"
+    },
+    {
+      "doc_id": "tutorial/path-params",
+      "section": "Path Parameters > Pydantic"
+    },
+    {
+      "doc_id": "tutorial/path-params",
+      "section": "Path Parameters > Order matters"
+    },
+    {
+      "doc_id": "tutorial/path-params",
+      "section": "Path Parameters > Predefined values"
+    },
+    {
+      "doc_id": "tutorial/path-params",
+      "section": "Path Parameters > Predefined values > Create an `Enum` class"
+    },
+    {
+      "doc_id": "tutorial/path-params",
+      "section": "Path Parameters > Predefined values > Declare a *path parameter*"
+    },
+    {
+      "doc_id": "tutorial/path-params",
+      "section": "Path Parameters > Predefined values > Check the docs"
+    },
+    {
+      "doc_id": "tutorial/path-params",
+      "section": "Path Parameters > Predefined values > Working with Python *enumerations*"
+    },
+    {
+      "doc_id": "tutorial/path-params",
+      "section": "Path Parameters > Path parameters containing paths"
+    },
+    {
+      "doc_id": "tutorial/path-params",
+      "section": "Path Parameters > Path parameters containing paths > OpenAPI support"
+    },
+    {
+      "doc_id": "tutorial/path-params",
+      "section": "Path Parameters > Path parameters containing paths > Path convertor"
+    },
+    {
+      "doc_id": "tutorial/path-params",
+      "section": "Path Parameters > Recap"
+    },
+    {
+      "doc_id": "tutorial/query-param-models",
+      "section": "Query Parameter Models"
+    },
+    {
+      "doc_id": "tutorial/query-param-models",
+      "section": "Query Parameter Models > Query Parameters with a Pydantic Model"
+    },
+    {
+      "doc_id": "tutorial/query-param-models",
+      "section": "Query Parameter Models > Check the Docs"
+    },
+    {
+      "doc_id": "tutorial/query-param-models",
+      "section": "Query Parameter Models > Forbid Extra Query Parameters"
+    },
+    {
+      "doc_id": "tutorial/query-param-models",
+      "section": "Query Parameter Models > Summary"
+    },
+    {
+      "doc_id": "tutorial/query-params-str-validations",
+      "section": "Query Parameters and String Validations"
+    },
+    {
+      "doc_id": "tutorial/query-params-str-validations",
+      "section": "Query Parameters and String Validations > Additional validation"
+    },
+    {
+      "doc_id": "tutorial/query-params-str-validations",
+      "section": "Query Parameters and String Validations > Additional validation > Import `Query` and `Annotated`"
+    },
+    {
+      "doc_id": "tutorial/query-params-str-validations",
+      "section": "Query Parameters and String Validations > Use `Annotated` in the type for the `q` parameter"
+    },
+    {
+      "doc_id": "tutorial/query-params-str-validations",
+      "section": "Query Parameters and String Validations > Add `Query` to `Annotated` in the `q` parameter"
+    },
+    {
+      "doc_id": "tutorial/query-params-str-validations",
+      "section": "Query Parameters and String Validations > Alternative (old): `Query` as the default value"
+    },
+    {
+      "doc_id": "tutorial/query-params-str-validations",
+      "section": "Query Parameters and String Validations > Alternative (old): `Query` as the default value > `Query` as the default value or in `Annotated`"
+    },
+    {
+      "doc_id": "tutorial/query-params-str-validations",
+      "section": "Query Parameters and String Validations > Alternative (old): `Query` as the default value > Advantages of `Annotated`"
+    },
+    {
+      "doc_id": "tutorial/query-params-str-validations",
+      "section": "Query Parameters and String Validations > Add more validations"
+    },
+    {
+      "doc_id": "tutorial/query-params-str-validations",
+      "section": "Query Parameters and String Validations > Add regular expressions"
+    },
+    {
+      "doc_id": "tutorial/query-params-str-validations",
+      "section": "Query Parameters and String Validations > Default values"
+    },
+    {
+      "doc_id": "tutorial/query-params-str-validations",
+      "section": "Query Parameters and String Validations > Required parameters"
+    },
+    {
+      "doc_id": "tutorial/query-params-str-validations",
+      "section": "Query Parameters and String Validations > Required parameters > Required, can be `None`"
+    },
+    {
+      "doc_id": "tutorial/query-params-str-validations",
+      "section": "Query Parameters and String Validations > Query parameter list / multiple values"
+    },
+    {
+      "doc_id": "tutorial/query-params-str-validations",
+      "section": "Query Parameters and String Validations > Query parameter list / multiple values > Query parameter list / multiple values with defaults"
+    },
+    {
+      "doc_id": "tutorial/query-params-str-validations",
+      "section": "Query Parameters and String Validations > Declare more metadata"
+    },
+    {
+      "doc_id": "tutorial/query-params-str-validations",
+      "section": "Query Parameters and String Validations > Alias parameters"
+    },
+    {
+      "doc_id": "tutorial/query-params-str-validations",
+      "section": "Query Parameters and String Validations > Deprecating parameters"
+    },
+    {
+      "doc_id": "tutorial/query-params-str-validations",
+      "section": "Query Parameters and String Validations > Exclude parameters from OpenAPI"
+    },
+    {
+      "doc_id": "tutorial/query-params-str-validations",
+      "section": "Query Parameters and String Validations > Custom Validation"
+    },
+    {
+      "doc_id": "tutorial/query-params-str-validations",
+      "section": "Query Parameters and String Validations > Custom Validation > Understand that Code"
+    },
+    {
+      "doc_id": "tutorial/query-params-str-validations",
+      "section": "Query Parameters and String Validations > Recap"
+    },
+    {
+      "doc_id": "tutorial/query-params",
+      "section": "Query Parameters"
+    },
+    {
+      "doc_id": "tutorial/query-params",
+      "section": "Query Parameters > Defaults"
+    },
+    {
+      "doc_id": "tutorial/query-params",
+      "section": "Query Parameters > Optional parameters"
+    },
+    {
+      "doc_id": "tutorial/query-params",
+      "section": "Query Parameters > Query parameter type conversion"
+    },
+    {
+      "doc_id": "tutorial/query-params",
+      "section": "Query Parameters > Multiple path and query parameters"
+    },
+    {
+      "doc_id": "tutorial/query-params",
+      "section": "Query Parameters > Required query parameters"
+    },
+    {
+      "doc_id": "tutorial/request-files",
+      "section": "Request Files"
+    },
+    {
+      "doc_id": "tutorial/request-files",
+      "section": "Request Files > Import `File`"
+    },
+    {
+      "doc_id": "tutorial/request-files",
+      "section": "Request Files > Define `File` Parameters"
+    },
+    {
+      "doc_id": "tutorial/request-files",
+      "section": "Request Files > File Parameters with `UploadFile`"
+    },
+    {
+      "doc_id": "tutorial/request-files",
+      "section": "Request Files > File Parameters with `UploadFile` > `UploadFile`"
+    },
+    {
+      "doc_id": "tutorial/request-files",
+      "section": "Request Files > What is \"Form Data\""
+    },
+    {
+      "doc_id": "tutorial/request-files",
+      "section": "Request Files > Optional File Upload"
+    },
+    {
+      "doc_id": "tutorial/request-files",
+      "section": "Request Files > `UploadFile` with Additional Metadata"
+    },
+    {
+      "doc_id": "tutorial/request-files",
+      "section": "Request Files > Multiple File Uploads"
+    },
+    {
+      "doc_id": "tutorial/request-files",
+      "section": "Request Files > Multiple File Uploads > Multiple File Uploads with Additional Metadata"
+    },
+    {
+      "doc_id": "tutorial/request-files",
+      "section": "Request Files > Recap"
+    },
+    {
+      "doc_id": "tutorial/request-form-models",
+      "section": "Form Models"
+    },
+    {
+      "doc_id": "tutorial/request-form-models",
+      "section": "Form Models > Pydantic Models for Forms"
+    },
+    {
+      "doc_id": "tutorial/request-form-models",
+      "section": "Form Models > Check the Docs"
+    },
+    {
+      "doc_id": "tutorial/request-form-models",
+      "section": "Form Models > Forbid Extra Form Fields"
+    },
+    {
+      "doc_id": "tutorial/request-form-models",
+      "section": "Form Models > Summary"
+    },
+    {
+      "doc_id": "tutorial/request-forms-and-files",
+      "section": "Request Forms and Files"
+    },
+    {
+      "doc_id": "tutorial/request-forms-and-files",
+      "section": "Request Forms and Files > Import `File` and `Form`"
+    },
+    {
+      "doc_id": "tutorial/request-forms-and-files",
+      "section": "Request Forms and Files > Define `File` and `Form` parameters"
+    },
+    {
+      "doc_id": "tutorial/request-forms-and-files",
+      "section": "Request Forms and Files > Recap"
+    },
+    {
+      "doc_id": "tutorial/request-forms",
+      "section": "Form Data"
+    },
+    {
+      "doc_id": "tutorial/request-forms",
+      "section": "Form Data > Import `Form`"
+    },
+    {
+      "doc_id": "tutorial/request-forms",
+      "section": "Form Data > Define `Form` parameters"
+    },
+    {
+      "doc_id": "tutorial/request-forms",
+      "section": "Form Data > About \"Form Fields\""
+    },
+    {
+      "doc_id": "tutorial/request-forms",
+      "section": "Form Data > Recap"
+    },
+    {
+      "doc_id": "tutorial/response-model",
+      "section": "Response Model - Return Type"
+    },
+    {
+      "doc_id": "tutorial/response-model",
+      "section": "Response Model - Return Type > `response_model` Parameter"
+    },
+    {
+      "doc_id": "tutorial/response-model",
+      "section": "Response Model - Return Type > `response_model` Parameter > `response_model` Priority"
+    },
+    {
+      "doc_id": "tutorial/response-model",
+      "section": "Response Model - Return Type > Return the same input data"
+    },
+    {
+      "doc_id": "tutorial/response-model",
+      "section": "Response Model - Return Type > Add an output model"
+    },
+    {
+      "doc_id": "tutorial/response-model",
+      "section": "Response Model - Return Type > Add an output model > `response_model` or Return Type"
+    },
+    {
+      "doc_id": "tutorial/response-model",
+      "section": "Response Model - Return Type > Return Type and Data Filtering"
+    },
+    {
+      "doc_id": "tutorial/response-model",
+      "section": "Response Model - Return Type > Return Type and Data Filtering > Type Annotations and Tooling"
+    },
+    {
+      "doc_id": "tutorial/response-model",
+      "section": "Response Model - Return Type > Return Type and Data Filtering > FastAPI Data Filtering"
+    },
+    {
+      "doc_id": "tutorial/response-model",
+      "section": "Response Model - Return Type > See it in the docs"
+    },
+    {
+      "doc_id": "tutorial/response-model",
+      "section": "Response Model - Return Type > Other Return Type Annotations"
+    },
+    {
+      "doc_id": "tutorial/response-model",
+      "section": "Response Model - Return Type > Other Return Type Annotations > Return a Response Directly"
+    },
+    {
+      "doc_id": "tutorial/response-model",
+      "section": "Response Model - Return Type > Other Return Type Annotations > Annotate a Response Subclass"
+    },
+    {
+      "doc_id": "tutorial/response-model",
+      "section": "Response Model - Return Type > Other Return Type Annotations > Invalid Return Type Annotations"
+    },
+    {
+      "doc_id": "tutorial/response-model",
+      "section": "Response Model - Return Type > Other Return Type Annotations > Disable Response Model"
+    },
+    {
+      "doc_id": "tutorial/response-model",
+      "section": "Response Model - Return Type > Response Model encoding parameters"
+    },
+    {
+      "doc_id": "tutorial/response-model",
+      "section": "Response Model - Return Type > Response Model encoding parameters > Use the `response_model_exclude_unset` parameter"
+    },
+    {
+      "doc_id": "tutorial/response-model",
+      "section": "Response Model - Return Type > Response Model encoding parameters > `response_model_include` and `response_model_exclude`"
+    },
+    {
+      "doc_id": "tutorial/response-model",
+      "section": "Response Model - Return Type > Recap"
+    },
+    {
+      "doc_id": "tutorial/response-status-code",
+      "section": "Response Status Code"
+    },
+    {
+      "doc_id": "tutorial/response-status-code",
+      "section": "Response Status Code > About HTTP status codes"
+    },
+    {
+      "doc_id": "tutorial/response-status-code",
+      "section": "Response Status Code > Shortcut to remember the names"
+    },
+    {
+      "doc_id": "tutorial/response-status-code",
+      "section": "Response Status Code > Changing the default"
+    },
+    {
+      "doc_id": "tutorial/schema-extra-example",
+      "section": "Declare Request Example Data"
+    },
+    {
+      "doc_id": "tutorial/schema-extra-example",
+      "section": "Declare Request Example Data > Extra JSON Schema data in Pydantic models"
+    },
+    {
+      "doc_id": "tutorial/schema-extra-example",
+      "section": "Declare Request Example Data > `Field` additional arguments"
+    },
+    {
+      "doc_id": "tutorial/schema-extra-example",
+      "section": "Declare Request Example Data > `examples` in JSON Schema - OpenAPI"
+    },
+    {
+      "doc_id": "tutorial/schema-extra-example",
+      "section": "Declare Request Example Data > `examples` in JSON Schema - OpenAPI > `Body` with `examples`"
+    },
+    {
+      "doc_id": "tutorial/schema-extra-example",
+      "section": "Declare Request Example Data > `examples` in JSON Schema - OpenAPI > Example in the docs UI"
+    },
+    {
+      "doc_id": "tutorial/schema-extra-example",
+      "section": "Declare Request Example Data > `examples` in JSON Schema - OpenAPI > `Body` with multiple `examples`"
+    },
+    {
+      "doc_id": "tutorial/schema-extra-example",
+      "section": "Declare Request Example Data > `examples` in JSON Schema - OpenAPI > OpenAPI-specific `examples`"
+    },
+    {
+      "doc_id": "tutorial/schema-extra-example",
+      "section": "Declare Request Example Data > `examples` in JSON Schema - OpenAPI > Using the `openapi_examples` Parameter"
+    },
+    {
+      "doc_id": "tutorial/schema-extra-example",
+      "section": "Declare Request Example Data > `examples` in JSON Schema - OpenAPI > OpenAPI Examples in the Docs UI"
+    },
+    {
+      "doc_id": "tutorial/schema-extra-example",
+      "section": "Declare Request Example Data > Technical Details"
+    },
+    {
+      "doc_id": "tutorial/schema-extra-example",
+      "section": "Declare Request Example Data > Technical Details > JSON Schema's `examples` field"
+    },
+    {
+      "doc_id": "tutorial/schema-extra-example",
+      "section": "Declare Request Example Data > Technical Details > Pydantic and FastAPI `examples`"
+    },
+    {
+      "doc_id": "tutorial/schema-extra-example",
+      "section": "Declare Request Example Data > Technical Details > Swagger UI and OpenAPI-specific `examples`"
+    },
+    {
+      "doc_id": "tutorial/schema-extra-example",
+      "section": "Declare Request Example Data > Technical Details > Summary"
+    },
+    {
+      "doc_id": "tutorial/security/first-steps",
+      "section": "Security - First Steps"
+    },
+    {
+      "doc_id": "tutorial/security/first-steps",
+      "section": "Security - First Steps > How it looks"
+    },
+    {
+      "doc_id": "tutorial/security/first-steps",
+      "section": "Security - First Steps > Create `main.py`"
+    },
+    {
+      "doc_id": "tutorial/security/first-steps",
+      "section": "Security - First Steps > Run it"
+    },
+    {
+      "doc_id": "tutorial/security/first-steps",
+      "section": "Security - First Steps > Check it"
+    },
+    {
+      "doc_id": "tutorial/security/first-steps",
+      "section": "Security - First Steps > The `password` flow"
+    },
+    {
+      "doc_id": "tutorial/security/first-steps",
+      "section": "Security - First Steps > **FastAPI**'s `OAuth2PasswordBearer`"
+    },
+    {
+      "doc_id": "tutorial/security/first-steps",
+      "section": "Security - First Steps > **FastAPI**'s `OAuth2PasswordBearer` > Use it"
+    },
+    {
+      "doc_id": "tutorial/security/first-steps",
+      "section": "Security - First Steps > What it does"
+    },
+    {
+      "doc_id": "tutorial/security/first-steps",
+      "section": "Security - First Steps > Recap"
+    },
+    {
+      "doc_id": "tutorial/security/get-current-user",
+      "section": "Get Current User"
+    },
+    {
+      "doc_id": "tutorial/security/get-current-user",
+      "section": "Get Current User > Create a user model"
+    },
+    {
+      "doc_id": "tutorial/security/get-current-user",
+      "section": "Get Current User > Create a `get_current_user` dependency"
+    },
+    {
+      "doc_id": "tutorial/security/get-current-user",
+      "section": "Get Current User > Get the user"
+    },
+    {
+      "doc_id": "tutorial/security/get-current-user",
+      "section": "Get Current User > Inject the current user"
+    },
+    {
+      "doc_id": "tutorial/security/get-current-user",
+      "section": "Get Current User > Other models"
+    },
+    {
+      "doc_id": "tutorial/security/get-current-user",
+      "section": "Get Current User > Code size"
+    },
+    {
+      "doc_id": "tutorial/security/get-current-user",
+      "section": "Get Current User > Recap"
+    },
+    {
+      "doc_id": "tutorial/security/index",
+      "section": "Security"
+    },
+    {
+      "doc_id": "tutorial/security/index",
+      "section": "Security > In a hurry?"
+    },
+    {
+      "doc_id": "tutorial/security/index",
+      "section": "Security > OAuth2"
+    },
+    {
+      "doc_id": "tutorial/security/index",
+      "section": "Security > OAuth2 > OAuth 1"
+    },
+    {
+      "doc_id": "tutorial/security/index",
+      "section": "Security > OpenID Connect"
+    },
+    {
+      "doc_id": "tutorial/security/index",
+      "section": "Security > OpenID Connect > OpenID (not \"OpenID Connect\")"
+    },
+    {
+      "doc_id": "tutorial/security/index",
+      "section": "Security > OpenAPI"
+    },
+    {
+      "doc_id": "tutorial/security/index",
+      "section": "Security > **FastAPI** utilities"
+    },
+    {
+      "doc_id": "tutorial/security/oauth2-jwt",
+      "section": "OAuth2 with Password (and hashing), Bearer with JWT tokens"
+    },
+    {
+      "doc_id": "tutorial/security/oauth2-jwt",
+      "section": "OAuth2 with Password (and hashing), Bearer with JWT tokens > About JWT"
+    },
+    {
+      "doc_id": "tutorial/security/oauth2-jwt",
+      "section": "OAuth2 with Password (and hashing), Bearer with JWT tokens > Install `PyJWT`"
+    },
+    {
+      "doc_id": "tutorial/security/oauth2-jwt",
+      "section": "OAuth2 with Password (and hashing), Bearer with JWT tokens > Password hashing"
+    },
+    {
+      "doc_id": "tutorial/security/oauth2-jwt",
+      "section": "OAuth2 with Password (and hashing), Bearer with JWT tokens > Password hashing > Why use password hashing"
+    },
+    {
+      "doc_id": "tutorial/security/oauth2-jwt",
+      "section": "OAuth2 with Password (and hashing), Bearer with JWT tokens > Install `pwdlib`"
+    },
+    {
+      "doc_id": "tutorial/security/oauth2-jwt",
+      "section": "OAuth2 with Password (and hashing), Bearer with JWT tokens > Hash and verify the passwords"
+    },
+    {
+      "doc_id": "tutorial/security/oauth2-jwt",
+      "section": "OAuth2 with Password (and hashing), Bearer with JWT tokens > Handle JWT tokens"
+    },
+    {
+      "doc_id": "tutorial/security/oauth2-jwt",
+      "section": "OAuth2 with Password (and hashing), Bearer with JWT tokens > Update the dependencies"
+    },
+    {
+      "doc_id": "tutorial/security/oauth2-jwt",
+      "section": "OAuth2 with Password (and hashing), Bearer with JWT tokens > Update the `/token` *path operation*"
+    },
+    {
+      "doc_id": "tutorial/security/oauth2-jwt",
+      "section": "OAuth2 with Password (and hashing), Bearer with JWT tokens > Update the `/token` *path operation* > Technical details about the JWT \"subject\" `sub`"
+    },
+    {
+      "doc_id": "tutorial/security/oauth2-jwt",
+      "section": "OAuth2 with Password (and hashing), Bearer with JWT tokens > Check it"
+    },
+    {
+      "doc_id": "tutorial/security/oauth2-jwt",
+      "section": "OAuth2 with Password (and hashing), Bearer with JWT tokens > Advanced usage with `scopes`"
+    },
+    {
+      "doc_id": "tutorial/security/oauth2-jwt",
+      "section": "OAuth2 with Password (and hashing), Bearer with JWT tokens > Recap"
+    },
+    {
+      "doc_id": "tutorial/security/simple-oauth2",
+      "section": "Simple OAuth2 with Password and Bearer"
+    },
+    {
+      "doc_id": "tutorial/security/simple-oauth2",
+      "section": "Simple OAuth2 with Password and Bearer > Get the `username` and `password`"
+    },
+    {
+      "doc_id": "tutorial/security/simple-oauth2",
+      "section": "Simple OAuth2 with Password and Bearer > Get the `username` and `password` > `scope`"
+    },
+    {
+      "doc_id": "tutorial/security/simple-oauth2",
+      "section": "Simple OAuth2 with Password and Bearer > Code to get the `username` and `password`"
+    },
+    {
+      "doc_id": "tutorial/security/simple-oauth2",
+      "section": "Simple OAuth2 with Password and Bearer > Code to get the `username` and `password` > `OAuth2PasswordRequestForm`"
+    },
+    {
+      "doc_id": "tutorial/security/simple-oauth2",
+      "section": "Simple OAuth2 with Password and Bearer > Code to get the `username` and `password` > Use the form data"
+    },
+    {
+      "doc_id": "tutorial/security/simple-oauth2",
+      "section": "Simple OAuth2 with Password and Bearer > Code to get the `username` and `password` > Check the password"
+    },
+    {
+      "doc_id": "tutorial/security/simple-oauth2",
+      "section": "Simple OAuth2 with Password and Bearer > Return the token"
+    },
+    {
+      "doc_id": "tutorial/security/simple-oauth2",
+      "section": "Simple OAuth2 with Password and Bearer > Update the dependencies"
+    },
+    {
+      "doc_id": "tutorial/security/simple-oauth2",
+      "section": "Simple OAuth2 with Password and Bearer > See it in action"
+    },
+    {
+      "doc_id": "tutorial/security/simple-oauth2",
+      "section": "Simple OAuth2 with Password and Bearer > See it in action > Authenticate"
+    },
+    {
+      "doc_id": "tutorial/security/simple-oauth2",
+      "section": "Simple OAuth2 with Password and Bearer > See it in action > Get your own user data"
+    },
+    {
+      "doc_id": "tutorial/security/simple-oauth2",
+      "section": "Simple OAuth2 with Password and Bearer > See it in action > Inactive user"
+    },
+    {
+      "doc_id": "tutorial/security/simple-oauth2",
+      "section": "Simple OAuth2 with Password and Bearer > Recap"
+    },
+    {
+      "doc_id": "tutorial/server-sent-events",
+      "section": "Server-Sent Events (SSE)"
+    },
+    {
+      "doc_id": "tutorial/server-sent-events",
+      "section": "Server-Sent Events (SSE) > What are Server-Sent Events?"
+    },
+    {
+      "doc_id": "tutorial/server-sent-events",
+      "section": "Server-Sent Events (SSE) > Stream SSE with FastAPI"
+    },
+    {
+      "doc_id": "tutorial/server-sent-events",
+      "section": "Server-Sent Events (SSE) > Stream SSE with FastAPI > Non-async *path operation functions*"
+    },
+    {
+      "doc_id": "tutorial/server-sent-events",
+      "section": "Server-Sent Events (SSE) > Stream SSE with FastAPI > No Return Type"
+    },
+    {
+      "doc_id": "tutorial/server-sent-events",
+      "section": "Server-Sent Events (SSE) > `ServerSentEvent`"
+    },
+    {
+      "doc_id": "tutorial/server-sent-events",
+      "section": "Server-Sent Events (SSE) > Raw Data"
+    },
+    {
+      "doc_id": "tutorial/server-sent-events",
+      "section": "Server-Sent Events (SSE) > Resuming with `Last-Event-ID`"
+    },
+    {
+      "doc_id": "tutorial/server-sent-events",
+      "section": "Server-Sent Events (SSE) > SSE with POST"
+    },
+    {
+      "doc_id": "tutorial/server-sent-events",
+      "section": "Server-Sent Events (SSE) > Technical Details"
+    },
+    {
+      "doc_id": "tutorial/sql-databases",
+      "section": "SQL (Relational) Databases"
+    },
+    {
+      "doc_id": "tutorial/sql-databases",
+      "section": "SQL (Relational) Databases > Install `SQLModel`"
+    },
+    {
+      "doc_id": "tutorial/sql-databases",
+      "section": "SQL (Relational) Databases > Create the App with a Single Model"
+    },
+    {
+      "doc_id": "tutorial/sql-databases",
+      "section": "SQL (Relational) Databases > Create the App with a Single Model > Create Models"
+    },
+    {
+      "doc_id": "tutorial/sql-databases",
+      "section": "SQL (Relational) Databases > Create the App with a Single Model > Create an Engine"
+    },
+    {
+      "doc_id": "tutorial/sql-databases",
+      "section": "SQL (Relational) Databases > Create the App with a Single Model > Create the Tables"
+    },
+    {
+      "doc_id": "tutorial/sql-databases",
+      "section": "SQL (Relational) Databases > Create the App with a Single Model > Create a Session Dependency"
+    },
+    {
+      "doc_id": "tutorial/sql-databases",
+      "section": "SQL (Relational) Databases > Create the App with a Single Model > Create Database Tables on Startup"
+    },
+    {
+      "doc_id": "tutorial/sql-databases",
+      "section": "SQL (Relational) Databases > Create the App with a Single Model > Create a Hero"
+    },
+    {
+      "doc_id": "tutorial/sql-databases",
+      "section": "SQL (Relational) Databases > Create the App with a Single Model > Read Heroes"
+    },
+    {
+      "doc_id": "tutorial/sql-databases",
+      "section": "SQL (Relational) Databases > Create the App with a Single Model > Read One Hero"
+    },
+    {
+      "doc_id": "tutorial/sql-databases",
+      "section": "SQL (Relational) Databases > Create the App with a Single Model > Delete a Hero"
+    },
+    {
+      "doc_id": "tutorial/sql-databases",
+      "section": "SQL (Relational) Databases > Create the App with a Single Model > Run the App"
+    },
+    {
+      "doc_id": "tutorial/sql-databases",
+      "section": "SQL (Relational) Databases > Update the App with Multiple Models"
+    },
+    {
+      "doc_id": "tutorial/sql-databases",
+      "section": "SQL (Relational) Databases > Update the App with Multiple Models > Create Multiple Models"
+    },
+    {
+      "doc_id": "tutorial/sql-databases",
+      "section": "SQL (Relational) Databases > Update the App with Multiple Models > Create with `HeroCreate` and return a `HeroPublic`"
+    },
+    {
+      "doc_id": "tutorial/sql-databases",
+      "section": "SQL (Relational) Databases > Update the App with Multiple Models > Read Heroes with `HeroPublic`"
+    },
+    {
+      "doc_id": "tutorial/sql-databases",
+      "section": "SQL (Relational) Databases > Update the App with Multiple Models > Read One Hero with `HeroPublic`"
+    },
+    {
+      "doc_id": "tutorial/sql-databases",
+      "section": "SQL (Relational) Databases > Update the App with Multiple Models > Update a Hero with `HeroUpdate`"
+    },
+    {
+      "doc_id": "tutorial/sql-databases",
+      "section": "SQL (Relational) Databases > Update the App with Multiple Models > Delete a Hero Again"
+    },
+    {
+      "doc_id": "tutorial/sql-databases",
+      "section": "SQL (Relational) Databases > Update the App with Multiple Models > Run the App Again"
+    },
+    {
+      "doc_id": "tutorial/sql-databases",
+      "section": "SQL (Relational) Databases > Recap"
+    },
+    {
+      "doc_id": "tutorial/static-files",
+      "section": "Static Files"
+    },
+    {
+      "doc_id": "tutorial/static-files",
+      "section": "Static Files > Use `StaticFiles`"
+    },
+    {
+      "doc_id": "tutorial/static-files",
+      "section": "Static Files > Use `StaticFiles` > What is \"Mounting\""
+    },
+    {
+      "doc_id": "tutorial/static-files",
+      "section": "Static Files > Details"
+    },
+    {
+      "doc_id": "tutorial/static-files",
+      "section": "Static Files > More info"
+    },
+    {
+      "doc_id": "tutorial/stream-json-lines",
+      "section": "Stream JSON Lines"
+    },
+    {
+      "doc_id": "tutorial/stream-json-lines",
+      "section": "Stream JSON Lines > What is a Stream?"
+    },
+    {
+      "doc_id": "tutorial/stream-json-lines",
+      "section": "Stream JSON Lines > JSON Lines"
+    },
+    {
+      "doc_id": "tutorial/stream-json-lines",
+      "section": "Stream JSON Lines > Use Cases"
+    },
+    {
+      "doc_id": "tutorial/stream-json-lines",
+      "section": "Stream JSON Lines > Stream JSON Lines with FastAPI"
+    },
+    {
+      "doc_id": "tutorial/stream-json-lines",
+      "section": "Stream JSON Lines > Stream JSON Lines with FastAPI > Non-async *path operation functions*"
+    },
+    {
+      "doc_id": "tutorial/stream-json-lines",
+      "section": "Stream JSON Lines > Stream JSON Lines with FastAPI > No Return Type"
+    },
+    {
+      "doc_id": "tutorial/stream-json-lines",
+      "section": "Stream JSON Lines > Server-Sent Events (SSE)"
+    },
+    {
+      "doc_id": "tutorial/testing",
+      "section": "Testing"
+    },
+    {
+      "doc_id": "tutorial/testing",
+      "section": "Testing > Using `TestClient`"
+    },
+    {
+      "doc_id": "tutorial/testing",
+      "section": "Testing > Separating tests"
+    },
+    {
+      "doc_id": "tutorial/testing",
+      "section": "Testing > Separating tests > **FastAPI** app file"
+    },
+    {
+      "doc_id": "tutorial/testing",
+      "section": "Testing > Separating tests > Testing file"
+    },
+    {
+      "doc_id": "tutorial/testing",
+      "section": "Testing > Testing: extended example"
+    },
+    {
+      "doc_id": "tutorial/testing",
+      "section": "Testing > Testing: extended example > Extended **FastAPI** app file"
+    },
+    {
+      "doc_id": "tutorial/testing",
+      "section": "Testing > Testing: extended example > Extended testing file"
+    },
+    {
+      "doc_id": "tutorial/testing",
+      "section": "Testing > Run it"
+    },
+    {
+      "doc_id": "virtual-environments",
+      "section": "Virtual Environments"
+    },
+    {
+      "doc_id": "virtual-environments",
+      "section": "Virtual Environments > Create a Project"
+    },
+    {
+      "doc_id": "virtual-environments",
+      "section": "Virtual Environments > Learn More"
+    }
+  ]
+}
