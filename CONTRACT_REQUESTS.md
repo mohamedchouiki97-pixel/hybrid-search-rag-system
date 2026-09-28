@@ -16,6 +16,11 @@ core's interfaces and fakes.
 
 ## Changes
 
+### 2026-09-29: Citation.marker accepts 0
+- Module: generation
+- Change: `Citation.marker` is now `>= 0` (was `>= 1`).
+- Why: an LLM can write `[0]`. DESIGN 5.4 says a marker with no matching chunk must be flagged, but `>= 1` made parsing crash instead. It is stored with `chunk_id=None, verified=False`.
+
 ### 2026-09-28: cache_path config key
 - Module: indexing
 - Change: `Settings.cache_path`, default `data/cache`.

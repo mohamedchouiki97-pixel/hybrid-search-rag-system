@@ -92,7 +92,7 @@ class RetrievedChunk(BaseModel):
 class Citation(BaseModel):
     """A [n] marker in the answer. chunk_id is None when n has no matching retrieved chunk."""
 
-    marker: int = Field(ge=1)
+    marker: int = Field(ge=0)  # 0 is never valid, but an LLM can write [0]; it is kept so it can be flagged
     chunk_id: str | None
     claim_text: str
     verified: bool | None = None
