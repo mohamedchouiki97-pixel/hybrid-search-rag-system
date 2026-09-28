@@ -29,6 +29,10 @@ class IngestionError(ValueError):
     """A file could not be turned into a Document. The message says why."""
 
 
+class UnsupportedFormatError(IngestionError):
+    """The file extension is not one we can load."""
+
+
 SUPPORTED_EXTENSIONS: dict[str, DocFormat] = {
     ".md": DocFormat.MD,
     ".markdown": DocFormat.MD,
@@ -325,7 +329,7 @@ def detect_format(path: str | Path) -> DocFormat:
         return SUPPORTED_EXTENSIONS[suffix]
     except KeyError:
         supported = ", ".join(sorted(SUPPORTED_EXTENSIONS))
-        raise IngestionError(f"unsupported file type {suffix or '(none)'!r}; supported: {supported}") from None
+        raise UnsupportedFormatError(f"unsupported file type {suffix or '(none)'!r}; supported: {supported}") from None
 
 
 def get_loader(path: str | Path, root: str | Path | None = None) -> Loader:

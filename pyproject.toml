@@ -53,6 +53,8 @@ markers = [
 [tool.coverage.run]
 source = ["src/rag"]
 branch = true
+# Streamlit rendering only; its logic lives in dashboard/helpers.py, which is tested.
+omit = ["src/rag/dashboard/app.py"]
 
 [tool.coverage.report]
 show_missing = true
