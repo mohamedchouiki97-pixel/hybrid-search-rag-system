@@ -39,9 +39,9 @@ rag/
   docker-compose.yml
   .env.example
   DESIGN.md
-  CONTRACT_REQUESTS.md      (change requests for core go here)
+  CONTRACT_REQUESTS.md      (changelog: every core change and why)
   src/rag/
-    core/                   shared models, interfaces, config, fakes (frozen after Step 0)
+    core/                   shared models, interfaces, config, fakes (stable after Step 0)
       models.py
       interfaces.py
       config.py
@@ -89,7 +89,7 @@ rag/
 
 ## 4. Shared Contracts (built first, in Step 0)
 
-Everything below lives in src/rag/core. Every module codes against these and only these. After Step 0, core is frozen. If you need a change, append a note to CONTRACT_REQUESTS.md, use a workaround, and keep going. Never edit core after Step 0.
+Everything below lives in src/rag/core. Every module codes against these and only these. After Step 0, core is stable. Core may be edited directly when a module needs it, as long as all existing tests still pass. Record each change and why in CONTRACT_REQUESTS.md. Modules still talk to each other only through core's interfaces and fakes.
 
 ### 4.1 Data models (models.py)
 
@@ -264,7 +264,7 @@ Rules for all tests:
 ## 7. Working Rules
 
 1. Build only the modules you were assigned, and only edit those folders and their tests.
-2. Never edit src/rag/core after Step 0. Use CONTRACT_REQUESTS.md instead.
+2. Core is stable, not frozen: edit src/rag/core directly when a module needs it, keep all existing tests passing, and log the change and why in CONTRACT_REQUESTS.md.
 3. Code against the interfaces and fakes in core, not against other modules' real code.
 4. Small commits with clear messages. Run pytest -m unit before each one.
 5. When done, report: what you built, test results, any contract requests, and anything likely to break at integration.
@@ -296,7 +296,7 @@ Whole project:
 
 ## 10. Risks
 
-- Contract drift: mitigated by freezing core and using CONTRACT_REQUESTS.md.
+- Contract drift: mitigated by keeping core stable (edits only with all tests passing) and logging every change in CONTRACT_REQUESTS.md.
 - Judge cost: eval makes many LLM calls. Cache judge results on disk and run live evals rarely.
 - Golden set quality: weak questions give weak numbers. Write them by hand from the actual corpus and review them.
 - Semantic chunking is slow and costs embeddings. Cache embeddings by text hash.

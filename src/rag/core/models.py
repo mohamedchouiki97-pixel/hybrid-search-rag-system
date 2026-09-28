@@ -1,6 +1,6 @@
 """Shared data models. Every module exchanges data using only these types.
 
-Frozen after Step 0: request changes in CONTRACT_REQUESTS.md.
+Stable: edit only with all tests passing, and log the change in CONTRACT_REQUESTS.md.
 """
 
 from __future__ import annotations

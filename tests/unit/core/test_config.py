@@ -27,6 +27,7 @@ def test_defaults():
     assert (s.rrf_dense_weight, s.rrf_sparse_weight, s.rrf_k) == (0.7, 0.3, 60)
     assert (s.dense_k, s.rerank_candidates, s.rerank_top_n) == (10, 20, 5)
     assert s.embedding_model == "text-embedding-3-small"
+    assert s.documents_path.as_posix() == "data/documents"
 
 
 def test_llm_model_is_required(monkeypatch):
@@ -82,3 +83,4 @@ def test_all_zero_confidence_weights_rejected():
 def test_settings_fixture_is_isolated(settings, tmp_path):
     assert settings.llm_model == "fake-model"
     assert settings.chroma_path == tmp_path / "chroma"
+    assert settings.documents_path == tmp_path / "documents"

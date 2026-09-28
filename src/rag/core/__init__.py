@@ -1,1 +1,1 @@
-"""Shared contracts: models, interfaces, config, fakes. Frozen after Step 0."""
+"""Shared contracts: models, interfaces, config, fakes. Stable; changes are logged in CONTRACT_REQUESTS.md."""

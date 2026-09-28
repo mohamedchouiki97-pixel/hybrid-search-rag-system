@@ -161,6 +161,7 @@ def settings(tmp_path: Path) -> Settings:
         llm_model="fake-model",
         corpus_path=CORPUS_DIR,
         chroma_path=tmp_path / "chroma",
+        documents_path=tmp_path / "documents",
     )
 
 

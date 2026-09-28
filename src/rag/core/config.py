@@ -1,6 +1,6 @@
 """Runtime configuration. Values come from init kwargs, then env vars, then .env, then defaults.
 
-Frozen after Step 0: request changes in CONTRACT_REQUESTS.md.
+Stable: edit only with all tests passing, and log the change in CONTRACT_REQUESTS.md.
 """
 
 from __future__ import annotations
@@ -67,6 +67,7 @@ class Settings(BaseSettings):
     # Paths
     corpus_path: Path = Path("corpus/fastapi_docs")
     chroma_path: Path = Path("data/chroma")
+    documents_path: Path = Path("data/documents")  # raw + processed copy of every ingested file
 
     # Secrets (only needed by the real clients)
     openai_api_key: SecretStr | None = None
