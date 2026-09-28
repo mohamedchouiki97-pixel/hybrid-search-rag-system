@@ -1,0 +1,12 @@
+# Never bake secrets into the image: compose passes .env at runtime.
+.env
+.git
+.venv
+data
+reports
+**/__pycache__
+**/*.pyc
+.pytest_cache
+.coverage
+htmlcov
+tests

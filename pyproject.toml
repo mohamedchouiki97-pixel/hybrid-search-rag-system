@@ -17,6 +17,7 @@ dependencies = [
     "chromadb>=0.5",
     "rank-bm25>=0.2.2",
     "sentence-transformers>=3.0",
+    "torch>=2.2",  # listed directly so Linux (Docker) can take the CPU-only build below
     # generation
     "anthropic>=0.40",
     # api / dashboard
@@ -32,6 +33,16 @@ dev = [
     "pytest>=8.2",
     "pytest-cov>=5.0",
 ]
+
+# On Linux the default torch wheel bundles CUDA (several GB). The reranker runs on
+# CPU, so containers use PyTorch's CPU-only index. Windows/macOS wheels are already CPU-only.
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux'" }]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
 
 [build-system]
 requires = ["hatchling"]

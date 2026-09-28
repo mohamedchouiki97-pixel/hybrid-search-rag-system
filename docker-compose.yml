@@ -1,0 +1,47 @@
+# docker compose up --build
+#   1. seed      indexes the FastAPI docs (skips strategies already indexed), then exits
+#   2. api       http://localhost:8000/docs   (starts after seed succeeds)
+#   3. dashboard http://localhost:8501        (starts once the api is healthy)
+# Chroma is embedded in the api; its files, the BM25 indexes and the caches live on the rag-data volume.
+# Needs a .env with OPENAI_API_KEY and LLM_MODEL (see .env.example).
+
+x-app: &app
+  build: .
+  image: hybrid-rag:latest
+  env_file: .env
+  volumes:
+    - rag-data:/app/data
+
+services:
+  seed:
+    <<: *app
+    command: ["python", "scripts/seed.py"]
+
+  api:
+    <<: *app
+    command: ["uvicorn", "rag.api.main:app", "--host", "0.0.0.0", "--port", "8000"]
+    ports:
+      - "8000:8000"
+    depends_on:
+      seed:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/healthz')"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+
+  dashboard:
+    <<: *app
+    command: ["streamlit", "run", "src/rag/dashboard/app.py", "--server.port", "8501", "--server.address", "0.0.0.0"]
+    environment:
+      API_URL: http://api:8000
+    ports:
+      - "8501:8501"
+    depends_on:
+      api:
+        condition: service_healthy
+
+volumes:
+  rag-data:
