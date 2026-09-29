@@ -75,10 +75,17 @@ def summarize(results: Sequence[QuestionResult]) -> dict:
 
 
 class EvalRunner:
-    def __init__(self, judge: LLMClient, k: int = 5, progress: Callable[[str], None] | None = None) -> None:
+    """resume=True reuses a variant's existing results file when it covers the same
+    questions and recorded zero errors, so an interrupted comparison only re-runs
+    what is missing or broken."""
+
+    def __init__(
+        self, judge: LLMClient, k: int = 5, progress: Callable[[str], None] | None = None, resume: bool = False
+    ) -> None:
         self.judge = judge
         self.k = k
         self.progress = progress or (lambda _msg: None)
+        self.resume = resume
 
     def evaluate_one(self, pipeline: Pipeline, item: GoldenItem) -> QuestionResult:
         result = QuestionResult(id=item.id, type=item.type.value, question=item.question)
@@ -99,11 +106,25 @@ class EvalRunner:
         result.recall_at_k = recall_at_k(answer.retrieved, item.gold_chunk_sections, self.k)
         result.mrr = mrr(answer.retrieved, item.gold_chunk_sections)
         result.citation_accuracy = citation_accuracy(answer)
-        result.correctness = correctness(self.judge, item, answer)
-        result.faithfulness = faithfulness(self.judge, answer)
+        try:
+            result.correctness = correctness(self.judge, item, answer)
+            result.faithfulness = faithfulness(self.judge, answer)
+        except Exception as exc:  # a failed judge call must not stop the run either
+            result.error = f"judge failed: {type(exc).__name__}: {exc}"
         return result
 
+    def _reusable(self, path: Path, items: Sequence[GoldenItem]) -> dict | None:
+        if not (self.resume and path.exists()):
+            return None
+        data = json.loads(path.read_text(encoding="utf-8"))
+        same_questions = [r["id"] for r in data["results"]] == [i.id for i in items]
+        return data["summary"] if same_questions and data["summary"]["errors"] == 0 else None
+
     def run(self, pipeline: Pipeline, items: Sequence[GoldenItem], out_dir: str | Path, label: str) -> dict:
+        reused = self._reusable(Path(out_dir) / f"{label}.results.json", items)
+        if reused is not None:
+            self.progress(f"[{label}] reusing existing results")
+            return reused
         results = []
         for n, item in enumerate(items, start=1):
             results.append(self.evaluate_one(pipeline, item))

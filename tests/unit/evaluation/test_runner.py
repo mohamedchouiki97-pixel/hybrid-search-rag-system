@@ -96,3 +96,38 @@ def test_generic_compare_for_hybrid_vs_dense(tmp_path, items, make_chunk):
             tmp_path, title="Hybrid vs dense", filename="retrieval_comparison.md")  # fmt: skip
     table = (tmp_path / "retrieval_comparison.md").read_text(encoding="utf-8")
     assert table.startswith("# Hybrid vs dense") and "| dense |" in table
+
+
+class FlakyJudge:
+    """Fails on the n-th call, like a dropped connection."""
+
+    def __init__(self, fail_on):
+        self.calls, self.fail_on = 0, fail_on
+
+    def complete(self, system, user):
+        self.calls += 1
+        if self.calls == self.fail_on:
+            raise ConnectionError("network down")
+        return GOOD
+
+
+def test_judge_failure_is_recorded_and_the_run_continues(tmp_path, items, make_chunk):
+    summary = EvalRunner(FlakyJudge(fail_on=1)).run(StubPipeline(make_chunk), items, tmp_path, "flaky")
+    assert summary["errors"] == 1 and summary["overall"]["n"] == 5
+    results = json.loads((tmp_path / "flaky.results.json").read_text(encoding="utf-8"))["results"]
+    assert results[0]["error"] == "judge failed: ConnectionError: network down"
+    assert results[0]["correctness"] is None  # left out of averages instead of counted as 0
+    assert all(r["error"] is None for r in results[1:])
+
+
+def test_resume_reuses_clean_results_and_reruns_broken_ones(tmp_path, items, make_chunk):
+    EvalRunner(FakeLLM(default=GOOD)).run(StubPipeline(make_chunk), items, tmp_path, "clean")
+    EvalRunner(FlakyJudge(fail_on=1)).run(StubPipeline(make_chunk), items, tmp_path, "broken")
+
+    runner = EvalRunner(FakeLLM(default=GOOD), resume=True)
+    fresh = StubPipeline(make_chunk)
+    assert runner.run(fresh, items, tmp_path, "clean")["errors"] == 0
+    assert fresh.asked == []  # clean file reused, pipeline never called
+    assert runner.run(fresh, items, tmp_path, "broken")["errors"] == 0
+    assert len(fresh.asked) == 5  # file with errors was re-run
+    assert runner.run(StubPipeline(make_chunk), items[:2], tmp_path, "clean")["overall"]["n"] == 2  # other questions: re-run

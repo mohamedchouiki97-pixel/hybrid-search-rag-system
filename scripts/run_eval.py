@@ -41,6 +41,7 @@ def main() -> int:
     parser.add_argument("--what", choices=["single", "chunking", "retrieval", "all"], default="single")
     parser.add_argument("--limit", type=int, default=None, help="only the first N golden questions")
     parser.add_argument("--out", type=Path, default=Path("reports/eval"))
+    parser.add_argument("--resume", action="store_true", help="reuse variants that already finished without errors")
     args = parser.parse_args()
 
     settings = get_settings()
@@ -52,7 +53,7 @@ def main() -> int:
     items = items[: args.limit]
 
     judge = CachingLLMClient(make_llm_client(settings), settings.cache_path / "judge.sqlite", namespace=settings.llm_model)
-    runner = EvalRunner(judge, k=settings.rerank_top_n, progress=lambda msg: print(f"\r{msg}   ", end="", flush=True))
+    runner = EvalRunner(judge, k=settings.rerank_top_n, resume=args.resume, progress=lambda msg: print(f"\r{msg}   ", end="", flush=True))
 
     def service_for(strategy=None):
         service = build_service(settings, strategy)
