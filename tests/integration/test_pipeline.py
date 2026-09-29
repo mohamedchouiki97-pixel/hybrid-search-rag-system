@@ -10,7 +10,8 @@ from rag.core.fakes import FakeEmbedder, FakeLLM
 from rag.core.models import Answer, ChunkStrategy, RetrievalMode
 from rag.evaluation.golden import GoldenItem
 from rag.evaluation.runner import EvalRunner
-from rag.generation.prompts import ANSWER_SYSTEM
+from rag.generation.abstain import REFUSAL_MISSING
+from rag.generation.prompts import ANSWER_SYSTEM, NO_ANSWER_SENTENCE
 from rag.indexing.vector_store import ChromaVectorStore
 
 DOCS = ["configuration", "errors", "installation", "operations", "overview"]
@@ -107,8 +108,9 @@ def test_planted_bad_citation_is_flagged(make_service, corpus_dir, llm):
 # ---------- abstain ----------
 
 
-def test_abstains_without_reaching_the_generator(make_service, corpus_dir, known_facts, llm, cross_encoder):
-    service = make_service(corpus=corpus_dir, reranker=cross_encoder)
+def test_retrieval_gate_abstains_without_reaching_the_generator(make_service, corpus_dir, known_facts, llm, cross_encoder):
+    # On this tiny corpus the no-answer questions score 0.20-0.24, so a gate at 0.30 stops them.
+    service = make_service(corpus=corpus_dir, reranker=cross_encoder, abstain_threshold=0.3)
     for fact in known_facts["no_answer"]:
         answer = service.ask(fact["question"])
         assert answer.abstained, fact["question"]
@@ -117,6 +119,17 @@ def test_abstains_without_reaching_the_generator(make_service, corpus_dir, known
 
     answered = service.ask(known_facts["lookup"][0]["question"])
     assert not answered.abstained and answered.confidence.retrieval > 0.9
+
+
+def test_model_refusal_is_the_second_layer(make_service, corpus_dir, known_facts, llm, cross_encoder):
+    # With the default 0.20 gate, the Kafka question (0.24) gets past retrieval;
+    # the model's refusal must still turn it into a structured abstention.
+    llm.default = NO_ANSWER_SENTENCE
+    service = make_service(corpus=corpus_dir, reranker=cross_encoder)
+    answer = service.ask(known_facts["no_answer"][0]["question"])
+    assert answer.abstained and answer.missing == REFUSAL_MISSING
+    assert answer.confidence.retrieval > service.settings.abstain_threshold
+    assert [s for s, _ in llm.calls] == [ANSWER_SYSTEM]  # generated once, never judged
 
 
 # ---------- API ----------

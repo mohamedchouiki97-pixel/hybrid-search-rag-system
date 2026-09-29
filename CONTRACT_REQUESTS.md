@@ -16,6 +16,11 @@ core's interfaces and fakes.
 
 ## Changes
 
+### 2026-09-29: abstain_threshold default 0.3 -> 0.2
+- Module: generation (Step 4 tuning)
+- Change: `Settings.abstain_threshold` defaults to `0.2`.
+- Why: chosen from a calibration run at threshold 0 (`reports/eval/threshold_sweep.md`). In hybrid mode every threshold from 0.00 to 0.45 scores 0.92 with no false abstains; 0.20 is the middle of that band and skips the LLM for 5 of 8 unanswerable questions. Only 8 no-answer questions back this, so re-check when the golden set grows.
+
 ### 2026-09-29: Citation.marker accepts 0
 - Module: generation
 - Change: `Citation.marker` is now `>= 0` (was `>= 1`).

@@ -24,6 +24,7 @@ def test_defaults():
     s = make()
     assert s.chunk_strategy is ChunkStrategy.RECURSIVE
     assert s.dedup_threshold == 0.95
+    assert s.abstain_threshold == 0.2
     assert (s.rrf_dense_weight, s.rrf_sparse_weight, s.rrf_k) == (0.7, 0.3, 60)
     assert (s.dense_k, s.rerank_candidates, s.rerank_top_n) == (10, 20, 5)
     assert s.embedding_model == "text-embedding-3-small"

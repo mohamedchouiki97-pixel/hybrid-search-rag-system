@@ -62,7 +62,8 @@ class Settings(BaseSettings):
     rerank_top_n: int = Field(default=5, gt=0)
 
     # Generation / confidence
-    abstain_threshold: float = Field(default=0.3, ge=0.0, le=1.0)
+    # Chosen from data: middle of the hybrid safe band 0.00-0.45 (reports/eval/threshold_sweep.md)
+    abstain_threshold: float = Field(default=0.2, ge=0.0, le=1.0)
     confidence_weights: ConfidenceWeights = Field(default_factory=ConfidenceWeights)
 
     # Models (llm_model has no default: it must be set in the environment)
