@@ -55,6 +55,7 @@ def test_runner_end_to_end_with_stub_pipeline(tmp_path, items, make_chunk):
     data = json.loads((tmp_path / "stub.results.json").read_text(encoding="utf-8"))
     assert [r["id"] for r in data["results"]] == ["q1", "q2", "q3", "q4", "q5"]
     assert data["results"][0]["retrieved"] == ["d1 | S1"]
+    assert [r["retrieval_confidence"] for r in data["results"]][:2] == [0.0, 0.0]  # stub leaves confidence at 0
     md = (tmp_path / "stub.summary.md").read_text(encoding="utf-8")
     assert "| **overall** | 5 | 0.80 |" in md
     assert "Abstention precision 1.00, recall on no-answer questions 0.50." in md

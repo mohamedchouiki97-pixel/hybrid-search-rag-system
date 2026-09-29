@@ -21,9 +21,11 @@ Rules:
 - If the context answers only part of the question, answer that part and say which part is missing.
 - Be concise and direct."""
 
-CITATION_JUDGE_SYSTEM = """You check whether a PASSAGE supports a CLAIM.
-The claim is supported only if the passage states it or directly implies it. Partial or related information is not support.
-Reply with JSON only, no other text: {"supported": true or false, "reason": "<one short sentence>"}"""
+CITATION_JUDGE_SYSTEM = """You check whether the numbered PASSAGES, taken together, support a CLAIM.
+The claim is supported only if the passages state it or directly imply it; it may combine facts from several passages.
+Partial or merely related information is not support.
+Also list the numbers of the passages you actually needed.
+Reply with JSON only, no other text: {"supported": true or false, "used": [<passage numbers>], "reason": "<one short sentence>"}"""
 
 COMPLETENESS_JUDGE_SYSTEM = """You rate how completely an ANSWER addresses every part of a QUESTION.
 Judge coverage of the question's parts, not whether the facts are true.
@@ -47,8 +49,10 @@ def answer_prompt(question: str, chunks: Sequence[RetrievedChunk]) -> str:
     return f"Context passages:\n\n{format_context(chunks)}\n\nQuestion: {question}\n\nAnswer with citations:"
 
 
-def citation_judge_prompt(claim: str, passage: str) -> str:
-    return f"CLAIM:\n{claim}\n\nPASSAGE:\n{passage}"
+def citation_judge_prompt(claim: str, passages: Sequence[tuple[int, str]]) -> str:
+    """passages: (marker, text) pairs, shown with the marker numbers the answer used."""
+    blocks = "\n\n".join(f"[{n}] {text}" for n, text in passages)
+    return f"CLAIM:\n{claim}\n\nPASSAGES:\n{blocks}"
 
 
 def completeness_judge_prompt(question: str, answer: str) -> str:

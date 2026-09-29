@@ -2,7 +2,9 @@
 
 hybrid: dense top dense_k + BM25 top sparse_k -> RRF -> top rerank_candidates
         -> cross-encoder -> top k
-dense:  dense top k only (no fusion, no reranking), for the comparison toggle
+dense:  dense top k only, in dense order (no fusion, no reordering), for the comparison
+        toggle. The cross-encoder still scores these k chunks (rerank_score) so that
+        retrieval confidence is on the same 0..1 scale in both modes.
 """
 
 from __future__ import annotations
@@ -44,7 +46,7 @@ class HybridRetriever:
         if k <= 0:
             return []
         if RetrievalMode(mode) is RetrievalMode.DENSE:
-            return self.dense.search(question, k)
+            return self._score_without_reordering(question, self.dense.search(question, k))
         fused = rrf_fuse(
             self.dense.search(question, self.dense_k),
             self.sparse.search(question, self.sparse_k),
@@ -53,6 +55,13 @@ class HybridRetriever:
             k=self.rrf_k,
         )
         return self.reranker.rerank(question, fused[: self.rerank_candidates], top_n=k)
+
+    def _score_without_reordering(self, question: str, results: list[RetrievedChunk]) -> list[RetrievedChunk]:
+        """Attach cross-encoder scores as rerank_score; keep order and score as they were."""
+        if not results:
+            return results
+        scores = {rc.chunk.chunk_id: rc.rerank_score for rc in self.reranker.rerank(question, results, top_n=len(results))}
+        return [rc.model_copy(update={"rerank_score": scores.get(rc.chunk.chunk_id)}) for rc in results]
 
 
 def build_retriever(

@@ -40,6 +40,7 @@ class QuestionResult:
     mrr: float | None = None
     citation_accuracy: float | None = None
     confidence: float | None = None
+    retrieval_confidence: float | None = None  # what the abstain threshold is compared against
     retrieved: list[str] = field(default_factory=list)  # "doc_id | section" of each retrieved chunk
     latency_s: float = 0.0
     error: str | None = None
@@ -93,6 +94,7 @@ class EvalRunner:
         result.answer_text = answer.answer_text
         result.abstained = answer.abstained
         result.confidence = answer.confidence.composite
+        result.retrieval_confidence = answer.confidence.retrieval
         result.retrieved = [f"{rc.chunk.doc_id} | {rc.chunk.section_heading}" for rc in answer.retrieved]
         result.recall_at_k = recall_at_k(answer.retrieved, item.gold_chunk_sections, self.k)
         result.mrr = mrr(answer.retrieved, item.gold_chunk_sections)

@@ -60,6 +60,28 @@ def test_extract_claims(text, expected):
     assert extract_claims(text) == expected
 
 
+def test_uncited_sentences_group_with_next_cited_sentence():
+    text = "Order matters. Declare /users/me first. Otherwise it matches the other route [1][2]."
+    assert extract_claims(text) == [
+        Claim("Order matters. Declare /users/me first. Otherwise it matches the other route.", (1, 2), sentences=3)
+    ]
+
+
+def test_grouping_stops_at_paragraph_breaks():
+    text = "Intro sentence.\n\nFirst fact [1]. Loose end.\n\nSecond fact [2]."
+    assert extract_claims(text) == [
+        Claim("Intro sentence.", ()),
+        Claim("First fact.", (1,)),
+        Claim("Loose end.", ()),
+        Claim("Second fact.", (2,)),
+    ]
+
+
+def test_parse_citations_gives_grouped_claim_text(chunks):
+    cites = parse_citations("Port is 7420. It is the default [1].", chunks)
+    assert [(c.marker, c.claim_text) for c in cites] == [(1, "Port is 7420. It is the default.")]
+
+
 def test_parse_citations_maps_markers_to_chunks(chunks):
     cites = parse_citations("Port is 7420 [1]. Kept 72 hours [2][3].", chunks)
     assert [(c.marker, c.chunk_id, c.claim_text) for c in cites] == [

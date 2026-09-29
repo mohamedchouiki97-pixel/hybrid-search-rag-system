@@ -88,11 +88,14 @@ def test_hybrid_reranks_only_the_candidates(retriever):
     assert all(r.rerank_score is not None for r in results)
 
 
-def test_dense_mode_skips_fusion_and_reranker(retriever):
-    results = retriever.retrieve(QUESTION, "dense", k=2)
-    assert retriever.reranker.calls == []
-    assert [r.dense_rank for r in results] == [1, 2]
-    assert all(r.rerank_score is None and r.sparse_rank is None for r in results)
+def test_dense_mode_keeps_dense_order_but_gets_reranker_scores(retriever, embedder, parts):
+    results = retriever.retrieve(QUESTION, "dense", k=3)
+    [scored] = retriever.reranker.calls
+    assert len(scored) == 3  # scores only the k dense results; no fusion, no BM25
+    assert [r.dense_rank for r in results] == [1, 2, 3]  # order untouched
+    assert all(r.sparse_rank is None and r.rerank_score is not None for r in results)
+    plain = DenseSearch(embedder, parts[0]).search(QUESTION, 3)
+    assert [r.score for r in results] == [r.score for r in plain]  # score stays the cosine
 
 
 def test_zero_k_and_empty_index(embedder):

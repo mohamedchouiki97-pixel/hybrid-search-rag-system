@@ -19,21 +19,22 @@ _SENTENCE_RE = re.compile(rf"[^\s](?:[^.!?\n]|[.!?](?=[^\s]))*(?:[.!?]+{_MARKERS
 _BULLET_RE = re.compile(r"^[-*•]\s+")
 _LIST_NUMBER_RE = re.compile(r"\d+[.)]?")  # "1." split off a numbered list item
 
-UNMATCHED_REASON ="no retrieved passage has this number"
+_PARAGRAPH_BREAK_RE = re.compile(r"\n[ \t]*\n")
+
+UNMATCHED_REASON = "no retrieved passage has this number"
 
 
 @dataclass(frozen=True)
 class Claim:
-    text: str  # sentence with the citation markers removed
+    text: str  # sentence(s) with the citation markers removed
     markers: tuple[int, ...]  # distinct markers, in order of appearance
+    sentences: int = 1  # how many sentences this claim covers
 
 
-def extract_claims(answer_text: str) -> list[Claim]:
-    """Split an answer into claim sentences and the markers attached to each.
-
-    Handles [1], [1][2] and [1, 2]. Lead-in lines ending with ":" are not claims.
-    """
-    claims: list[Claim] = []
+def _sentences(answer_text: str) -> list[tuple[int, str, tuple[int, ...]]]:
+    """(paragraph number, sentence without markers, markers) for each sentence."""
+    breaks = [m.end() for m in _PARAGRAPH_BREAK_RE.finditer(answer_text)]
+    out = []
     for m in _SENTENCE_RE.finditer(answer_text):
         sentence = m.group(0).strip()
         markers: list[int] = []
@@ -45,7 +46,38 @@ def extract_claims(answer_text: str) -> list[Claim]:
         text = re.sub(r"\s+([.!?,;:])", r"\1", text)  # "7420 ." -> "7420."
         text = _BULLET_RE.sub("", text)
         if text and not text.endswith(":") and not _LIST_NUMBER_RE.fullmatch(text):
-            claims.append(Claim(text=text, markers=tuple(markers)))
+            out.append((sum(1 for b in breaks if b <= m.start()), text, tuple(markers)))
+    return out
+
+
+def extract_claims(answer_text: str) -> list[Claim]:
+    """Split an answer into claims and the markers that back each one.
+
+    Handles [1], [1][2] and [1, 2]. Lead-in lines ending with ":" are not claims.
+
+    Models often cite once at the end of a paragraph: "A. B. C [1][2]." So uncited
+    sentences are grouped with the next cited sentence in the same paragraph into one
+    claim, "A. B. C.", which the judge then checks as a whole against [1] and [2].
+    Uncited sentences with no citation after them in their paragraph stay uncited claims.
+    """
+    claims: list[Claim] = []
+    pending: list[str] = []
+    paragraph = None
+
+    def flush() -> None:
+        claims.extend(Claim(text=s, markers=()) for s in pending)
+        pending.clear()
+
+    for para, text, markers in _sentences(answer_text):
+        if para != paragraph:
+            flush()
+            paragraph = para
+        if not markers:
+            pending.append(text)
+            continue
+        claims.append(Claim(text=" ".join([*pending, text]), markers=markers, sentences=len(pending) + 1))
+        pending.clear()
+    flush()
     return claims
 
 

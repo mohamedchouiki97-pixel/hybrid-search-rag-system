@@ -1,8 +1,9 @@
 """Confidence: how much to trust an answer, on three dimensions plus a weighted composite.
 
-- retrieval:          did we find strongly relevant passages? (top chunk's score)
-- citation_coverage:  share of claim sentences backed by at least one verified citation
-                      (a claim with no citation counts as unbacked)
+- retrieval:          did we find strongly relevant passages? (top chunk's cross-encoder
+                      probability, in both hybrid and dense mode, so one threshold fits both)
+- citation_coverage:  share of answer sentences inside a claim with a verified citation
+                      (uncited sentences count as unbacked)
 - completeness:       judge's view of whether every part of the question was addressed
 """
 
@@ -22,7 +23,7 @@ def _clamp(x: float) -> float:
 
 
 def retrieval_confidence(chunks: Sequence[RetrievedChunk]) -> float:
-    """Top chunk's rerank score (0..1) in hybrid mode, its cosine in dense mode; 0 if nothing."""
+    """Top chunk's rerank score (0..1); falls back to its raw score if it was never reranked."""
     if not chunks:
         return 0.0
     top = chunks[0]
@@ -34,7 +35,7 @@ def citation_coverage(answer: Answer) -> float:
     if answer.abstained or not claims:
         return 0.0
     backed = {c.claim_text for c in answer.citations if c.verified}
-    return sum(1 for claim in claims if claim.text in backed) / len(claims)
+    return sum(claim.sentences for claim in claims if claim.text in backed) / sum(claim.sentences for claim in claims)
 
 
 def composite(retrieval: float, coverage: float, completeness: float, weights: ConfidenceWeights) -> float:

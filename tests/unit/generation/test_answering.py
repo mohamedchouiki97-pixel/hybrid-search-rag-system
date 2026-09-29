@@ -5,7 +5,7 @@ import pytest
 from rag.core.config import ConfidenceWeights, LLMProvider
 from rag.core.fakes import FakeLLM
 from rag.core.models import RetrievedChunk
-from rag.generation.abstain import ABSTAIN_TEXT, build_abstain_answer, should_abstain
+from rag.generation.abstain import ABSTAIN_TEXT, REFUSAL_MISSING, build_abstain_answer, is_refusal, should_abstain
 from rag.generation.answering import AnswerFlow, build_answer_flow
 from rag.generation.llm_client import OpenAILLMClient, make_llm_client
 from rag.generation.prompts import ANSWER_SYSTEM
@@ -59,6 +59,31 @@ def test_abstain_path_never_calls_the_llm(make_chunk):
     answer = make_flow(llm).answer("Kafka?", [rc(make_chunk, "unrelated", "d", 0.1)])
     assert answer.abstained
     assert llm.call_count == 0
+
+
+@pytest.mark.parametrize(
+    ("text", "expected"),
+    [
+        ("The provided documents do not answer this question.", True),
+        ('  "The provided documents do not answer this question"  ', True),
+        ("the provided documents do not answer this question.", True),
+        ("The port is 7420 [1]. The provided documents do not answer this question.", False),  # partial answer
+        ("The provided documents do not say which port is used, but it is likely 80.", False),
+        ("", False),
+    ],
+)
+def test_is_refusal(text, expected):
+    assert is_refusal(text) is expected
+
+
+def test_model_refusal_becomes_structured_abstain_without_judge_calls(make_chunk):
+    chunks = [rc(make_chunk, "Related but not the answer.", "overview", 0.9, "Networking")]
+    llm = FakeLLM(default="The provided documents do not answer this question.")
+    answer = make_flow(llm).answer("Kafka?", chunks)
+    assert answer.abstained and answer.answer_text == ABSTAIN_TEXT
+    assert answer.missing == REFUSAL_MISSING and answer.suggested_docs == ["overview"]
+    assert answer.confidence.retrieval == 0.9  # kept, so evals can see why it got this far
+    assert llm.call_count == 1  # generation only: no citation or completeness judging
 
 
 def test_answer_path_generates_verifies_and_scores(make_chunk):

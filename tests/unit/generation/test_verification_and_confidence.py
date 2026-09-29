@@ -4,7 +4,7 @@ from rag.core.config import ConfidenceWeights
 from rag.core.fakes import FakeLLM
 from rag.core.interfaces import CitationVerifier
 from rag.core.models import Answer, Citation, RetrievedChunk
-from rag.generation.citation_verifier import NOT_RETRIEVED_REASON, LLMCitationVerifier
+from rag.generation.citation_verifier import NOT_NEEDED_REASON, NOT_RETRIEVED_REASON, LLMCitationVerifier
 from rag.generation.confidence import ConfidenceScorer, citation_coverage, composite, retrieval_confidence
 from rag.generation.generator import UNMATCHED_REASON, parse_citations
 from rag.generation.prompts import parse_json_object
@@ -54,7 +54,29 @@ def test_verifier_marks_supported_and_unsupported(chunks):
         (False, "passage is about backups"),
     ]
     assert judge.call_count == 2
-    assert any("PASSAGE:\nThe broker listens on port 7420." in user for _, user in judge.calls)
+    assert any("PASSAGES:\n[1] The broker listens on port 7420." in user for _, user in judge.calls)
+
+
+def test_claim_is_judged_once_against_all_its_passages(chunks):
+    judge = FakeLLM(default='{"supported": true, "used": [1, 2], "reason": "combined"}')
+    answer = make_answer("The port is 7420 and backups are incremental [1][2].", chunks)
+    checked = LLMCitationVerifier(judge).verify(answer, chunks)
+    assert [c.verified for c in checked.citations] == [True, True]
+    [(_, user)] = judge.calls  # one call for the claim, not one per citation
+    assert "[1] The broker listens on port 7420." in user and "[2] Backups are incremental." in user
+
+
+def test_cited_passage_the_judge_did_not_need_is_flagged(chunks):
+    judge = FakeLLM(default='{"supported": true, "used": [1], "reason": "port stated"}')
+    checked = LLMCitationVerifier(judge).verify(make_answer("The port is 7420 [1][2].", chunks), chunks)
+    assert [(c.marker, c.verified) for c in checked.citations] == [(1, True), (2, False)]
+    assert checked.citations[1].judge_reason == NOT_NEEDED_REASON
+
+
+def test_unsupported_claim_marks_all_its_citations(chunks):
+    judge = FakeLLM(default='{"supported": false, "used": [], "reason": "not stated"}')
+    checked = LLMCitationVerifier(judge).verify(make_answer("The port is 9000 [1][2].", chunks), chunks)
+    assert [(c.verified, c.judge_reason) for c in checked.citations] == [(False, "not stated")] * 2
 
 
 @pytest.mark.parametrize("reply", ["garbage", '{"supported": "yes"}', '{"reason": "missing verdict"}'])
@@ -126,7 +148,9 @@ def verified(text, flags):
     [
         ("A [1]. B [1].", [("A.", True), ("B.", True)], 1.0),
         ("A [1]. B [1].", [("A.", True), ("B.", False)], 0.5),
-        ("A [1]. B. C. D [1].", [("A.", True), ("D.", True)], 0.5),  # uncited claims count against
+        ("A [1]. B. C. D [1].", [("A.", True), ("B. C. D.", True)], 1.0),  # B, C grouped with D
+        ("A [1]. B. C.", [("A.", True)], 1 / 3),  # trailing uncited sentences count against
+        ("A [1]. B. C. D [1].", [("A.", True), ("B. C. D.", False)], 0.25),  # coverage counts sentences
         ("A [1][2].", [("A.", False), ("A.", True)], 1.0),  # one verified citation is enough
         ("A [1].", [("A.", None)], 0.0),  # never verified
         ("Found:", [], 0.0),  # no claims at all
