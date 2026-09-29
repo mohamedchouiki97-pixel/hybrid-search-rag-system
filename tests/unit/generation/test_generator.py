@@ -77,6 +77,42 @@ def test_grouping_stops_at_paragraph_breaks():
     ]
 
 
+CODE_ANSWER = """You can declare an optional query parameter by setting its default value to `None`. For example:
+
+```python
+@app.get("/items/{item_id}")
+async def read_item(item_id: str, q: str | None = None):
+    return {"item_id": item_id}
+```
+
+In this case, `q` is optional and defaults to `None` [1]."""
+
+
+def test_code_blocks_are_not_claims_and_do_not_split_paragraphs():
+    # Regression: each code line used to count as an uncited claim (coverage 1/7 = 0.14).
+    assert extract_claims(CODE_ANSWER) == [
+        Claim(
+            "You can declare an optional query parameter by setting its default value to `None`. "
+            "In this case, `q` is optional and defaults to `None`.",
+            (1,),
+            sentences=2,
+        )
+    ]
+
+
+@pytest.mark.parametrize(
+    ("text", "expected"),
+    [
+        ("Intro.\n\n~~~\nx = 1. y = 2\n~~~\n\nFact [1].", [Claim("Intro. Fact.", (1,), sentences=2)]),  # tilde fence
+        ("Fact [1].\n\n```py\nunclosed = True", [Claim("Fact.", (1,))]),  # unclosed fence runs to the end
+        ("A [1].\n\n```\ncode\n```\n\nB.\n\nC [2].", [Claim("A.", (1,)), Claim("B.", ()), Claim("C.", (2,))]),
+        ("Only code:\n\n```\nprint(1)\n```", []),
+    ],
+)
+def test_code_block_edge_cases(text, expected):
+    assert extract_claims(text) == expected
+
+
 def test_parse_citations_gives_grouped_claim_text(chunks):
     cites = parse_citations("Port is 7420. It is the default [1].", chunks)
     assert [(c.marker, c.claim_text) for c in cites] == [(1, "Port is 7420. It is the default.")]

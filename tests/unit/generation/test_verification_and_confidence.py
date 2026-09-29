@@ -163,6 +163,13 @@ def test_citation_coverage(answer_text, citations, expected):
     assert citation_coverage(Answer(question="q", answer_text=answer_text, citations=cites)) == pytest.approx(expected)
 
 
+def test_code_example_does_not_lower_coverage(chunks):
+    text = "Set a default of `None`. For example:\n\n```python\nq: str | None = None\n```\n\nThen `q` is optional [1]."
+    answer = make_answer(text, chunks)
+    checked = LLMCitationVerifier(FakeLLM(default=YES)).verify(answer, chunks)
+    assert citation_coverage(checked) == 1.0
+
+
 def test_coverage_is_zero_when_abstained():
     cites = [Citation(marker=1, chunk_id="c", claim_text="A.", verified=True)]
     assert citation_coverage(Answer(question="q", answer_text="A [1].", citations=cites, abstained=True)) == 0.0

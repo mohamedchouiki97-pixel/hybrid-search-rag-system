@@ -20,8 +20,37 @@ _BULLET_RE = re.compile(r"^[-*•]\s+")
 _LIST_NUMBER_RE = re.compile(r"\d+[.)]?")  # "1." split off a numbered list item
 
 _PARAGRAPH_BREAK_RE = re.compile(r"\n[ \t]*\n")
+_FENCE_OPEN_RE = re.compile(r"^\s*(`{3,}|~{3,})")
 
 UNMATCHED_REASON = "no retrieved passage has this number"
+
+
+def _without_code_blocks(text: str) -> str:
+    """Drop fenced code blocks, and the blank lines around them.
+
+    Code illustrates a cited explanation rather than making claims of its own, and
+    dropping the surrounding blank lines keeps "intro: <code> explanation [1]." in one
+    paragraph, so the intro is grouped with the cited explanation after the code.
+    """
+    out: list[str] = []
+    fence: str | None = None
+    after_code = False
+    for line in text.split("\n"):
+        if fence is not None:
+            stripped = line.strip()
+            if len(stripped) >= len(fence) and set(stripped) == {fence[0]}:
+                fence, after_code = None, True
+            continue
+        if m := _FENCE_OPEN_RE.match(line):
+            fence = m.group(1)
+            while out and not out[-1].strip():
+                out.pop()
+            continue
+        if after_code and not line.strip():
+            continue
+        after_code = False
+        out.append(line)
+    return "\n".join(out)
 
 
 @dataclass(frozen=True)
@@ -32,7 +61,8 @@ class Claim:
 
 
 def _sentences(answer_text: str) -> list[tuple[int, str, tuple[int, ...]]]:
-    """(paragraph number, sentence without markers, markers) for each sentence."""
+    """(paragraph number, sentence without markers, markers) for each prose sentence."""
+    answer_text = _without_code_blocks(answer_text)
     breaks = [m.end() for m in _PARAGRAPH_BREAK_RE.finditer(answer_text)]
     out = []
     for m in _SENTENCE_RE.finditer(answer_text):
