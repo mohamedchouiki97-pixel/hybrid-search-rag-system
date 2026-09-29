@@ -19,3 +19,6 @@ htmlcov/
 # Runtime data (vector store, raw uploads, caches)
 data/
 .cache/
+
+# Evaluation run logs (progress output only; results are committed as JSON/Markdown)
+reports/**/*.log
