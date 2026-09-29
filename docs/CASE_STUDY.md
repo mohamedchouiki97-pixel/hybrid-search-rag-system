@@ -49,6 +49,9 @@ The first end-to-end run looked fine question by question. Measurement across th
 **5. The abstain threshold was a guess (0.30).**
 *Fix:* a calibration run with the threshold at 0 recorded, for every question, its retrieval confidence and what the model did. Every threshold was then replayed offline for free. In hybrid mode every threshold from 0.00 to 0.45 scored the same with zero wrongly refused questions. We chose the middle, **0.20**, for margin. At 0.20 the gate stops 4 of the 8 unanswerable questions before any LLM call, and the model's refusal handles the other 4.
 
+**6. Code examples looked like uncited claims** (found by clicking around the dashboard after the final run). Every line of a code block counted as a sentence without a citation, so a correct, cited answer with a code example showed coverage 0.14; about a quarter of answers contain code.
+*Fix:* code blocks are skipped when extracting claims, and they no longer split a paragraph, so "For example: <code> This makes q optional [1]." is one claim checked as a whole. A reminder that metrics need a human look, not just a number.
+
 ## What we learned about measuring
 
 - **Temperature 0 is not deterministic.** Two runs of the identical configuration produced word-for-word identical answers for only 16 of 50 questions, and correctness differed by 0.02. With 50 questions, treat differences under about 0.03 as noise. That is why hybrid vs dense correctness (0.90 vs 0.89) is reported as a tie, and hybrid's advantage is claimed on ranking (MRR 0.80 vs 0.71) and on exact identifiers. For example, only BM25 found the passage for "What does `OAuth2PasswordBearer` do…", and dense mode abstained.

@@ -27,4 +27,5 @@
 - **Abstention now works in both layers.** The model's own refusal catches every unanswerable question; the 0.20 retrieval gate stops 4 of the 8 before any LLM call (q042 scores 0.24 and is caught by the model instead). Abstention precision is 1.00: no answerable question was refused.
 - **Small tuning set.** The threshold was chosen on the same 50 questions reported here, and only 8 are unanswerable. Re-check it when the golden set grows.
 - **Weak spots left:** ambiguous questions (retrieval recall 0.45) and multi-hop questions (0.67). Both are retrieval problems: the right second section is not in the top 5.
+- **Found after the final run, in manual testing:** answers containing a code example had understated citation coverage, because every code line counted as an uncited claim (a correct answer scored 0.14). That affected 10-14 of about 40 answered questions per configuration. Fixed in `6e82969`. Coverage feeds the confidence shown to users, not any metric in the tables above.
 - **Latency** is not comparable across these runs: the final run overlapped a network outage and its recovery.
