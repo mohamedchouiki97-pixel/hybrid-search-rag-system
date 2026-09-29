@@ -136,6 +136,8 @@ def test_retrieval_confidence(make_chunk):
     assert retrieval_confidence([rc(0.64)]) == 0.64  # dense: cosine
     assert retrieval_confidence([rc(-0.2)]) == 0.0
     assert retrieval_confidence([rc(1.0, rerank=3.0)]) == 1.0
+    # dense order is not rerank order: the best-scored chunk counts, wherever it is
+    assert retrieval_confidence([rc(0.8, rerank=0.01), rc(0.7, rerank=0.02), rc(0.6, rerank=0.93)]) == 0.93
 
 
 def verified(text, flags):

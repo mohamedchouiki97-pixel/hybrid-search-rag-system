@@ -23,11 +23,14 @@ def _clamp(x: float) -> float:
 
 
 def retrieval_confidence(chunks: Sequence[RetrievedChunk]) -> float:
-    """Top chunk's rerank score (0..1); falls back to its raw score if it was never reranked."""
+    """Best chunk's rerank score (0..1), falling back to raw scores for chunks never reranked.
+
+    The best, not the first: in dense mode chunks stay in dense order, so the most
+    relevant passage (by cross-encoder) can be at rank 3. In hybrid mode it is the first.
+    """
     if not chunks:
         return 0.0
-    top = chunks[0]
-    return _clamp(top.rerank_score if top.rerank_score is not None else top.score)
+    return _clamp(max(rc.rerank_score if rc.rerank_score is not None else rc.score for rc in chunks))
 
 
 def citation_coverage(answer: Answer) -> float:
