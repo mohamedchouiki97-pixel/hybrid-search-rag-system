@@ -23,6 +23,10 @@ The default corpus is the [FastAPI documentation](https://fastapi.tiangolo.com/)
 
 ## How it works
 
+![Architecture: indexing (load, chunk, embed, deduplicate, store in Chroma and BM25) and answering (hybrid search, RRF, rerank, retrieval gate, grounded LLM answer, model-refusal check, per-claim judging, confidence)](docs/images/architecture.png)
+
+The detailed, editable version of the same flow:
+
 ```mermaid
 flowchart LR
     subgraph Ingest
