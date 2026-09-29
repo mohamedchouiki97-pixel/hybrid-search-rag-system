@@ -12,9 +12,9 @@ def test_unit_marker_applied_by_folder(request):
 
 
 def test_network_is_blocked_in_unit_tests():
-    with pytest.raises(RuntimeError, match="unit tests may not"):
+    with pytest.raises(RuntimeError, match="tests may not"):
         socket.create_connection(("example.com", 80), timeout=1)
-    with pytest.raises(RuntimeError, match="unit tests may not"):
+    with pytest.raises(RuntimeError, match="tests may not"):
         socket.socket().connect(("93.184.215.14", 80))
 
 

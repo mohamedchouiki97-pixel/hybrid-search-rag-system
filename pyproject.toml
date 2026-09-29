@@ -54,7 +54,8 @@ packages = ["src/rag"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 # langsmith (pulled in by langchain) auto-registers a pytest plugin we don't use
-addopts = "--strict-markers --import-mode=importlib -p no:langsmith_plugin"
+# Live tests cost money: plain `pytest` skips them; `pytest -m live` (a later -m wins) runs them.
+addopts = "--strict-markers --import-mode=importlib -p no:langsmith_plugin -m \"not live\""
 markers = [
     "unit: fast, no network, no API keys, fakes only",
     "integration: real ChromaDB/BM25 in a temp dir, fakes for paid APIs, no network",

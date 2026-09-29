@@ -2,7 +2,7 @@
 
 - Tests are marked by folder: tests/unit -> unit, tests/integration -> integration,
   tests/live -> live. No need to add the marker by hand.
-- Unit tests cannot open network connections (localhost is allowed, asyncio needs it).
+- Unit and integration tests cannot open network connections (localhost is allowed, asyncio needs it).
 """
 
 from __future__ import annotations
@@ -55,7 +55,7 @@ def _is_local(address: Any) -> bool:
 
 @pytest.fixture(autouse=True)
 def _block_network(request: pytest.FixtureRequest, monkeypatch: pytest.MonkeyPatch) -> None:
-    if request.node.get_closest_marker("unit") is None:
+    if request.node.get_closest_marker("unit") is None and request.node.get_closest_marker("integration") is None:
         return
 
     real_connect = socket.socket.connect
@@ -64,17 +64,17 @@ def _block_network(request: pytest.FixtureRequest, monkeypatch: pytest.MonkeyPat
 
     def guarded_connect(self: socket.socket, address: Any) -> Any:
         if not _is_local(address):
-            raise NetworkBlockedError(f"unit tests may not open network connections (to {address!r})")
+            raise NetworkBlockedError(f"unit and integration tests may not open network connections (to {address!r})")
         return real_connect(self, address)
 
     def guarded_connect_ex(self: socket.socket, address: Any) -> Any:
         if not _is_local(address):
-            raise NetworkBlockedError(f"unit tests may not open network connections (to {address!r})")
+            raise NetworkBlockedError(f"unit and integration tests may not open network connections (to {address!r})")
         return real_connect_ex(self, address)
 
     def guarded_getaddrinfo(host: Any, *args: Any, **kwargs: Any) -> Any:
         if host is not None and str(host) not in _LOCAL_HOSTS:
-            raise NetworkBlockedError(f"unit tests may not resolve hosts ({host!r})")
+            raise NetworkBlockedError(f"unit and integration tests may not resolve hosts ({host!r})")
         return real_getaddrinfo(host, *args, **kwargs)
 
     monkeypatch.setattr(socket.socket, "connect", guarded_connect)
