@@ -72,7 +72,19 @@ uv run python scripts/demo.py             # five questions, one per behaviour
 
 `LLM_MODEL` is read from the environment and never hardcoded. The evaluation used `gpt-4.1-mini-2025-04-14`.
 
-**Docker** (`docker compose up --build`) runs seed, then the API, then the dashboard, with a shared data volume. The Dockerfile uses CPU-only torch and bakes in the reranker model. *It has not been built on this project's development machine yet.*
+### Docker
+
+Only Docker and a `.env` (with `OPENAI_API_KEY` and `LLM_MODEL`) are needed; no Python setup.
+
+```bash
+docker compose up -d --build    # build (about 2-3 min the first time), then start seed -> api -> dashboard
+docker compose logs -f seed     # watch indexing; the first start embeds the corpus (about 4 min, a few cents)
+docker compose ps               # api should be "healthy"; seed "exited (0)"
+docker compose down             # stop and remove containers; the index survives on the rag-data volume
+docker compose down -v          # ...and delete the volume too (the next start re-seeds)
+```
+
+One 3.2 GB image serves all three services. It uses CPU-only torch, has the reranker model baked in (containers start offline-ready), runs as a non-root user, and never contains `.env`. Indexes and caches live on the `rag-data` volume, so later starts skip seeding (about 20 s, no API cost).
 
 ## API
 
