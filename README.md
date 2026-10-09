@@ -1,5 +1,7 @@
 # Hybrid Search RAG with Verified Citations
 
+[![tests](https://github.com/mohamedchouiki97-pixel/hybrid-search-rag-system/actions/workflows/tests.yml/badge.svg)](https://github.com/mohamedchouiki97-pixel/hybrid-search-rag-system/actions/workflows/tests.yml)
+
 Ask questions about a documentation set and get answers built **only** from that documentation, with `[n]` citations that a judge model has checked, a confidence breakdown, and a structured "I don't know" when the docs don't cover the question.
 
 The default corpus is the [FastAPI documentation](https://fastapi.tiangolo.com/) (122 pages, MIT licensed). The corpus path is configuration, so any folder of Markdown, text, HTML or PDF files works.
