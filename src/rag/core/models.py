@@ -1,6 +1,6 @@
 """Shared data models. Every module exchanges data using only these types.
 
-Stable: edit only with all tests passing, and log the change in CONTRACT_REQUESTS.md.
+Stable: edit only with all tests passing, and log the change in docs/CORE_CHANGELOG.md.
 """
 
 from __future__ import annotations

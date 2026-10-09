@@ -1,3 +1,5 @@
+> **Historical document.** This is the original build plan the project was developed from, kept as written, with later decisions folded in (OpenAI as the default LLM, core "stable, not frozen"). It was written as instructions for the build sessions, hence the imperative tone. For how the system works today see the [README](../README.md), and for results see the [case study](CASE_STUDY.md).
+
 # Hybrid Search RAG System: Design and Build Plan
 
 Read this file fully before writing any code. You will be told which modules to build in your session. Only build those.
@@ -38,8 +40,8 @@ rag/
   pyproject.toml
   docker-compose.yml
   .env.example
-  DESIGN.md
-  CONTRACT_REQUESTS.md      (changelog: every core change and why)
+  docs/DESIGN.md
+  docs/CORE_CHANGELOG.md    (changelog: every core change and why)
   src/rag/
     core/                   shared models, interfaces, config, fakes (stable after Step 0)
       models.py
@@ -89,7 +91,7 @@ rag/
 
 ## 4. Shared Contracts (built first, in Step 0)
 
-Everything below lives in src/rag/core. Every module codes against these and only these. After Step 0, core is stable. Core may be edited directly when a module needs it, as long as all existing tests still pass. Record each change and why in CONTRACT_REQUESTS.md. Modules still talk to each other only through core's interfaces and fakes.
+Everything below lives in src/rag/core. Every module codes against these and only these. After Step 0, core is stable. Core may be edited directly when a module needs it, as long as all existing tests still pass. Record each change and why in docs/CORE_CHANGELOG.md. Modules still talk to each other only through core's interfaces and fakes.
 
 ### 4.1 Data models (models.py)
 
@@ -264,7 +266,7 @@ Rules for all tests:
 ## 7. Working Rules
 
 1. Build only the modules you were assigned, and only edit those folders and their tests.
-2. Core is stable, not frozen: edit src/rag/core directly when a module needs it, keep all existing tests passing, and log the change and why in CONTRACT_REQUESTS.md.
+2. Core is stable, not frozen: edit src/rag/core directly when a module needs it, keep all existing tests passing, and log the change and why in docs/CORE_CHANGELOG.md.
 3. Code against the interfaces and fakes in core, not against other modules' real code.
 4. Small commits with clear messages. Run pytest -m unit before each one.
 5. When done, report: what you built, test results, any contract requests, and anything likely to break at integration.
@@ -296,7 +298,7 @@ Whole project:
 
 ## 10. Risks
 
-- Contract drift: mitigated by keeping core stable (edits only with all tests passing) and logging every change in CONTRACT_REQUESTS.md.
+- Contract drift: mitigated by keeping core stable (edits only with all tests passing) and logging every change in docs/CORE_CHANGELOG.md.
 - Judge cost: eval makes many LLM calls. Cache judge results on disk and run live evals rarely.
 - Golden set quality: weak questions give weak numbers. Write them by hand from the actual corpus and review them.
 - Semantic chunking is slow and costs embeddings. Cache embeddings by text hash.

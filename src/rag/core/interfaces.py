@@ -5,7 +5,7 @@ Conventions:
 - VectorStore scores are cosine similarity in [-1, 1].
 - Stores upsert by chunk_id: adding an existing id replaces it.
 
-Stable: edit only with all tests passing, and log the change in CONTRACT_REQUESTS.md.
+Stable: edit only with all tests passing, and log the change in docs/CORE_CHANGELOG.md.
 """
 
 from __future__ import annotations

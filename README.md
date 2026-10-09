@@ -113,7 +113,7 @@ Judge calls are cached on disk, so re-running an evaluation only pays for genera
 
 ```
 src/rag/
-  core/         shared models, interfaces, config, fakes (changes logged in CONTRACT_REQUESTS.md)
+  core/         shared models, interfaces, config, fakes (changes logged in docs/CORE_CHANGELOG.md)
   ingestion/    loaders (md, txt, html, pdf) and the three chunkers
   indexing/     OpenAI embedder + cache, Chroma store, BM25 index, syncing indexer
   retrieval/    dense, sparse, RRF fusion, cross-encoder reranker, retriever
@@ -126,4 +126,4 @@ tests/          unit/, integration/, live/, fixtures/ (a 5-doc fictional corpus)
 reports/eval/   baseline, calibration and final runs as JSON + Markdown
 ```
 
-`DESIGN.md` is the original build plan; `CONTRACT_REQUESTS.md` records every change to `core/` and why.
+[docs/DESIGN.md](docs/DESIGN.md) is the original build plan; [docs/CORE_CHANGELOG.md](docs/CORE_CHANGELOG.md) records every change to `core/` and why.
