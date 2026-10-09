@@ -6,6 +6,8 @@ Ask questions about a documentation set and get answers built **only** from that
 
 The default corpus is the [FastAPI documentation](https://fastapi.tiangolo.com/) (122 pages, MIT licensed). The corpus path is configuration, so any folder of Markdown, text, HTML or PDF files works.
 
+> **About this repository.** This is a simplified, public version of a system developed for a client. To respect the client's confidentiality, it contains none of their documents, data or code: the public FastAPI documentation stands in for the private corpus, and the evaluation questions were written against it. Client-specific integrations and deployment details are left out. All results reported here were measured on this public version.
+
 ## Results
 
 50 hand-written questions (25 lookup, 10 multi-hop, 8 unanswerable, 7 ambiguous), `gpt-4.1-mini-2025-04-14` for generation and judging, recursive chunks with hybrid retrieval:

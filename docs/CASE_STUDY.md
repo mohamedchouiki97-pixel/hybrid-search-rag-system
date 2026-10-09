@@ -1,5 +1,7 @@
 # Case study: making a RAG system honest about what it knows
 
+*This case study covers a simplified, public version of a system developed for a client. It uses public documentation in place of the client's private data, and every number below was measured on this public version.*
+
 ## The numbers
 
 On 50 hand-written questions about the FastAPI documentation (recursive chunks, hybrid retrieval, `gpt-4.1-mini-2025-04-14`):
