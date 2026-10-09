@@ -52,7 +52,11 @@ def test_upsert_count_ids_delete(store, make_chunk):
 
 def test_list_docs(store, make_chunk):
     store.add(
-        [make_chunk("x", doc_id="d2"), make_chunk("y", doc_id="d1", chunk_index=0), make_chunk("z", doc_id="d1", chunk_index=1)],
+        [
+            make_chunk("x", doc_id="d2"),
+            make_chunk("y", doc_id="d1", chunk_index=0),
+            make_chunk("z", doc_id="d1", chunk_index=1),
+        ],
         [[1.0, 0.0]] * 3,
     )
     assert [(d.doc_id, d.chunk_count) for d in store.list_docs()] == [("d1", 2), ("d2", 1)]

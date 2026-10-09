@@ -6,7 +6,11 @@ from rag.evaluation.golden import GoldenItem, GoldSection
 from rag.evaluation.judge_cache import CachingLLMClient
 from rag.evaluation.metrics import citation_accuracy, correctness, faithfulness, matches, mrr, recall_at_k
 
-A, B, C = GoldSection(doc_id="d1", section="A"), GoldSection(doc_id="d2", section="B"), GoldSection(doc_id="d3", section="C")
+A, B, C = (
+    GoldSection(doc_id="d1", section="A"),
+    GoldSection(doc_id="d2", section="B"),
+    GoldSection(doc_id="d3", section="C"),
+)
 
 
 @pytest.fixture

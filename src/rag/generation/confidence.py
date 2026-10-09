@@ -67,4 +67,6 @@ class ConfidenceScorer:
         r = retrieval_confidence(answer.retrieved)
         cov = citation_coverage(answer)
         comp = self.completeness(answer.question, answer.answer_text)
-        return Confidence(retrieval=r, citation_coverage=cov, completeness=comp, composite=composite(r, cov, comp, self.weights))
+        return Confidence(
+            retrieval=r, citation_coverage=cov, completeness=comp, composite=composite(r, cov, comp, self.weights)
+        )

@@ -52,8 +52,15 @@ def main() -> int:
         return 1
     items = items[: args.limit]
 
-    judge = CachingLLMClient(make_llm_client(settings), settings.cache_path / "judge.sqlite", namespace=settings.llm_model)
-    runner = EvalRunner(judge, k=settings.rerank_top_n, resume=args.resume, progress=lambda msg: print(f"\r{msg}   ", end="", flush=True))
+    judge = CachingLLMClient(
+        make_llm_client(settings), settings.cache_path / "judge.sqlite", namespace=settings.llm_model
+    )
+    runner = EvalRunner(
+        judge,
+        k=settings.rerank_top_n,
+        resume=args.resume,
+        progress=lambda msg: print(f"\r{msg}   ", end="", flush=True),
+    )
 
     def service_for(strategy=None):
         service = build_service(settings, strategy)
@@ -71,8 +78,15 @@ def main() -> int:
         print("\n" + (args.out / "chunking_comparison.md").read_text(encoding="utf-8"))
     if args.what in ("retrieval", "all"):
         service = service_for()
-        compare(runner, ["hybrid", "dense"], lambda mode: ModePipeline(service, RetrievalMode(mode)), items,
-                args.out, title=f"Hybrid vs dense-only ({service.strategy} chunks)", filename="retrieval_comparison.md")  # fmt: skip
+        compare(
+            runner,
+            ["hybrid", "dense"],
+            lambda mode: ModePipeline(service, RetrievalMode(mode)),
+            items,
+            args.out,
+            title=f"Hybrid vs dense-only ({service.strategy} chunks)",
+            filename="retrieval_comparison.md",
+        )
         print("\n" + (args.out / "retrieval_comparison.md").read_text(encoding="utf-8"))
     print(f"Judge cache: {judge.hits} hits, {judge.misses} new calls. Reports in {args.out}/")
     return 0

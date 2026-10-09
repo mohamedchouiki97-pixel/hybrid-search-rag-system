@@ -25,7 +25,9 @@ def live_settings(tmp_path_factory):
     if settings.openai_api_key is None:
         pytest.skip("OPENAI_API_KEY not set")
     tmp = tmp_path_factory.mktemp("live")
-    return settings.model_copy(update={"chroma_path": tmp / "chroma", "documents_path": tmp / "docs", "cache_path": tmp / "cache"})
+    return settings.model_copy(
+        update={"chroma_path": tmp / "chroma", "documents_path": tmp / "docs", "cache_path": tmp / "cache"}
+    )
 
 
 def test_real_embedder_dimensions(live_settings):

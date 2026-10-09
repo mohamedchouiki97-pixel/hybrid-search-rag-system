@@ -1,6 +1,6 @@
 """Before/after table from two evaluation runs (reads the *.results.json files).
 
-    uv run python scripts/compare_runs.py reports/eval/baseline reports/eval/final > reports/eval/RESULTS.md
+uv run python scripts/compare_runs.py reports/eval/baseline reports/eval/final > reports/eval/RESULTS.md
 """
 
 from __future__ import annotations
@@ -50,13 +50,19 @@ def main(before_dir: str, after_dir: str) -> None:
 
     b, a = load(before_run, "recursive"), load(after_run, "recursive")
     if a and b:
-        out += ["", "## By question type (recursive, hybrid)", "",
-                "| Type | n | Correctness | Faithfulness | Recall@5 | Citation acc. |", "|---|---|---|---|---|---|"]  # fmt: skip
+        out += [
+            "",
+            "## By question type (recursive, hybrid)",
+            "",
+            "| Type | n | Correctness | Faithfulness | Recall@5 | Citation acc. |",
+            "|---|---|---|---|---|---|",
+        ]
         for t, block in a["by_type"].items():
             bb = b["by_type"][t]
             out.append(
                 f"| {t} | {block['n']} | {cell(bb['correctness'], block['correctness'])} | "
-                f"{cell(bb['faithfulness'], block['faithfulness'])} | {cell(bb['recall_at_k'], block['recall_at_k'])} | "
+                f"{cell(bb['faithfulness'], block['faithfulness'])} | "
+                f"{cell(bb['recall_at_k'], block['recall_at_k'])} | "
                 f"{cell(bb['citation_accuracy'], block['citation_accuracy'])} |"
             )
     print("\n".join(out))

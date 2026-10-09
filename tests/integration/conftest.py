@@ -50,7 +50,11 @@ def make_service(settings, llm):
     """Service with real Chroma + BM25 under tmp_path. Ingests the fixture corpus unless ingest=False."""
 
     def _make(strategy=None, reranker=None, embedder=None, ingest=True, corpus=None, abstain_threshold=None):
-        s = settings if abstain_threshold is None else settings.model_copy(update={"abstain_threshold": abstain_threshold})
+        s = (
+            settings
+            if abstain_threshold is None
+            else settings.model_copy(update={"abstain_threshold": abstain_threshold})
+        )
         service = build_service(
             s, strategy, embedder=embedder or FakeEmbedder(), llm=llm, reranker=reranker or FakeReranker()
         )

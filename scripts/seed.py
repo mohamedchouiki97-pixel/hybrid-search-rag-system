@@ -43,7 +43,9 @@ def main() -> int:
     for strategy in strategies:
         chunker, indexer = build_ingestion(for_strategy(settings, strategy), embedder)
         if indexer.vector_store.count() and not args.force:
-            print(f"[{strategy}] already indexed ({indexer.vector_store.count()} chunks); skipping. Use --force to redo.")
+            print(
+                f"[{strategy}] already indexed ({indexer.vector_store.count()} chunks); skipping. Use --force to redo."
+            )
             continue
         start, added, skipped = time.perf_counter(), 0, 0
         for n, path in enumerate(files, start=1):

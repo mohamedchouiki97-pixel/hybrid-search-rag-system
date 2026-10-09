@@ -25,7 +25,7 @@ CITATION_JUDGE_SYSTEM = """You check whether the numbered PASSAGES, taken togeth
 The claim is supported only if the passages state it or directly imply it; it may combine facts from several passages.
 Partial or merely related information is not support.
 Also list the numbers of the passages you actually needed.
-Reply with JSON only, no other text: {"supported": true or false, "used": [<passage numbers>], "reason": "<one short sentence>"}"""
+Reply with JSON only, no other text: {"supported": true or false, "used": [<passage numbers>], "reason": "<one short sentence>"}"""  # noqa: E501
 
 COMPLETENESS_JUDGE_SYSTEM = """You rate how completely an ANSWER addresses every part of a QUESTION.
 Judge coverage of the question's parts, not whether the facts are true.

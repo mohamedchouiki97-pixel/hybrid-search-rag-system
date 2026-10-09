@@ -24,7 +24,10 @@ def item(i, qtype="lookup", sections=({"doc_id": "d", "section": "A"},)):
 
 def full_set():
     types = ["lookup", "multi_hop", "no_answer", "ambiguous"]
-    return [item(i, types[i % 4], () if types[i % 4] == "no_answer" else ({"doc_id": "d", "section": "A"},)) for i in range(50)]
+    return [
+        item(i, types[i % 4], () if types[i % 4] == "no_answer" else ({"doc_id": "d", "section": "A"},))
+        for i in range(50)
+    ]
 
 
 # ---------- the real golden file ----------

@@ -18,7 +18,13 @@ def items():
                                           "gold_chunk_sections": sections})  # fmt: skip
 
     gold = [{"doc_id": "d1", "section": "S1"}]
-    return [gi(1, "lookup", gold), gi(2, "multi_hop", gold), gi(3, "no_answer", []), gi(4, "ambiguous", gold), gi(5, "no_answer", [])]
+    return [
+        gi(1, "lookup", gold),
+        gi(2, "multi_hop", gold),
+        gi(3, "no_answer", []),
+        gi(4, "ambiguous", gold),
+        gi(5, "no_answer", []),
+    ]
 
 
 class StubPipeline:
@@ -130,4 +136,6 @@ def test_resume_reuses_clean_results_and_reruns_broken_ones(tmp_path, items, mak
     assert fresh.asked == []  # clean file reused, pipeline never called
     assert runner.run(fresh, items, tmp_path, "broken")["errors"] == 0
     assert len(fresh.asked) == 5  # file with errors was re-run
-    assert runner.run(StubPipeline(make_chunk), items[:2], tmp_path, "clean")["overall"]["n"] == 2  # other questions: re-run
+    assert (
+        runner.run(StubPipeline(make_chunk), items[:2], tmp_path, "clean")["overall"]["n"] == 2
+    )  # other questions: re-run

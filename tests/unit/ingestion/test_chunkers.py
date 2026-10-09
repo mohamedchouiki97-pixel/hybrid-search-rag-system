@@ -212,6 +212,7 @@ def test_semantic_splits_oversized_groups_and_units():
 def test_semantic_merges_tiny_chunks():
     text = "Cats purr. Rockets fly. Cats nap. Rockets burn."
     embedder = topic_embedder(text)
+
     def run(size, min_chars):
         chunker = SemanticChunker(embedder, chunk_size=size, breakpoint_percentile=0.99, min_chunk_chars=min_chars)
         return [c.text for c in chunker.chunk(make_doc(text))]
@@ -237,7 +238,11 @@ def test_semantic_rejects_bad_percentile():
 
 @pytest.mark.parametrize(
     ("strategy", "cls"),
-    [(ChunkStrategy.FIXED, FixedChunker), (ChunkStrategy.RECURSIVE, RecursiveChunker), (ChunkStrategy.SEMANTIC, SemanticChunker)],
+    [
+        (ChunkStrategy.FIXED, FixedChunker),
+        (ChunkStrategy.RECURSIVE, RecursiveChunker),
+        (ChunkStrategy.SEMANTIC, SemanticChunker),
+    ],
 )
 def test_get_chunker_from_settings(settings: Settings, strategy, cls):
     s = settings.model_copy(update={"chunk_strategy": strategy})

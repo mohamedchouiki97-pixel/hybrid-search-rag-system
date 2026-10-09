@@ -108,7 +108,9 @@ def test_planted_bad_citation_is_flagged(make_service, corpus_dir, llm):
 # ---------- abstain ----------
 
 
-def test_retrieval_gate_abstains_without_reaching_the_generator(make_service, corpus_dir, known_facts, llm, cross_encoder):
+def test_retrieval_gate_abstains_without_reaching_the_generator(
+    make_service, corpus_dir, known_facts, llm, cross_encoder
+):
     # On this tiny corpus the no-answer questions score 0.20-0.24, so a gate at 0.30 stops them.
     service = make_service(corpus=corpus_dir, reranker=cross_encoder, abstain_threshold=0.3)
     for fact in known_facts["no_answer"]:

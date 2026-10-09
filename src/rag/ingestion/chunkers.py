@@ -330,7 +330,9 @@ class SemanticChunker:
                 if run:
                     spans.append(run)
                     run = None
-                spans.extend((start + off, start + off + len(t)) for t, off in _split_long(text[start:end], self.chunk_size, 0))
+                spans.extend(
+                    (start + off, start + off + len(t)) for t, off in _split_long(text[start:end], self.chunk_size, 0)
+                )
             elif run is None:
                 run = (start, end)
             elif end - run[0] <= self.chunk_size:

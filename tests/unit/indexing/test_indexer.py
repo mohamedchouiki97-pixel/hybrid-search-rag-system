@@ -32,7 +32,9 @@ def test_dedup_skips_above_threshold_keeps_below(indexer, make_chunk):
 
 def test_dedup_against_other_documents(indexer, make_chunk):
     indexer.index_document("doc1", [make_chunk("base", doc_id="doc1")])
-    result = indexer.index_document("doc2", [make_chunk("near", doc_id="doc2"), make_chunk("other", doc_id="doc2", chunk_index=1)])
+    result = indexer.index_document(
+        "doc2", [make_chunk("near", doc_id="doc2"), make_chunk("other", doc_id="doc2", chunk_index=1)]
+    )
     assert (result.chunks_added, result.chunks_skipped_duplicate) == (1, 1)
 
 
@@ -77,14 +79,18 @@ class FailingVector(InMemoryVectorStore):
 def test_sparse_failure_rolls_back_vector_store(embedder, make_chunk):
     indexer = Indexer(embedder, InMemoryVectorStore(), FailingSparse())
     with pytest.raises(IndexingError, match="sparse index write failed"):
-        indexer.index_document("doc1", [make_chunk("base", doc_id="doc1"), make_chunk("far", doc_id="doc1", chunk_index=1)])
+        indexer.index_document(
+            "doc1", [make_chunk("base", doc_id="doc1"), make_chunk("far", doc_id="doc1", chunk_index=1)]
+        )
     assert indexer.vector_store.ids() == indexer.sparse_index.ids() == set()
 
 
 def test_vector_failure_rolls_back_partial_write(embedder, make_chunk):
     indexer = Indexer(embedder, FailingVector(), InMemorySparseIndex())
     with pytest.raises(IndexingError, match="vector store write failed"):
-        indexer.index_document("doc1", [make_chunk("base", doc_id="doc1"), make_chunk("far", doc_id="doc1", chunk_index=1)])
+        indexer.index_document(
+            "doc1", [make_chunk("base", doc_id="doc1"), make_chunk("far", doc_id="doc1", chunk_index=1)]
+        )
     assert indexer.vector_store.ids() == indexer.sparse_index.ids() == set()
     assert indexer.in_sync()
 
@@ -93,7 +99,9 @@ def test_failure_keeps_other_documents(embedder, make_chunk):
     vector, sparse = InMemoryVectorStore(), InMemorySparseIndex()
     Indexer(embedder, vector, sparse).index_document("keep", [make_chunk("other", doc_id="keep")])
     with pytest.raises(IndexingError):
-        Indexer(embedder, vector, FailingSparseAfter(sparse)).index_document("doc1", [make_chunk("base", doc_id="doc1")])
+        Indexer(embedder, vector, FailingSparseAfter(sparse)).index_document(
+            "doc1", [make_chunk("base", doc_id="doc1")]
+        )
     assert vector.ids() == sparse.ids() == {make_chunk("other", doc_id="keep").chunk_id}
 
 

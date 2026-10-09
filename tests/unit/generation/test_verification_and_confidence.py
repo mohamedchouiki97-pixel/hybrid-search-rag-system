@@ -16,7 +16,9 @@ NO = '{"supported": false, "reason": "passage is about backups"}'
 @pytest.fixture
 def chunks(make_chunk):
     texts = ["The broker listens on port 7420.", "Backups are incremental."]
-    return [RetrievedChunk(chunk=make_chunk(t, doc_id=f"d{i}"), score=0.8, rerank_score=0.8) for i, t in enumerate(texts)]
+    return [
+        RetrievedChunk(chunk=make_chunk(t, doc_id=f"d{i}"), score=0.8, rerank_score=0.8) for i, t in enumerate(texts)
+    ]
 
 
 def make_answer(text, chunks):
@@ -205,7 +207,9 @@ def test_scorer_combines_dimensions(chunks):
         update={"citations": [c.model_copy(update={"verified": True}) for c in answer.citations]}
     )
     judge = FakeLLM({"ANSWER TO RATE": '{"score": 1.0}'})
-    conf = ConfidenceScorer(judge, ConfidenceWeights(retrieval=0.4, citation_coverage=0.4, completeness=0.2)).score(answer)
+    conf = ConfidenceScorer(judge, ConfidenceWeights(retrieval=0.4, citation_coverage=0.4, completeness=0.2)).score(
+        answer
+    )
     assert (conf.retrieval, conf.citation_coverage, conf.completeness) == pytest.approx((0.8, 0.5, 1.0))
     assert conf.composite == pytest.approx(0.4 * 0.8 + 0.4 * 0.5 + 0.2 * 1.0)
     assert 0 <= conf.composite <= 1

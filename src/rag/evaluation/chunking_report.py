@@ -35,7 +35,14 @@ def compare(
     """Run each variant, write <filename> with the comparison table, return summaries by variant."""
     summaries = {v: runner.run(make_pipeline(v), items, out_dir, label=v) for v in variants}
     header = "| Variant | " + " | ".join(LABELS[m] for m in METRICS) + " | Abstain recall | Latency (s) |"
-    lines = [f"# {title}", "", f"{len(items)} questions, k = {runner.k}.", "", header, "|---" * (len(METRICS) + 3) + "|"]
+    lines = [
+        f"# {title}",
+        "",
+        f"{len(items)} questions, k = {runner.k}.",
+        "",
+        header,
+        "|---" * (len(METRICS) + 3) + "|",
+    ]
     for v, s in summaries.items():
         cells = [fmt(s["overall"][m]) for m in METRICS] + [fmt(s["abstention"]["recall"]), fmt(s["mean_latency_s"])]
         lines.append(f"| {v} | " + " | ".join(cells) + " |")

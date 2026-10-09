@@ -148,7 +148,11 @@ def test_vector_store_upsert_count_ids_delete(make_chunk):
 def test_vector_store_list_docs(make_chunk):
     store = InMemoryVectorStore()
     store.add(
-        [make_chunk("a", doc_id="d2"), make_chunk("b", doc_id="d1", chunk_index=0), make_chunk("c", doc_id="d1", chunk_index=1)],
+        [
+            make_chunk("a", doc_id="d2"),
+            make_chunk("b", doc_id="d1", chunk_index=0),
+            make_chunk("c", doc_id="d1", chunk_index=1),
+        ],
         [[1.0]] * 3,
     )
     docs = store.list_docs()

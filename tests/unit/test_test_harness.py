@@ -49,5 +49,7 @@ def test_no_answer_facts_are_absent(corpus_dir):
 
 def test_document_model_accepts_fixture(corpus_dir):
     path = corpus_dir / "overview.md"
-    doc = Document(doc_id="overview", source_path=str(path), format="md", raw_path=str(path), text=path.read_text(encoding="utf-8"))
+    doc = Document(
+        doc_id="overview", source_path=str(path), format="md", raw_path=str(path), text=path.read_text(encoding="utf-8")
+    )
     assert "7420" in doc.text

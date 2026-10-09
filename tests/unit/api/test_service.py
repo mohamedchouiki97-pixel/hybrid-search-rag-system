@@ -38,7 +38,7 @@ def test_ingest_upload_rejects_unsupported_before_writing(service, settings):
 
 
 def test_top_k_defaults_to_rerank_top_n(service):
-    answer =service.ask("What port does the broker listen on?", RetrievalMode.DENSE)
+    answer = service.ask("What port does the broker listen on?", RetrievalMode.DENSE)
     assert len(answer.retrieved) == service.settings.rerank_top_n
 
 

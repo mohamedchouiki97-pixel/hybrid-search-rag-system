@@ -19,7 +19,14 @@ def chunks(make_chunk):
 
 
 def test_tokenize_splits_snake_case():
-    assert bm25_tokenize("Use response_model, ERR-7Q42!") == ["use", "response_model", "response", "model", "err", "7q42"]
+    assert bm25_tokenize("Use response_model, ERR-7Q42!") == [
+        "use",
+        "response_model",
+        "response",
+        "model",
+        "err",
+        "7q42",
+    ]
 
 
 def test_protocol():

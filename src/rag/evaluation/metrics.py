@@ -48,6 +48,7 @@ def parse_json_object(text: str) -> dict[str, Any] | None:
 def format_context(chunks: Sequence[RetrievedChunk]) -> str:
     return "\n\n".join(f"[{i}] {rc.chunk.text}" for i, rc in enumerate(chunks, start=1))
 
+
 # ---------- retrieval ----------
 
 

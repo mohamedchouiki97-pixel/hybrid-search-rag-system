@@ -65,7 +65,9 @@ def summarize(results: Sequence[QuestionResult]) -> dict:
         "abstention": {
             "abstained": len(abstained),
             # of the times it abstained, how often was that right?
-            "precision": (sum(1 for r in abstained if r.type == QuestionType.NO_ANSWER) / len(abstained)) if abstained else None,
+            "precision": (sum(1 for r in abstained if r.type == QuestionType.NO_ANSWER) / len(abstained))
+            if abstained
+            else None,
             # of the unanswerable questions, how many did it abstain on?
             "recall": (sum(1 for r in no_answer if r.abstained) / len(no_answer)) if no_answer else None,
         },

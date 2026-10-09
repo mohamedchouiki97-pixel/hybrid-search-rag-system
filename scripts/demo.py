@@ -21,11 +21,14 @@ DEMOS = [
      "My app has one route for /users/me and another for /users/{user_id}, and requests to /users/me keep "
      "landing in the second one. What's going wrong?", ["hybrid"]),
     ("2. Hybrid vs dense: an exact identifier that keyword search catches",
-     'What does OAuth2PasswordBearer do when the Authorization header is missing, and what status code and header should such an error carry?', ["hybrid", "dense"]),
+     "What does OAuth2PasswordBearer do when the Authorization header is missing, "
+     "and what status code and header should such an error carry?", ["hybrid", "dense"]),
     ("3. Multi-hop: the answer spans two sections",
-     'For the login endpoint in the password flow, what exact field names must the client send, and what keys must my JSON reply contain?', ["hybrid"]),
+     "For the login endpoint in the password flow, what exact field names must the client send, "
+     "and what keys must my JSON reply contain?", ["hybrid"]),
     ("4. Refusal by the model: retrieval looked relevant, the docs don't answer",
-     "How do I issue and rotate refresh tokens alongside the JWT access tokens from the security tutorial?", ["hybrid"]),
+     "How do I issue and rotate refresh tokens alongside the JWT access tokens from the security tutorial?",
+     ["hybrid"]),
     ("5. Refusal by the retrieval gate: nothing relevant, no LLM call",
      "How can I expose Prometheus metrics from my FastAPI app?", ["hybrid"]),
 ]  # fmt: skip
@@ -44,7 +47,9 @@ def show(answer: dict, mode: str, seconds: float) -> None:
         print(f"  citations verified: {ok}/{len(answer['citations'])}")
     for i, rc in enumerate(answer["retrieved"][:3], start=1):
         ch = rc["chunk"]
-        ranks = " ".join(f"{name}#{rc[key]}" for name, key in (("dense", "dense_rank"), ("bm25", "sparse_rank")) if rc[key])
+        ranks = " ".join(
+            f"{name}#{rc[key]}" for name, key in (("dense", "dense_rank"), ("bm25", "sparse_rank")) if rc[key]
+        )
         print(f"    {i}. {ch['doc_id']} | {ch['section_heading']}  ({ranks})")
 
 

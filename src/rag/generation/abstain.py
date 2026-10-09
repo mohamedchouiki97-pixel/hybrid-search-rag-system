@@ -60,7 +60,9 @@ def build_abstain_answer(
     return Answer(
         question=question,
         answer_text=ABSTAIN_TEXT,
-        confidence=Confidence(retrieval=retrieval, composite=composite(retrieval, 0.0, 0.0, weights or ConfidenceWeights())),
+        confidence=Confidence(
+            retrieval=retrieval, composite=composite(retrieval, 0.0, 0.0, weights or ConfidenceWeights())
+        ),
         abstained=True,
         found=found,
         missing=missing,

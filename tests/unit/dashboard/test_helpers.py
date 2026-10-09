@@ -59,9 +59,21 @@ def test_cited_markers():
 
 def test_chunk_table():
     retrieved = [
-        {"chunk": {"doc_id": "d1", "section_heading": "S"}, "score": 0.91234, "dense_rank": 2, "sparse_rank": None, "rerank_score": 0.91234},
-        {"chunk": {"doc_id": "d2", "section_heading": None}, "score": 0.5, "dense_rank": None, "sparse_rank": 1, "rerank_score": None},
-    ]  # fmt: skip
+        {
+            "chunk": {"doc_id": "d1", "section_heading": "S"},
+            "score": 0.91234,
+            "dense_rank": 2,
+            "sparse_rank": None,
+            "rerank_score": 0.91234,
+        },
+        {
+            "chunk": {"doc_id": "d2", "section_heading": None},
+            "score": 0.5,
+            "dense_rank": None,
+            "sparse_rank": 1,
+            "rerank_score": None,
+        },
+    ]
     rows = chunk_table(retrieved)
     assert rows[0] == {"Rank": 1, "Document": "d1", "Section": "S", "Score": "0.912", "Dense rank": 2,
                        "BM25 rank": "—", "Rerank": "0.912"}  # fmt: skip

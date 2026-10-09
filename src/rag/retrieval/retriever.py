@@ -60,7 +60,9 @@ class HybridRetriever:
         """Attach cross-encoder scores as rerank_score; keep order and score as they were."""
         if not results:
             return results
-        scores = {rc.chunk.chunk_id: rc.rerank_score for rc in self.reranker.rerank(question, results, top_n=len(results))}
+        scores = {
+            rc.chunk.chunk_id: rc.rerank_score for rc in self.reranker.rerank(question, results, top_n=len(results))
+        }
         return [rc.model_copy(update={"rerank_score": scores.get(rc.chunk.chunk_id)}) for rc in results]
 
 

@@ -34,7 +34,9 @@ def api_get(path: str) -> Any:
 
 
 def ask(question: str, mode: str, top_k: int) -> dict[str, Any]:
-    response = httpx.post(f"{API_URL}/v1/ask", json={"question": question, "mode": mode, "top_k": top_k}, timeout=TIMEOUT)
+    response = httpx.post(
+        f"{API_URL}/v1/ask", json={"question": question, "mode": mode, "top_k": top_k}, timeout=TIMEOUT
+    )
     response.raise_for_status()
     return response.json()
 

@@ -32,7 +32,9 @@ MAX_UPLOAD_BYTES = 20 * 1024 * 1024
 
 
 class RagService:
-    def __init__(self, settings: Settings, chunker: Chunker, indexer: Indexer, retriever: Retriever, flow: AnswerFlow) -> None:
+    def __init__(
+        self, settings: Settings, chunker: Chunker, indexer: Indexer, retriever: Retriever, flow: AnswerFlow
+    ) -> None:
         self.settings = settings
         self.chunker = chunker
         self.indexer = indexer

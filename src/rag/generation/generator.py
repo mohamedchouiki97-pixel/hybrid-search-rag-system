@@ -120,7 +120,9 @@ def parse_citations(answer_text: str, chunks: Sequence[RetrievedChunk]) -> list[
                 citations.append(Citation(marker=n, chunk_id=chunks[n - 1].chunk.chunk_id, claim_text=claim.text))
             else:
                 citations.append(
-                    Citation(marker=n, chunk_id=None, claim_text=claim.text, verified=False, judge_reason=UNMATCHED_REASON)
+                    Citation(
+                        marker=n, chunk_id=None, claim_text=claim.text, verified=False, judge_reason=UNMATCHED_REASON
+                    )
                 )
     return citations
 

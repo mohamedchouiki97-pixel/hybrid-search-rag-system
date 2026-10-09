@@ -47,8 +47,13 @@ ANSWER_EXAMPLE = {
     "question": "How do I declare an optional query parameter?",
     "answer_text": "Give the parameter a default value of None, e.g. q: str | None = None [1].",
     "citations": [
-        {"marker": 1, "chunk_id": "3f2a9c...", "claim_text": "Give the parameter a default value of None, e.g. q: str | None = None.",
-         "verified": True, "judge_reason": "The passage shows exactly this."}
+        {
+            "marker": 1,
+            "chunk_id": "3f2a9c...",
+            "claim_text": "Give the parameter a default value of None, e.g. q: str | None = None.",
+            "verified": True,
+            "judge_reason": "The passage shows exactly this.",
+        }
     ],
     "confidence": {"retrieval": 0.94, "citation_coverage": 1.0, "completeness": 1.0, "composite": 0.98},
     "abstained": False,
@@ -56,7 +61,7 @@ ANSWER_EXAMPLE = {
     "missing": "",
     "suggested_docs": [],
     "retrieved": [],
-}  # fmt: skip
+}
 
 
 @router.get("/healthz", response_model=HealthResponse, tags=["system"], summary="Liveness and index consistency")
