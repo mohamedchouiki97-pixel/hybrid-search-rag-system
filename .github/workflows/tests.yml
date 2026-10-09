@@ -1,0 +1,40 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Install dependencies (CPU-only torch on Linux)
+        run: uv sync --frozen
+
+      - name: Lint
+        run: |
+          uvx ruff check src tests scripts
+          uvx ruff format --check src tests scripts
+
+      - name: Unit tests (no network, fakes only)
+        run: uv run pytest -m unit
+
+      # Integration tests load the real cross-encoder offline, so download it first (cached between runs).
+      - name: Cache reranker model
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-cross-encoder-ms-marco-MiniLM-L-6-v2
+
+      - name: Download reranker model
+        run: uv run python -c "from sentence_transformers import CrossEncoder; CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')"
+
+      - name: Integration tests (real Chroma, BM25 and cross-encoder; no network)
+        run: uv run pytest -m integration
