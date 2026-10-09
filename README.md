@@ -131,3 +131,7 @@ reports/eval/   baseline, calibration and final runs as JSON + Markdown
 ```
 
 [docs/DESIGN.md](docs/DESIGN.md) is the original build plan; [docs/CORE_CHANGELOG.md](docs/CORE_CHANGELOG.md) records every change to `core/` and why.
+
+## License
+
+The code is released under the [MIT License](LICENSE). The bundled corpus in `corpus/fastapi_docs/` is the FastAPI documentation, © Sebastián Ramírez, under its own [MIT License](corpus/fastapi_docs/LICENSE).
